@@ -1,0 +1,100 @@
+(# Generic default .gitignore — covers common OS, editors, languages, and build artifacts)
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+.pnp.cjs
+.pnp.loader.mjs
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+dist/
+develop-eggs/
+eggs/
+parts/
+sdist/
+var/
+*.egg-info/
+pip-wheel-metadata/
+share/python-wheels/
+.tox/
+.nox/
+.pytest_cache/
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+target/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Logs and runtime files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Environment files
+.env
+.env.*
+.env.local
+.env.test
+.env.production
+
+# Build outputs
+dist/
+build/
+out/
+
+# Coverage reports
+coverage/
+coverage-report/
+
+# Misc
+.cache/
+.sass-cache/
+tmp/
+temp/
+Thumbs.db
+*.swp
+
+# JetBrains
+/.idea/
+/*.iml
+
+
+
