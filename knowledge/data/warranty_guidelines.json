@@ -1,0 +1,162 @@
+[
+{
+"rule_id": "WR-001",
+"category": "documentation",
+"title": "Three Cs Documentation Requirement",
+"description": "Every warranty claim line must explicitly document the Three Cs: Complaint (written in customer language without technical pre-diagnosis), Cause (isolated down to the specific failed component, referencing a diagnostic trouble code (DTC) or visual/mechanical inspection finding), and Correction (the exact step-by-step repair actions taken, explicitly including the primary labor operation code used).",
+"applies_to": ["new_vehicle", "cpo", "extended", "goodwill"],
+"consequence_of_violation": "Complete rejection of the claim line; technical chargeback if discovered during a retrospective dealer audit."
+},
+{
+"rule_id": "WR-002",
+"category": "time_limits",
+"title": "Warranty Claim Submission Window",
+"description": "All warranty claims, including New Vehicle Limited Warranty, CPO, and Goodwill adjustments, must be submitted via the BMW SATELLITE/DCSnet system within 30 days of the repair order close date.",
+"applies_to": ["new_vehicle", "cpo", "extended", "goodwill"],
+"consequence_of_violation": "Claim rejected for exceeding time boundaries; dealership absorbs 100% of parts and labor costs."
+},
+{
+"rule_id": "WR-003",
+"category": "parts",
+"title": "Mandatory Original BMW Parts Usage",
+"description": "Only genuine Original BMW Parts (OEM) or BMW Approved Remanufactured Components may be billed to a warranty repair line. The 11-digit or 7-digit BMW part number must be explicitly stated and match the ETK (Electronic Parts Catalog) exactly.",
+"applies_to": ["new_vehicle", "cpo", "extended"],
+"consequence_of_violation": "Denial of parts reimbursement; partial line item chargeback; potential loss of dealership warranty authorization if patterns emerge."
+},
+{
+"rule_id": "WR-004",
+"category": "eligibility",
+"title": "New Vehicle Limited Warranty Thresholds",
+"description": "Verify vehicle eligibility against an active New Vehicle Limited Warranty status via DCSnet. Coverage is valid strictly for 4 years or 50,000 miles (whichever occurs first) from the original vehicle in-service date.",
+"applies_to": ["new_vehicle"],
+"consequence_of_violation": "Claim rejected automatically by DMS/DCSnet due to expired coverage parameters."
+},
+{
+"rule_id": "WR-005",
+"category": "eligibility",
+"title": "Certified Pre-Owned (CPO) Coverage Boundaries",
+"description": "BMW CPO warranty covers defects in materials or workmanship for 1 year with unlimited mileage, commencing immediately upon the expiration of the 4-year/50,000-mile New Vehicle Limited Warranty. Wear-and-tear components, cosmetic items, and maintenance adjustments are explicitly excluded.",
+"applies_to": ["cpo"],
+"consequence_of_violation": "Claim rejected for non-covered components or processing under an incorrect warranty type code."
+},
+{
+"rule_id": "WR-006",
+"category": "documentation",
+"title": "BMW Ultimate Care+ Maintenance Documentation",
+"description": "Maintenance lines covered under Ultimate Care+ (wear items such as brake pads, rotors, and wiper blades) must include verified measurements showing wear below the minimum BMW factory specifications. Wear data must be written in the correction text (e.g., front pad thickness at 3mm).",
+"applies_to": ["extended"],
+"consequence_of_violation": "Claim rejected or debited due to lack of substantiated wear metrics supporting replacement."
+},
+{
+"rule_id": "WR-007",
+"category": "labor",
+"title": "Diagnostic Time Justification and Logs",
+"description": "Any diagnostic time claimed under warranty must be supported by attaching a complete ISTA (Integrated Service Technical Application) diagnostic log showing the relevant vehicle test plan, fault memory, and specific test steps performed.",
+"applies_to": ["new_vehicle", "cpo", "extended"],
+"consequence_of_violation": "De-allowance of diagnostic labor hours; claim paid out for flat-rate repair time only."
+},
+{
+"rule_id": "WR-008",
+"category": "eligibility",
+"title": "Goodwill (Self-Authorization) Documentation",
+"description": "Goodwill repairs executed under dealer self-authorization matrices must feature a thoroughly documented case narrative explaining the customer loyalty metrics, service history at the franchise, and a completed BMW Goodwill Authorization Form signed by the Service Manager.",
+"applies_to": ["goodwill"],
+"consequence_of_violation": "Full chargeback of the goodwill line during corporate field audits."
+},
+{
+"rule_id": "WR-009",
+"category": "labor",
+"title": "Prior Authorization for High-Cost Components",
+"description": "Repairs involving major assemblies (complete engine long-blocks, transmissions, high-voltage EV batteries, or components totaling over $5,000 in parts/labor) require prior technical authorization from the BMW Regional Technical Manager (TeileClearing process) before work begins.",
+"applies_to": ["new_vehicle", "cpo", "extended", "goodwill"],
+"consequence_of_violation": "Complete rejection of the entire claim line; parts and labor costs absorbed by the dealership."
+},
+{
+"rule_id": "WR-010",
+"category": "parts",
+"title": "Core Return Compliance",
+"description": "Components designated as 'Core Return Required' by BMW (e.g., alternators, steering racks, mechatronic units) must be tagged, secured in original packaging, and returned to the parts department within 48 hours of job completion for shipment to the BMW Material Return Center.",
+"applies_to": ["new_vehicle", "cpo", "extended"],
+"consequence_of_violation": "Forfeiture of core credit and a punitive warranty processing chargeback."
+},
+{
+"rule_id": "WR-011",
+"category": "documentation",
+"title": "Programming and Coding Session Requirements",
+"description": "When programming modules or executing software updates under warranty, a copy of the final measures plan showing successful completion and the target I-Level (Integration Level) must be appended to the hard copy of the RO.",
+"applies_to": ["new_vehicle", "cpo", "software"],
+"consequence_of_violation": "Rejection of programming labor units and related diagnostic time allowances."
+},
+{
+"rule_id": "WR-012",
+"category": "labor",
+"title": "Flat-Rate Unit (FRU) Alignment",
+"description": "Labor hours claimed must precisely mirror the Flat-Rate Units (FRU) specified in the BMW KSD2 (Katalog für Service und Diagnosedaten) system for that exact model, engine configuration, and model year.",
+"applies_to": ["new_vehicle", "cpo", "extended", "goodwill"],
+"consequence_of_violation": "Systemic reduction of labor reimbursement down to authorized KSD2 values."
+},
+{
+"rule_id": "WR-013",
+"category": "parts",
+"title": "Fluid Replenishment Guidelines",
+"description": "Fluids used during an authorized warranty repair (e.g., BMW HT-12 Coolant, Lifeguard Fluid 8, BMW Longlife-17 FE+ oil) must be documented by exact quantity in liters or quarts. Bulked fluid general allocations are not permitted.",
+"applies_to": ["new_vehicle", "cpo", "extended"],
+"consequence_of_violation": "Rejection of the fluid line item from the material cost reimbursement sheet."
+},
+{
+"rule_id": "WR-014",
+"category": "eligibility",
+"title": "Federal Emissions Warranty Verification",
+"description": "Designated emissions components (e.g., Catalytic Converters, Engine Control Module/DME) must be evaluated under the Federal Emissions Warranty coverage guidelines which span up to 8 years or 80,000 miles on specific applications.",
+"applies_to": ["new_vehicle"],
+"consequence_of_violation": "Claim bounced back for rectification due to inputting an incorrect defect code or coverage profile."
+},
+{
+"rule_id": "WR-015",
+"category": "documentation",
+"title": "Repeat Repair Line Cross-Referencing",
+"description": "If a vehicle returns within 90 days for the same functional symptom, the technician must document why the current root cause differs from the prior visit, or why the previous repair failed, to prevent 'parts swapping' denials.",
+"applies_to": ["new_vehicle", "cpo"],
+"consequence_of_violation": "Claim flagged as a repeat repair penalty and rejected automatically by corporate filtering algorithms."
+},
+{
+"rule_id": "WR-016",
+"category": "time_limits",
+"title": "Sublet Repair Documentation",
+"description": "Any sublet services performed by an outside vendor (e.g., specialized glass replacement or wheel refinishing under warranty) must be billed within the RO cycle, accompanied by an itemized third-party invoice attached to the claim.",
+"applies_to": ["new_vehicle", "goodwill"],
+"consequence_of_violation": "Sublet reimbursement denied; dealership assumes the vendor liability."
+},
+{
+"rule_id": "WR-017",
+"category": "parts",
+"title": "Symptom-Driven Component Replacement Restriction",
+"description": "Parts replaced under warranty must display clear signs of mechanical breakdown, chemical failure, electrical short circuit, or fall outside tolerance ranges during physical validation. Replacing components purely based on 'guesswork' or customer insistence without verification is disallowed.",
+"applies_to": ["new_vehicle", "cpo", "extended"],
+"consequence_of_violation": "Complete parts chargeback following physical part inspection at the BMW return center."
+},
+{
+"rule_id": "WR-018",
+"category": "documentation",
+"title": "Customer and Advisor Signature Validation",
+"description": "Every open Repair Order must have a formal, dated signature from the customer acknowledging the initial complaint and an explicit advisor sign-off. Electronic signature logs must be appended to digital files.",
+"applies_to": ["new_vehicle", "cpo", "extended", "goodwill"],
+"consequence_of_violation": "Claim deemed invalid during regular compliance audits; full monetary chargeback of the RO."
+},
+{
+"rule_id": "WR-019",
+"category": "labor",
+"title": "Straight Time (ST) Overages Reporting",
+"description": "When an irregular electrical or mechanical defect forces diagnostic procedures to exceed 2.0 hours of straight time, the Service Advisor must submit an immediate technical case via TSARA (Technical Support and Research Assistant) to secure authorization for extra diagnostic hours.",
+"applies_to": ["new_vehicle", "cpo"],
+"consequence_of_violation": "Excess labor hours over the standard allowance are cut entirely from the final paid warranty summary."
+},
+{
+"rule_id": "WR-020",
+"category": "eligibility",
+"title": "Tire Warranty Exclusion and Redirect",
+"description": "Original equipment tires are explicitly excluded from the standard BMW New Vehicle Limited Warranty. Failures related to road hazards or manufacturing anomalies must be processed directly through the respective tire manufacturer's authorized distribution channels.",
+"applies_to": ["new_vehicle"],
+"consequence_of_violation": "Automatic system rejection of the parts line item if processed under standard BMW warranty defect codes."
+}
+]

@@ -1,0 +1,363 @@
+
+[
+{
+"op_code": "11 12 000",
+"system": "engine",
+"description": "Removing and installing or replacing cylinder head cover gasket (valve cover gasket)",
+"flat_rate_hours": 3.8,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Refer to BMW TIS Group 11 for proper tightening sequence and torque specifications for N55/B58 powerplants."
+},
+{
+"op_code": "11 28 010",
+"system": "engine",
+"description": "Replacing drive belt deflection pulley and mechanical belt tensioner assembly",
+"flat_rate_hours": 1.2,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Inspect alternator pulley alignment and clean all trace engine oils from accessory drive path."
+},
+{
+"op_code": "11 11 150",
+"system": "engine",
+"description": "Replacing rear main crankshaft oil seal (transmission decoupled)",
+"flat_rate_hours": 6.5,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Requires flywheel removal tool and specialized crankshaft sealing guide mandate."
+},
+{
+"op_code": "11 81 000",
+"system": "engine",
+"description": "Replacing both hydraulic engine mounts (left and right assemblies)",
+"flat_rate_hours": 2.9,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Requires engine support fixture from above; ensure vacuum control lines are reconnected on electronic mounts."
+},
+{
+"op_code": "24 00 022",
+"system": "transmission",
+"description": "Replacing complete automatic transmission mechatronic control unit",
+"flat_rate_hours": 4.2,
+"warranty_eligible": true,
+"requires_pre_approval": true,
+"notes": "Requires prior SATELLITE/TeileClearing approval code. Includes transmission fluid fill and specialized adaptation resetting."
+},
+{
+"op_code": "24 11 010",
+"system": "transmission",
+"description": "Renewing automatic transmission oil pan filter assembly and fluid exchange",
+"flat_rate_hours": 2.2,
+"warranty_eligible": false,
+"requires_pre_approval": false,
+"notes": "Standard customer pay maintenance task; fluid level verification sequence must be executed between 30C and 50C."
+},
+{
+"op_code": "24 20 150",
+"system": "transmission",
+"description": "Replacing transmission selector lever electronic module switch assembly",
+"flat_rate_hours": 1.5,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Requires center console trim disassembly; perform subsequent functional checks on shift interlock mechanism."
+},
+{
+"op_code": "34 11 000",
+"system": "brakes",
+"description": "Replacing front brake pads and wear sensor pin",
+"flat_rate_hours": 1.1,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Eligible under Ultimate Care+ only if pad lining drops under 3.0mm thickness threshold."
+},
+{
+"op_code": "34 11 220",
+"system": "brakes",
+"description": "Replacing front brake pads, brake discs (rotors), and wear sensor",
+"flat_rate_hours": 2.0,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Measure rotor thickness; clean hub mounting surfaces meticulously to eliminate wheel runout vibration anomalies."
+},
+{
+"op_code": "34 21 000",
+"system": "brakes",
+"description": "Replacing rear brake pads and integrated wear sensor",
+"flat_rate_hours": 1.2,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Requires workshop activation of electronic parking brake service mode prior to piston retraction."
+},
+{
+"op_code": "34 00 050",
+"system": "brakes",
+"description": "Flushing brake hydraulic fluid pressure system and renewing fluid",
+"flat_rate_hours": 0.8,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Time-dependent maintenance operation (24-month intervals). Use genuine BMW DOT 4 Low Viscosity fluid."
+},
+{
+"op_code": "31 12 001",
+"system": "suspension",
+"description": "Replacing front lower wishbone control arms (both sides)",
+"flat_rate_hours": 2.6,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Control arm bush fasteners must be torqued exclusively under normal vehicle ride height load constraints."
+},
+{
+"op_code": "31 33 010",
+"system": "suspension",
+"description": "Replacing front suspension strut dampers and top guide bearings (left and right)",
+"flat_rate_hours": 3.5,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Spring compressor tool usage mandatory; wheel alignment check required immediately following reassembly."
+},
+{
+"op_code": "32 13 005",
+"system": "suspension",
+"description": "Replacing Electronic Power Steering (EPS) rack and pinion assembly",
+"flat_rate_hours": 4.5,
+"warranty_eligible": true,
+"requires_pre_approval": true,
+"notes": "Requires technical authorization code. Mandatory vehicle tracking alignment and EPS software adaptation calibration."
+},
+{
+"op_code": "32 00 150",
+"system": "suspension",
+"description": "Four-wheel tracking alignment adjustment and KDS sensor setup",
+"flat_rate_hours": 1.8,
+"warranty_eligible": false,
+"requires_pre_approval": false,
+"notes": "BMW KDS alignment system must be utilized with appropriate vehicle ride-height ballast weights positioned."
+},
+{
+"op_code": "61 21 010",
+"system": "electrical",
+"description": "Replacing 12V AGM main vehicle battery assembly",
+"flat_rate_hours": 0.9,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Battery registration must be completed using ISTA to update the DME charging map logs."
+},
+{
+"op_code": "61 12 500",
+"system": "electrical",
+"description": "Replacing high-output engine alternator assembly",
+"flat_rate_hours": 2.4,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Disconnect main vehicle battery safety terminal prior to executing repair line steps."
+},
+{
+"op_code": "65 12 050",
+"system": "electrical",
+"description": "Replacing Head Unit High (HU-H) iDrive control infotainment module",
+"flat_rate_hours": 1.7,
+"warranty_eligible": true,
+"requires_pre_approval": true,
+"notes": "Parts clearing approval required. Component protection unlock and full software flash required post-installation."
+},
+{
+"op_code": "61 35 120",
+"system": "electrical",
+"description": "Replacing Body Domain Controller (BDC) control module",
+"flat_rate_hours": 2.8,
+"warranty_eligible": true,
+"requires_pre_approval": true,
+"notes": "Requires key assignment recovery and synchronization via the secure BMW backend interface system."
+},
+{
+"op_code": "64 52 000",
+"system": "hvac",
+"description": "Replacing A/C refrigerant compressor and checking system sealing",
+"flat_rate_hours": 3.2,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Evacuate and recharge utilizing R1234yf or R134a equipment according to the underhood specification label."
+},
+{
+"op_code": "64 11 210",
+"system": "hvac",
+"description": "Replacing interior heater blower motor and integrated resistor pack",
+"flat_rate_hours": 1.4,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Access achieved through passenger footwell housing; check air distribution ducts for debris presence."
+},
+{
+"op_code": "64 11 350",
+"system": "hvac",
+"description": "Replacing complete HVAC climate control housing evaporator core assembly",
+"flat_rate_hours": 11.5,
+"warranty_eligible": true,
+"requires_pre_approval": true,
+"notes": "Extensive procedure requiring absolute removal of front instrument panel, dashboard trim, and steering column structure."
+},
+{
+"op_code": "64 11 002",
+"system": "hvac",
+"description": "Replacing microfilter / active charcoal passenger compartment air filters",
+"flat_rate_hours": 0.4,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Standard scheduled maintenance line item covered under base Ultimate Care provisions."
+},
+{
+"op_code": "26 11 005",
+"system": "drivetrain",
+"description": "Replacing central driveshaft flex disc coupling (Guibo joint)",
+"flat_rate_hours": 1.9,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Requires lowering mid-section exhaust shielding; replace self-locking fasteners with new hardware."
+},
+{
+"op_code": "33 10 010",
+"system": "drivetrain",
+"description": "Replacing rear axle final drive differential assembly",
+"flat_rate_hours": 4.8,
+"warranty_eligible": true,
+"requires_pre_approval": true,
+"notes": "Requires specialized final drive lifting cradles. Fill with approved SAF-X0 synthetic gear lubricants."
+},
+{
+"op_code": "27 10 000",
+"system": "drivetrain",
+"description": "Replacing xDrive electronic transfer case assembly (ATC series)",
+"flat_rate_hours": 3.9,
+"warranty_eligible": true,
+"requires_pre_approval": true,
+"notes": "Requires technical clearing ticket confirmation. Execute VTG calibration adjustments post-installation."
+},
+{
+"op_code": "51 77 000",
+"system": "body",
+"description": "Replacing exterior rocker panel side skirt cosmetic trim panel",
+"flat_rate_hours": 0.8,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Check integrity of underlying body plastic expanding clips; ensure correct paint variant matching."
+},
+{
+"op_code": "51 71 020",
+"system": "body",
+"description": "Replacing front door weatherstrip inner body perimeter seal",
+"flat_rate_hours": 0.7,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Clean metal flange surface thoroughly before rolling on the fresh tensioned body seal."
+},
+{
+"op_code": "51 33 000",
+"system": "body",
+"description": "Replacing front side window glass mechanical regulator and electric motor drive",
+"flat_rate_hours": 1.6,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Requires inner door trim panel separation; complete anti-trapping protection initialization protocol."
+},
+{
+"op_code": "00 00 006",
+"system": "software",
+"description": "Programming/coding complete vehicle control units (complete target I-Level flash)",
+"flat_rate_hours": 2.3,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Connect external charger stabilizing vehicle voltage above 13.0V. Interrupted programming requires immediate TSARA contact."
+},
+{
+"op_code": "00 00 555",
+"system": "electrical",
+"description": "Executing vehicle diagnostic test plan via ISTA platform system",
+"flat_rate_hours": 1.0,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Standard diagnostic flat rate unit allocation. Log files must be actively transmitted to the BMW technical database."
+},
+{
+"op_code": "11 51 000",
+"system": "engine",
+"description": "Replacing electric engine coolant pump and integrated thermostat assembly",
+"flat_rate_hours": 4.1,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Must execute automated electronic bleeding sequence (hold accelerator down 10 seconds with ignition on) post fill."
+},
+{
+"op_code": "13 51 012",
+"system": "engine",
+"description": "Replacing High Pressure Fuel Pump (HPFP) assembly",
+"flat_rate_hours": 3.4,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Relieve system residual fuel pressure before line removal. Inspect cam lobe surfaces for scoring damage."
+},
+{
+"op_code": "31 50 005",
+"system": "drivetrain",
+"description": "Replacing front axle drive output shaft assembly (left or right xDrive)",
+"flat_rate_hours": 2.2,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Replace hub axle collar bolt; torque to factory specification plus angle turn protocol."
+},
+{
+"op_code": "33 55 012",
+"system": "suspension",
+"description": "Replacing rear suspension stabilizer sway bar link assemblies",
+"flat_rate_hours": 0.8,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Verify torque figures with suspension in normalized loaded rest state."
+},
+{
+"op_code": "61 31 333",
+"system": "electrical",
+"description": "Replacing steering column switch cluster assembly (SZL module)",
+"flat_rate_hours": 1.9,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Steering angle sensor calibration calibration steps are mandatory in ISTA following mounting."
+},
+{
+"op_code": "62 10 010",
+"system": "electrical",
+"description": "Replacing digital instrument cluster display assembly",
+"flat_rate_hours": 1.2,
+"warranty_eligible": true,
+"requires_pre_approval": true,
+"notes": "Requires mileage synchronization validation lock via secure ISTA connection link."
+},
+{
+"op_code": "51 16 000",
+"system": "body",
+"description": "Replacing center console armrest console lid latch assembly",
+"flat_rate_hours": 0.6,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Interior trim pieces should be disassembled using specialized non-marring nylon pry bars exclusively."
+},
+{
+"op_code": "64 53 010",
+"system": "hvac",
+"description": "Replacing A/C condenser unit assembly with dryer cartridge insert",
+"flat_rate_hours": 2.7,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Inspect face of radiator cooling modules for debris build-up when condenser is detached."
+},
+{
+"op_code": "11 14 020",
+"system": "engine",
+"description": "Replacing engine lower oil pan assembly gasket",
+"flat_rate_hours": 7.2,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Requires absolute removal or dropping of front subframe carrier member; alignment check mandatory post-op."
+}
+]

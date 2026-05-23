@@ -1,0 +1,353 @@
+
+[
+{
+"pattern_id": "CC-001",
+"system": "engine",
+"symptom_keywords": ["oil leak", "smoke from engine", "burning smell"],
+"common_dtcs": ["None"],
+"suggested_cause": "Verified customer complaint of burning oil odor. Traced oil leak to a cracked composite cylinder head cover assembly leaking onto the hot exhaust manifold shield surface.",
+"suggested_correction": "Executed labor operation 11 12 000 to remove old cylinder head cover. Cleaned cylinder head sealing surface. Replaced defective cylinder head cover assembly and perimeter rubber gasket. Torqued to factory specifications. Verified engine oil level and performed road test to confirm leak is completely resolved.",
+"applicable_models": ["3 Series", "5 Series", "X3", "X5"],
+"applicable_years": "2018-2023"
+},
+{
+"pattern_id": "CC-002",
+"system": "engine",
+"symptom_keywords": ["drivetrain malfunction", "misfire", "rough idle", "check engine light"],
+"common_dtcs": ["140010", "140310", "P0303"],
+"suggested_cause": "Connected ISTA diagnostics and performed vehicle test plan. Identified active fault code 140310 for cylinder 3 misfire. Swapped ignition coil to cylinder 1 and fault followed. Confirmed internal breakdown of ignition coil on cylinder 3.",
+"suggested_correction": "Replaced defective cylinder 3 ignition coil assembly. Cleared fault memory codes using ISTA system. Monitored engine smooth running data values; engine operating within normal tolerances with no further misfires present.",
+"applicable_models": ["2 Series", "3 Series", "4 Series", "X3"],
+"applicable_years": "2019-2024"
+},
+{
+"pattern_id": "CC-003",
+"system": "electrical",
+"symptom_keywords": ["no start", "battery discharge", "slow crank"],
+"common_dtcs": ["8040BD", "8040B9"],
+"suggested_cause": "Conducted battery energy diagnosis test plan via ISTA. Internal resistance check indicated 12V AGM main battery cell failure due to normal degradation over lifetime.",
+"suggested_correction": "Utilized labor code 61 21 010 to replace the defective 12V AGM battery assembly. Registered fresh battery unit into the DME module logs. Cleared all low-voltage memory codes. Rechecked vehicle starting voltage and verified system charging rate.",
+"applicable_models": ["3 Series", "5 Series", "7 Series", "X5"],
+"applicable_years": "2018-2022"
+},
+{
+"pattern_id": "CC-004",
+"system": "hvac",
+"symptom_keywords": ["no AC", "blowing warm air", "AC blowing ambient"],
+"common_dtcs": ["801222"],
+"suggested_cause": "Connected R1234yf machine to check system pressures; found 0 psi pressure status. Pressurized system with nitrogen and located microscopic stress crack on the aluminum A/C condenser fins causing refrigerant leakage.",
+"suggested_correction": "Replaced A/C condenser unit assembly using op code 64 53 010. Vacuum-tested system for 30 minutes to ensure full sealing integrity. Charged system with 550 grams of fresh R1234yf refrigerant. Verified vent output temperatures dropped to a spec-compliant 4.2C.",
+"applicable_models": ["3 Series", "4 Series", "X3"],
+"applicable_years": "2020-2024"
+},
+{
+"pattern_id": "CC-005",
+"system": "drivetrain",
+"symptom_keywords": ["shudder on acceleration", "binding on turns", "transfer case noise"],
+"common_dtcs": ["440101"],
+"suggested_cause": "Performed visual inspection and diagnostic road test. Found active fault code 440101 for transfercase oil degradation. Encountered severe drivetrain shuddering on tight steering angles caused by internal multi-plate clutch slippage inside xDrive transfer case assembly.",
+"suggested_correction": "Obtained TeileClearing authorization. Replaced complete xDrive transfer case assembly using labor code 27 10 000. Programmed and executed VTG control module adaptation calibration sequence. Road tested vehicle; transfer case binding resolved.",
+"applicable_models": ["X3", "X5", "5 Series xDrive"],
+"applicable_years": "2019-2023"
+},
+{
+"pattern_id": "CC-006",
+"system": "suspension",
+"symptom_keywords": ["clunk noise front", "pop sound when braking", "loose steering"],
+"common_dtcs": ["None"],
+"suggested_cause": "Inspected front chassis suspension components while lifted on a 4-post rack. Observed excessive play and severe cracking in the hydraulic rubber bushings inside both front lower forward control arms (tension struts).",
+"suggested_correction": "Replaced front lower wishbone control arm assemblies on left and right sides using op code 31 12 001. Torqued bushing pivot fasteners in standard loaded ride-height condition. Executed KDS 4-wheel tracking alignment adjustment. Confirmed quiet suspension performance.",
+"applicable_models": ["3 Series", "5 Series", "Z4"],
+"applicable_years": "2018-2023"
+},
+{
+"pattern_id": "CC-007",
+"system": "engine",
+"symptom_keywords": ["coolant warning", "overheating", "blue fluid leaking"],
+"common_dtcs": ["1D2401", "20A701"],
+"suggested_cause": "Pressurized engine cooling system; discovered steady coolant loss stemming from internal failure of the integrated mechanical engine thermostat housing causing a body seam fracture.",
+"suggested_correction": "Replaced integrated thermostat housing and electric engine coolant pump assembly using op code 11 51 000. Filled cooling system with BMW HT-12 coolant mixture. Executed automated purging cycle. Verified electric cooling fan operation.",
+"applicable_models": ["3 Series", "5 Series", "X3", "X5"],
+"applicable_years": "2019-2024"
+},
+{
+"pattern_id": "CC-008",
+"system": "brakes",
+"symptom_keywords": ["brake squeal", "brake wear light", "grinding noise"],
+"common_dtcs": ["None"],
+"suggested_cause": "Visual inspection of braking system confirmed front brake friction lining thickness measured down to 2.0mm. Brake pad wear sensor pin had contacted brake disc surface triggering dashboard service prompt.",
+"suggested_correction": "Executed labor operation 34 11 220 to install new front brake pad set, fresh brake discs, and new wear sensor pin. Cleaned caliper guide pathways and applied anti-seize compound. Reset front brake CBS service indicator counter in vehicle instrument cluster.",
+"applicable_models": ["All Models"],
+"applicable_years": "2018-2024"
+},
+{
+"pattern_id": "CC-009",
+"system": "electrical",
+"symptom_keywords": ["comfort access failed", "key not detected", "door wont unlock"],
+"common_dtcs": ["D90418"],
+"suggested_cause": "Connected diagnostic interface and evaluated BDC error memory. Discovered short circuit trace inside the passenger outer door handle Comfort Access capacitive antenna assembly.",
+"suggested_correction": "Removed interior passenger door trim card panel. Removed defective exterior comfort access door handle mechanism. Installed new paint-matched handle assembly. Verified keyless entry and lock functionality across all zones.",
+"applicable_models": ["3 Series", "5 Series", "X5"],
+"applicable_years": "2019-2023"
+},
+{
+"pattern_id": "CC-010",
+"system": "body",
+"symptom_keywords": ["wind noise", "water leak floor", "wet carpet"],
+"common_dtcs": ["None"],
+"suggested_cause": "Performed vehicle water leak shower test. Witnessed water bypassing front passenger interior door panel due to complete adhesion breakdown of the butyl sealing tape holding the foam inner vapor barrier to the metal inner door shell.",
+"suggested_correction": "Removed front passenger interior door panel. Completely stripped down old degraded butyl tape. Cleaned perimeter path using adhesive cleaner. Positioned new vapor barrier and applied fresh high-adhesion BMW butyl tape. Confirmed absolute sealing during repeat shower testing.",
+"applicable_models": ["X1", "X3", "3 Series"],
+"applicable_years": "2018-2024"
+},
+{
+"pattern_id": "CC-011",
+"system": "engine",
+"symptom_keywords": ["check engine light", "drive malfunction", "vanos fault"],
+"common_dtcs": ["130104", "130308"],
+"suggested_cause": "ISTA diagnostic scan indicated active faults for camshaft timing adjustment control. Internal mechanical sticking detected in the variable camshaft timing (VANOS) central solenoid valve assembly.",
+"suggested_correction": "Removed valve cover components to access timing hardware. Replaced the defective intake VANOS central solenoid actuator valve mechanism. Cleared adaptations, updated DME software to latest I-Level revision parameter, and ran diagnostic test cycle.",
+"applicable_models": ["3 Series", "5 Series", "X5", "7 Series"],
+"applicable_years": "2020-2024"
+},
+{
+"pattern_id": "CC-012",
+"system": "transmission",
+"symptom_keywords": ["transmission fault", "gear shift jerk", "safe mode"],
+"common_dtcs": ["420011", "420641"],
+"suggested_cause": "Identified stored fault code indicating transmission gear ratio monitoring discrepancies. Internal fluid pressure loss inside the mechatronic valve block assembly prevented correct execution of gear shifts.",
+"suggested_correction": "Obtained specialized TeileClearing authorization approval. Removed transmission pan and replaced the internal electronic mechatronic control unit using op code 24 00 022. Refilled transmission fluid and performed adaptive learning road test.",
+"applicable_models": ["3 Series", "5 Series", "X5", "8 Series"],
+"applicable_years": "2018-2022"
+},
+{
+"pattern_id": "CC-013",
+"system": "software",
+"symptom_keywords": ["iDrive screen black", "screen freeze", "bluetooth disconnected"],
+"common_dtcs": ["B7F87A"],
+"suggested_cause": "Evaluated vehicle infotainment cluster module. Identified internal software stack memory leak within head unit operating environment causing erratic system crashes and random resets.",
+"suggested_correction": "Connected external battery charger to maintain 13.5V support threshold. Executed labor operation 00 00 006 to flash complete vehicle control units up to the newest available target integration level (I-Level). Confirmed stable operation of iDrive user interface.",
+"applicable_models": ["3 Series", "4 Series", "X5", "i4"],
+"applicable_years": "2021-2024"
+},
+{
+"pattern_id": "CC-014",
+"system": "suspension",
+"symptom_keywords": ["creaking sound front", "squeak over bumps"],
+"common_dtcs": ["None"],
+"suggested_cause": "Isolated front suspension noise using electronic chassis ears. Identified dry, unlubricated ball joint socket within the left front upper control arm assembly generating friction noise.",
+"suggested_correction": "Replaced the left front upper control arm assembly and secure self-locking collar hardware. Pre-loaded suspension to standard curb height tolerances before tightening bolts. Performed full four-wheel alignment verification using KDS track system.",
+"applicable_models": ["5 Series", "7 Series", "X5"],
+"applicable_years": "2018-2023"
+},
+{
+"pattern_id": "CC-015",
+"system": "engine",
+"symptom_keywords": ["coolant low", "white crust engine", "sweet smell"],
+"common_dtcs": ["None"],
+"suggested_cause": "Discovered cooling fluid crusting on the engine core front face. Traced leak back to a structural failure of the composite engine oil filter housing assembly assembly casing body.",
+"suggested_correction": "Removed intake plenum assembly manifold structure. Replaced the fractured engine oil filter housing module along with integrated oil cooler gaskets. Flushed cooling paths, completed engine oil service, and performed system pressure leak check.",
+"applicable_models": ["2 Series", "3 Series", "4 Series", "X3"],
+"applicable_years": "2019-2023"
+},
+{
+"pattern_id": "CC-016",
+"system": "electrical",
+"symptom_keywords": ["blind spot malfunction", "side assist inactive"],
+"common_dtcs": ["CD0487"],
+"suggested_cause": "Pulled bumper skin to inspect electronic sensor arrays. Identified active radar sensor internal failure on the rear left radar module due to water intrusion bypass around housing plastic casing.",
+"suggested_correction": "Replaced the rear left blind spot monitoring short-range radar sensor assembly. Programmed and coded sensor unit via ISTA platform. Executed radar sensor dynamic calibration road test configuration phase.",
+"applicable_models": ["3 Series", "5 Series", "X3", "X5"],
+"applicable_years": "2020-2024"
+},
+{
+"pattern_id": "CC-017",
+"system": "hvac",
+"symptom_keywords": ["musty smell", "foul odor from vents", "moldy odor"],
+"common_dtcs": ["None"],
+"suggested_cause": "Inspected vehicle climate control system. Found accumulation of organic fungal spores on the surface of the climate control evaporator core assembly caused by high condensation retaining properties.",
+"suggested_correction": "Replaced cabin microfilters. Applied specialized BMW evaporator cleaning agent foam through drainage channels directly onto core surfaces. Ran system blower configuration script to dry and sanitize interior distribution ducts.",
+"applicable_models": ["All Models"],
+"applicable_years": "2018-2024"
+},
+{
+"pattern_id": "CC-018",
+"system": "brakes",
+"symptom_keywords": ["shaking when braking", "steering wheel vibration", "pedal pulse"],
+"common_dtcs": ["None"],
+"suggested_cause": "Measured lateral runout metrics on front braking system using dial indicators. Identified front brake disc thickness variations exceeding factory 0.03mm threshold limits, causing severe thermal pulsation distortions.",
+"suggested_correction": "Installed new front brake discs alongside fresh front brake pad sets and new wear sensor hardware. Cleared hub surface area faces to bare metal. Confirmed brake runout fell within target specification parameters.",
+"applicable_models": ["5 Series", "7 Series", "X5", "X7"],
+"applicable_years": "2019-2024"
+},
+{
+"pattern_id": "CC-019",
+"system": "drivetrain",
+"symptom_keywords": ["vibration highway speed", "thumping under center console"],
+"common_dtcs": ["None"],
+"suggested_cause": "Inspected central driveline structure under vehicle. Found tearing and rubber splitting on the main driveshaft flexible rubber output coupling disc (Guibo joint), creating driveshaft rotational imbalance.",
+"suggested_correction": "Removed mid-exhaust piping sections and drive line heat shields. Replaced the fractured central driveshaft flex disc coupling joint using all new specialized self-locking assembly bolts. Reassembled components and checked operations.",
+"applicable_models": ["3 Series", "5 Series", "4 Series", "8 Series"],
+"applicable_years": "2018-2022"
+},
+{
+"pattern_id": "CC-020",
+"system": "engine",
+"symptom_keywords": ["loss of power", "drivetrain warning", "hissing sound engine"],
+"common_dtcs": ["12011F", "120301"],
+"suggested_cause": "Conducted intake pressure smoke testing system diagnosis. Found structural rupture along the plastic turbocharger intercooler charge air pipe assembly seam under boost conditions.",
+"suggested_correction": "Removed broken charge air duct components. Installed an updated premium OEM BMW charge air pipe assembly connecting the intercooler assembly directly to throttle throat. Verified air tightness under active load cycles.",
+"applicable_models": ["2 Series", "3 Series", "5 Series", "X3"],
+"applicable_years": "2018-2023"
+},
+{
+"pattern_id": "CC-021",
+"system": "electrical",
+"symptom_keywords": ["restraint system fault", "airbag light on"],
+"common_dtcs": ["930A1C"],
+"suggested_cause": "Scanned safety module cluster. Identified high circuit resistance reading emanating from the driver seat buckle tensioner deployment pyrotechnic squib wiring connection.",
+"suggested_correction": "Removed driver side seat mounting rails to access harness bundles. Installed a complete factory driver side seat belt buckle assembly unit with integrated pre-tensioner hardware. Cleared safety system SRS deployment logs.",
+"applicable_models": ["3 Series", "4 Series", "X1", "X3"],
+"applicable_years": "2019-2024"
+},
+{
+"pattern_id": "CC-022",
+"system": "hvac",
+"symptom_keywords": ["chirping noise dash", "fan squeaks", "no air floor"],
+"common_dtcs": ["None"],
+"suggested_cause": "Isolated high-pitched chirping sound down to the passenger footwell HVAC air distribution core box. Determined internal motor bearing failure within interior blower motor assembly.",
+"suggested_correction": "Disassembled passenger lower instrument fascia panels. Replaced the defective cabin blower motor assembly and accompanying electronic speed controller resistor module packs. Confirmed quiet air delivery profiles.",
+"applicable_models": ["3 Series", "X3", "5 Series"],
+"applicable_years": "2018-2023"
+},
+{
+"pattern_id": "CC-023",
+"system": "suspension",
+"symptom_keywords": ["car leans side", "chassis function restricted", "air suspension down"],
+"common_dtcs": ["480DB1"],
+"suggested_cause": "Checked air suspension pneumatic system layout. Identified physical tear leak on the rear right pneumatic air spring bladder bellow assembly, forcing continuous compressor activation loop.",
+"suggested_correction": "Replaced the leaking rear right air suspension pneumatic bellow spring bag cylinder unit. Performed system charging sequence and initialized chassis height level calibration sensors inside electronic ride management modules.",
+"applicable_models": ["X5", "X7", "7 Series"],
+"applicable_years": "2019-2024"
+},
+{
+"pattern_id": "CC-024",
+"system": "engine",
+"symptom_keywords": ["check engine light", "increased emissions", "fuel smell"],
+"common_dtcs": ["190302", "P0456"],
+"suggested_cause": "Executed EVAP evaporative emissions leak test procedure plan. Found EVAP canister purge valve sticking in an open position state, allowing raw fuel vapors back into intake unmetered.",
+"suggested_correction": "Replaced the defective evaporative fuel system canister purge solenoid valve valve mechanism assembly. Performed secondary automated pressure decay testing block to verify absolute sealing of emissions path loop.",
+"applicable_models": ["3 Series", "5 Series", "X3", "i4"],
+"applicable_years": "2021-2024"
+},
+{
+"pattern_id": "CC-025",
+"system": "drivetrain",
+"symptom_keywords": ["clicking on acceleration", "cv boot torn", "grease wheel inside"],
+"common_dtcs": ["None"],
+"suggested_cause": "Visual inspection revealed structural rupture on the outer CV boot of the front right axle drive shaft assembly, causing all lubricating grease to escape and introducing road grit into joints.",
+"suggested_correction": "Removed front wheel suspension spindle elements. Replaced the front right axle drive output shaft assembly completely using labor code 31 50 005. Verified integrity of neighboring suspension linkages.",
+"applicable_models": ["X3", "X5", "3 Series xDrive"],
+"applicable_years": "2018-2023"
+},
+{
+"pattern_id": "CC-026",
+"system": "electrical",
+"symptom_keywords": ["horn inoperative", "steering buttons dead", "airbag fault"],
+"common_dtcs": ["CD0104"],
+"suggested_cause": "Traced communications drop across steering array down to internal ribbon cable trace fracture inside the steering column clockspring cassette (SZL module).",
+"suggested_correction": "Removed steering airbag assembly module and steering wheel hub. Replaced the steering column switch cluster clockspring assembly (SZL module). Calibrated integrated optical steering angle sensors inside software layers.",
+"applicable_models": ["3 Series", "5 Series", "X3", "X5"],
+"applicable_years": "2019-2023"
+},
+{
+"pattern_id": "CC-027",
+"system": "body",
+"symptom_keywords": ["window tracking crooked", "window clicks won't close", "glass stuck"],
+"common_dtcs": ["None"],
+"suggested_cause": "Removed door trim panel card. Identified physical bending on structural tracking scissors of the window mechanical regulator track assembly, causing glass binding against channels.",
+"suggested_correction": "Replaced the front driver side door window mechanical regulator mechanism and powerful drive motor unit. Adjusted tracking pitch angles and completed safety anti-trap electronic initialization sequences.",
+"applicable_models": ["3 Series", "4 Series", "5 Series"],
+"applicable_years": "2018-2024"
+},
+{
+"pattern_id": "CC-028",
+"system": "engine",
+"symptom_keywords": ["oil leak front", "accessory belt wet"],
+"common_dtcs": ["None"],
+"suggested_cause": "Identified significant oil seeping from the front profile of engine block. Located root source at the front crankshaft oil seal ring showing signs of age hardening.",
+"suggested_correction": "Removed main drive pulleys. Utilified special extractor tool to pull out failing front crankshaft seal ring. Installed a fresh replacement crankshaft seal assembly. Cleaned surrounding engine face thoroughly.",
+"applicable_models": ["3 Series", "5 Series", "X3"],
+"applicable_years": "2018-2022"
+},
+{
+"pattern_id": "CC-029",
+"system": "transmission",
+"symptom_keywords": ["won't shift gears", "stuck in park", "shifter loose"],
+"common_dtcs": ["42010A"],
+"suggested_cause": "Performed diagnostic verification. Found internal component short circuit within electronic gear selector lever switch module assembly, blocking gear requests.",
+"suggested_correction": "Disassembled center console decorative trim panels. Replaced the electronic transmission selector lever assembly control unit module using op code 24 20 150. Completed shifting verification checks.",
+"applicable_models": ["3 Series", "4 Series", "X3", "Z4"],
+"applicable_years": "2020-2024"
+},
+{
+"pattern_id": "CC-030",
+"system": "electrical",
+"symptom_keywords": ["backup camera black", "parking assist failure"],
+"common_dtcs": ["B7F805"],
+"suggested_cause": "Traced video feed degradation across vehicle back lines. Found high signal attenuation caused by coax wiring harness pinch damage inside trunk hinge harness guides.",
+"suggested_correction": "Repaired trunk lid coaxial wiring harness segment by splicing in a fresh factory repair overlay wire bundle block. Wrapped harness using premium anti-chafing fabric tape. Verified clear camera display output.",
+"applicable_models": ["3 Series", "5 Series", "2 Series"],
+"applicable_years": "2019-2023"
+},
+{
+"pattern_id": "CC-031",
+"system": "brakes",
+"symptom_keywords": ["pedal goes to floor", "soft brake pedal"],
+"common_dtcs": ["None"],
+"suggested_cause": "Inspected system plumbing; identified internal hydraulic pressure bypass across internal primary seals inside the tandem master cylinder assembly core.",
+"suggested_correction": "Replaced the complete brake hydraulic master cylinder assembly. Conducted multi-stage pressure bleeding across all four brake caliper units using fresh genuine BMW DOT 4 fluid. Confirmed stiff pedal feedback.",
+"applicable_models": ["3 Series", "4 Series", "X5"],
+"applicable_years": "2018-2022"
+},
+{
+"pattern_id": "CC-032",
+"system": "suspension",
+"symptom_keywords": ["knocking over small bumps", "rattle front end"],
+"common_dtcs": ["None"],
+"suggested_cause": "Chassis component inspection revealed severe degradation and play on internal ball bearings within the left front anti-roll sway bar stabilizer link connection rod.",
+"suggested_correction": "Replaced left front stabilizer anti-roll link bar assembly rod and accompanying securing lock nuts. Checked torque status of complementary right side sway bar components to match factory parameters.",
+"applicable_models": ["All Models"],
+"applicable_years": "2019-2024"
+},
+{
+"pattern_id": "CC-033",
+"system": "engine",
+"symptom_keywords": ["long crank time", "stumble under load", "fuel rail pressure low"],
+"common_dtcs": ["11A002", "P1033"],
+"suggested_cause": "Monitored engine fuel system metrics under operational pressure. Identified low high-pressure rail values caused by mechanical internal seal bypass within High Pressure Fuel Pump (HPFP).",
+"suggested_correction": "Replaced the defective mechanical High Pressure Fuel Pump (HPFP) assembly unit using op code 13 51 012. Replaced supply high-pressure steel tube lines. Confirmed rail pressures reach a full target 200 bar benchmark status.",
+"applicable_models": ["3 Series", "5 Series", "X5", "X6"],
+"applicable_years": "2018-2022"
+},
+{
+"pattern_id": "CC-034",
+"system": "electrical",
+"symptom_keywords": ["charging system failure", "red battery icon", "car died driving"],
+"common_dtcs": ["138104"],
+"suggested_cause": "Tested alternator output parameter values under load. Found absolute output drop down to 11.8V due to internal electrical failure of the embedded voltage regulator hardware assembly block.",
+"suggested_correction": "Replaced defective high-output alternator engine assembly module using labor code 61 12 500. Inspected main serpentine driving belt tracks. Verified steady charge return voltages register at 14.2V across endpoints.",
+"applicable_models": ["3 Series", "5 Series", "X3", "X5"],
+"applicable_years": "2018-2023"
+},
+{
+"pattern_id": "CC-035",
+"system": "engine",
+"symptom_keywords": ["coolant leak under manifold", "hidden coolant loss"],
+"common_dtcs": ["None"],
+"suggested_cause": "Conducted exhaustive cooling circuit inspections. Identified stress cracking on the structural plastic coolant cylinder head return pipe connection flange positioned directly underneath the intake manifold.",
+"suggested_correction": "Removed intake manifold plenum assembly framework. Replaced the fractured cylinder head coolant return connector line pipe assembly using an upgraded aluminum flange replacement line. Checked system via pressure decay scripts.",
+"applicable_models": ["3 Series", "5 Series", "X3", "X5"],
+"applicable_years": "2019-2024"
+}
+]
