@@ -24,6 +24,9 @@ from dotenv import load_dotenv
 from agent.complaint_extractor import ComplaintExtractor
 from agent.cause_analyzer import CauseAnalyzer
 from agent.correction_writer import CorrectionWriter
+from input.voice_transcriber import VoiceTranscriber
+from input.dtc_parser import DTCParser
+from agent.ro_validator import ROValidator, ValidationReport
 
 load_dotenv()
 logging.basicConfig(
@@ -281,6 +284,72 @@ class ROAgent:
 
         return ro
 
+    # ── Interactive mode ──────────────────────────────────────────────────
+
+    def run_interactive(self) -> RODraft | None:
+        """
+        Live technician-facing mode.
+
+        Prompts for VIN via keyboard, captures technician notes via live
+        microphone transcription, optionally parses scan tool output, runs
+        the full 3-agent pipeline, and prints the validation report.
+
+        Returns:
+            RODraft, or None if generation failed.
+        """
+        print(f"\n{'═'*46}")
+        print("BMW RO AGENT — INTERACTIVE MODE")
+        print(f"{'═'*46}")
+
+        vin = input("Enter VIN: ").strip()
+
+        transcriber = VoiceTranscriber()
+        technician_notes = transcriber.capture(
+            "Describe the customer complaint and repair performed"
+        )
+
+        raw_scan_output = input(
+            "Paste scan tool output (or press ENTER to skip): "
+        ).strip()
+
+        if raw_scan_output:
+            parser = DTCParser()
+            parse_result = parser.parse(raw_scan_output)
+            parser.format_summary(parse_result)
+            dtc_codes = parse_result.codes_only
+        else:
+            dtc_codes = []
+
+        ro_draft = self.generate(
+            vin=vin,
+            technician_notes=technician_notes,
+            dtc_codes=dtc_codes,
+        )
+
+        validator = ROValidator()
+        validation_report = validator.validate(ro_draft)
+        validator.format_report(validation_report)
+
+        return ro_draft
+
+    def run_validate_only(self, ro_draft: RODraft) -> ValidationReport:
+        """
+        Re-validate an existing RODraft without regenerating it.
+
+        Useful for re-checking a manually edited RO. Prints the full
+        validation report and returns the ValidationReport object.
+
+        Args:
+            ro_draft: Any completed RODraft (from generate() or run_from_sample()).
+
+        Returns:
+            ValidationReport with verdict and all flagged issues.
+        """
+        validator = ROValidator()
+        validation_report = validator.validate(ro_draft)
+        validator.format_report(validation_report)
+        return validation_report
+
     # ── RO renderer ───────────────────────────────────────────────────────
 
     def _render_ro(self, ro: RODraft, vehicle: dict, advisor_id: str) -> None:
@@ -447,6 +516,8 @@ if __name__ == "__main__":
         ("PARTIAL", _pick_sample("partial")),
     ]
 
+    good_ro: RODraft | None = None
+
     for label, sample in test_cases:
         if not sample:
             print(f"\n[WARN] No '{label.lower()}' quality sample found in sample_ros.json")
@@ -461,6 +532,9 @@ if __name__ == "__main__":
         if ro is None:
             continue
 
+        if label == "GOOD":
+            good_ro = ro
+
         # Summarise flags for this test case
         print(f"\n  TEST RESULT SUMMARY — {label} RO ({sample['ro_number']}):")
         if ro.flags:
@@ -470,3 +544,12 @@ if __name__ == "__main__":
         else:
             print("  ✓ Clean — no flags.")
         print(f"  Warranty compliant: {'YES' if ro.warranty_compliant else 'NO'}")
+
+    print("\n" + "═" * 80)
+    print("PHASE 3 — VALIDATOR STANDALONE TEST")
+    print("═" * 80)
+    print("Running ROValidator against the good sample RO output...")
+    if good_ro:
+        agent.run_validate_only(good_ro)
+    else:
+        print("[WARN] No good RO was generated — skipping validator test.")
