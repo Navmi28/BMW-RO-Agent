@@ -1,586 +1,1249 @@
 [
-{
-"ro_number": "RO-2026-0001",
-"vin": "WBA51AW00MGG24101",
-"date_opened": "2026-01-10",
-"date_closed": "2026-01-11",
-"technician_id": "TECH-01",
-"technician_name": "John Miller",
-"complaint": "Customer reports smelling a burning oil odor coming from under the engine hood area after driving.",
-"cause": "Verified customer complaint of burning oil odor. Traced oil leak to a cracked composite cylinder head cover assembly leaking onto the hot exhaust manifold shield surface.",
-"correction": "Executed labor operation 11 12 000 to remove old cylinder head cover. Cleaned cylinder head sealing surface. Replaced defective cylinder head cover assembly and perimeter rubber gasket. Torqued to factory specifications. Verified engine oil level and performed road test to confirm leak is completely resolved.",
-"dtc_codes": ["None"],
-"labor_op_code": "11 12 000",
-"parts_used": [
-{ "part_number": "11128645888", "description": "Cylinder Head Cover Assembly", "quantity": 1, "oem": true },
-{ "part_number": "11128655412", "description": "Profile Gasket Set", "quantity": 1, "oem": true }
-],
-"labor_hours": 3.8,
-"warranty_claim": true,
-"ro_quality": "good",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0002",
-"vin": "WBA11AH02NGH55210",
-"date_opened": "2026-01-15",
-"date_closed": "2026-01-15",
-"technician_id": "TECH-02",
-"technician_name": "Alex Mercer",
-"complaint": "Customer states the check engine light is illuminated and the engine idles very rough.",
-"cause": "Connected ISTA diagnostics and performed vehicle test plan. Identified active fault code 140310 for cylinder 3 misfire. Swapped ignition coil to cylinder 1 and fault followed. Confirmed internal breakdown of ignition coil on cylinder 3.",
-"correction": "Replaced defective cylinder 3 ignition coil assembly. Cleared fault memory codes using ISTA system. Monitored engine smooth running data values; engine operating within normal tolerances with no further misfires present.",
-"dtc_codes": ["140310", "P0303"],
-"labor_op_code": "00 00 555",
-"parts_used": [
-{ "part_number": "12138643360", "description": "Ignition Coil", "quantity": 1, "oem": true }
-],
-"labor_hours": 1.5,
-"warranty_claim": true,
-"ro_quality": "good",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0003",
-"vin": "WBA81JU01LGG01294",
-"date_opened": "2026-01-20",
-"date_closed": "2026-01-21",
-"technician_id": "TECH-03",
-"technician_name": "Michael Chang",
-"complaint": "Customer notes a loud clunking noise from the front of the vehicle when driving over small speed bumps or when applying the brakes.",
-"cause": "Inspected front chassis suspension components while lifted on a 4-post rack. Observed excessive play and severe cracking in the hydraulic rubber bushings inside both front lower forward control arms (tension struts).",
-"correction": "Replaced front lower wishbone control arm assemblies on left and right sides using op code 31 12 001. Torqued bushing pivot fasteners in standard loaded ride-height condition. Executed KDS 4-wheel tracking alignment adjustment. Confirmed quiet suspension performance.",
-"dtc_codes": ["None"],
-"labor_op_code": "31 12 001",
-"parts_used": [
-{ "part_number": "31126855741", "description": "Wishbone Left", "quantity": 1, "oem": true },
-{ "part_number": "31126855742", "description": "Wishbone Right", "quantity": 1, "oem": true }
-],
-"labor_hours": 2.6,
-"warranty_claim": true,
-"ro_quality": "good",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0004",
-"vin": "WBA71AH08MGG99112",
-"date_opened": "2026-01-25",
-"date_closed": "2026-01-25",
-"technician_id": "TECH-04",
-"technician_name": "Sarah Connor",
-"complaint": "Customer reports a low battery warning on dashboard and vehicle struggles to crank over in the mornings.",
-"cause": "Conducted battery energy diagnosis test plan via ISTA. Internal resistance check indicated 12V AGM main battery cell failure due to normal degradation over lifetime.",
-"correction": "Utilized labor code 61 21 010 to replace the defective 12V AGM battery assembly. Registered fresh battery unit into the DME module logs. Cleared all low-voltage memory codes. Rechecked vehicle starting voltage and verified system charging rate.",
-"dtc_codes": ["8040BD", "8040B9"],
-"labor_op_code": "61 21 010",
-"parts_used": [
-{ "part_number": "61219381875", "description": "AGM Battery 105 Ah", "quantity": 1, "oem": true }
-],
-"labor_hours": 0.9,
-"warranty_claim": true,
-"ro_quality": "good",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0005",
-"vin": "WBA31AW03PGH00411",
-"date_opened": "2026-02-02",
-"date_closed": "2026-02-03",
-"technician_id": "TECH-05",
-"technician_name": "David Kim",
-"complaint": "Customer states the iDrive infotainment system display screen randomly goes black and reboots while driving.",
-"cause": "Evaluated vehicle infotainment cluster module. Identified internal software stack memory leak within head unit operating environment causing erratic system crashes and random resets.",
-"correction": "Connected external battery charger to maintain 13.5V support threshold. Executed labor operation 00 00 006 to flash complete vehicle control units up to the newest available target integration level (I-Level). Confirmed stable operation of iDrive user interface.",
-"dtc_codes": ["B7F87A"],
-"labor_op_code": "00 00 006",
-"parts_used": [],
-"labor_hours": 2.3,
-"warranty_claim": true,
-"ro_quality": "good",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0006",
-"vin": "WBA51AW0XNGG32194",
-"date_opened": "2026-02-10",
-"date_closed": "2026-02-11",
-"technician_id": "TECH-01",
-"technician_name": "John Miller",
-"complaint": "Customer reports a low coolant warning message on the instrument cluster screen.",
-"cause": "Pressurized engine cooling system; discovered steady coolant loss stemming from internal failure of the integrated mechanical engine thermostat housing causing a body seam fracture.",
-"correction": "Replaced integrated thermostat housing and electric engine coolant pump assembly using op code 11 51 000. Filled cooling system with BMW HT-12 coolant mixture. Executed automated purging cycle. Verified electric cooling fan operation.",
-"dtc_codes": ["1D2401", "20A701"],
-"labor_op_code": "11 51 000",
-"parts_used": [
-{ "part_number": "11518635089", "description": "Electric Water Pump", "quantity": 1, "oem": true },
-{ "part_number": "11538630368", "description": "Thermostat Housing", "quantity": 1, "oem": true },
-{ "part_number": "83192468442", "description": "HT-12 Coolant Antifreeze", "quantity": 2, "oem": true }
-],
-"labor_hours": 4.1,
-"warranty_claim": true,
-"ro_quality": "good",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0007",
-"vin": "WBA81JU03MGG88123",
-"date_opened": "2026-02-18",
-"date_closed": "2026-02-18",
-"technician_id": "TECH-02",
-"technician_name": "Alex Mercer",
-"complaint": "Customer notes a severe shuddering sensation coming from the drivetrain when accelerating hard from a stop and during sharp low-speed turns.",
-"cause": "Performed visual inspection and diagnostic road test. Found active fault code 440101 for transfercase oil degradation. Encountered severe drivetrain shuddering on tight steering angles caused by internal multi-plate clutch slippage inside xDrive transfer case assembly.",
-"correction": "Obtained TeileClearing authorization. Replaced complete xDrive transfer case assembly using labor code 27 10 000. Programmed and executed VTG control module adaptation calibration sequence. Road tested vehicle; transfer case binding resolved.",
-"dtc_codes": ["440101"],
-"labor_op_code": "27 10 000",
-"parts_used": [
-{ "part_number": "27108643149", "description": "Transfer Case Assembly ATC13", "quantity": 1, "oem": true }
-],
-"labor_hours": 3.9,
-"warranty_claim": true,
-"ro_quality": "good",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0008",
-"vin": "WBA31AW02NGH44102",
-"date_opened": "2026-02-25",
-"date_closed": "2026-02-26",
-"technician_id": "TECH-03",
-"technician_name": "Michael Chang",
-"complaint": "Customer states the air conditioning system is blowing warm air instead of cold.",
-"cause": "Connected R1234yf machine to check system pressures; found 0 psi pressure status. Pressurized system with nitrogen and located microscopic stress crack on the aluminum A/C condenser fins causing refrigerant leakage.",
-"correction": "Replaced A/C condenser unit assembly using op code 64 53 010. Vacuum-tested system for 30 minutes to ensure full sealing integrity. Charged system with 550 grams of fresh R1234yf refrigerant. Verified vent output temperatures dropped to a spec-compliant 4.2C.",
-"dtc_codes": ["801222"],
-"labor_op_code": "64 53 010",
-"parts_used": [
-{ "part_number": "64539483321", "description": "A/C Condenser", "quantity": 1, "oem": true }
-],
-"labor_hours": 2.7,
-"warranty_claim": true,
-"ro_quality": "good",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0009",
-"vin": "WBA11AH0XPGH22194",
-"date_opened": "2026-03-02",
-"date_closed": "2026-03-02",
-"technician_id": "TECH-04",
-"technician_name": "Sarah Connor",
-"complaint": "Customer reports the front driver side window makes a clicking sound and moves crookedly when trying to roll it up.",
-"cause": "Removed door trim panel card. Identified physical bending on structural tracking scissors of the window mechanical regulator track assembly, causing glass binding against channels.",
-"correction": "Replaced the front driver side door window mechanical regulator mechanism and powerful drive motor unit. Adjusted tracking pitch angles and completed safety anti-trap electronic initialization sequences.",
-"dtc_codes": ["None"],
-"labor_op_code": "51 33 000",
-"parts_used": [
-{ "part_number": "51337419515", "description": "Window Regulator Front Left", "quantity": 1, "oem": true }
-],
-"labor_hours": 1.6,
-"warranty_claim": true,
-"ro_quality": "good",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0010",
-"vin": "WBACR4C0XNGG33104",
-"date_opened": "2026-03-12",
-"date_closed": "2026-03-13",
-"technician_id": "TECH-05",
-"technician_name": "David Kim",
-"complaint": "Customer states the blind spot assistant warning system randomly turns off and displays a system error message.",
-"cause": "Pulled bumper skin to inspect electronic sensor arrays. Identified active radar sensor internal failure on the rear left radar module due to water intrusion bypass around housing plastic casing.",
-"correction": "Replaced the rear left blind spot monitoring short-range radar sensor assembly. Programmed and coded sensor unit via ISTA platform. Executed radar sensor dynamic calibration road test configuration phase.",
-"dtc_codes": ["CD0487"],
-"labor_op_code": "61 35 120",
-"parts_used": [
-{ "part_number": "66318842104", "description": "Radar Sensor Module", "quantity": 1, "oem": true }
-],
-"labor_hours": 2.8,
-"warranty_claim": true,
-"ro_quality": "good",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0011",
-"vin": "WBACR4C05KGG88912",
-"date_opened": "2026-01-12",
-"date_closed": "2026-01-12",
-"technician_id": "TECH-01",
-"technician_name": "John Miller",
-"complaint": "Car leaks oil.",
-"cause": "Engine has an active oil leak coming from somewhere in the engine bay.",
-"correction": "Fixed the oil leak on the motor.",
-"dtc_codes": [],
-"labor_op_code": null,
-"parts_used": [
-{ "part_number": "11128645888", "description": "Gasket", "quantity": 1, "oem": true }
-],
-"labor_hours": 2.0,
-"warranty_claim": true,
-"ro_quality": "bad",
-"rejection_reason": "Missing Three Cs compliance; cause is vague and non-diagnostic; correction fails to specify exact repair actions taken or cross-reference standard BMW labor op codes; missing mandatory labor operation code."
-},
-{
-"ro_number": "RO-2026-0012",
-"vin": "WBA11AH04KGG11294",
-"date_opened": "2026-01-18",
-"date_closed": "2026-01-19",
-"technician_id": "TECH-02",
-"technician_name": "Alex Mercer",
-"complaint": "Check engine light came on.",
-"cause": "Scanned vehicle for fault codes. Found code for a misfire on cylinder three. The plug was bad.",
-"correction": "Replaced the plug and cleared the codes out of the computer system.",
-"dtc_codes": ["P0303"],
-"labor_op_code": "00 00 000",
-"parts_used": [
-{ "part_number": "12120040551-AFTERMARKET", "description": "Bosch Aftermarket Spark Plug", "quantity": 1, "oem": false }
-],
-"labor_hours": 1.0,
-"warranty_claim": true,
-"ro_quality": "bad",
-"rejection_reason": "Use of unapproved aftermarket component part number billed on a warranty line item line; labor operation code input as default zeroes placeholder instead of valid KSD2 entry."
-},
-{
-"ro_number": "RO-2026-0013",
-"vin": "WBA81JU0XKGG44210",
-"date_opened": "2026-01-22",
-"date_closed": "2026-01-22",
-"technician_id": "TECH-03",
-"technician_name": "Michael Chang",
-"complaint": "Squeak noise when stopping.",
-"cause": "Brake pads are low.",
-"correction": "Slapped some fresh pads on the vehicle front.",
-"dtc_codes": [],
-"labor_op_code": "34 11 000",
-"parts_used": [
-{ "part_number": "34116888412", "description": "Brake Pads", "quantity": 1, "oem": true }
-],
-"labor_hours": 1.1,
-"warranty_claim": true,
-"ro_quality": "bad",
-"rejection_reason": "Inadequate documentation metrics; failed to document quantitative wear thickness in millimeters supporting the brake replacement threshold criteria."
-},
-{
-"ro_number": "RO-2026-0014",
-"vin": "WBA71AH00KGG33219",
-"date_opened": "2026-01-28",
-"date_closed": "2026-01-29",
-"technician_id": "TECH-04",
-"technician_name": "Sarah Connor",
-"complaint": "Customer wants software updated to fix their phone bluetooth dropouts.",
-"cause": "iDrive needs update.",
-"correction": "Programmed the whole car to modern level.",
-"dtc_codes": [],
-"labor_op_code": "00 00 006",
-"parts_used": [],
-"labor_hours": 2.3,
-"warranty_claim": true,
-"ro_quality": "bad",
-"rejection_reason": "Programming claim missing mandatory target Integration Level (I-Level) printout logging confirmation verification and attached diagnostic logs."
-},
-{
-"ro_number": "RO-2026-0015",
-"vin": "WBA21AW05RGG54291",
-"date_opened": "2026-02-05",
-"date_closed": "2026-02-06",
-"technician_id": "TECH-05",
-"technician_name": "David Kim",
-"complaint": "Drivetrain malfunction warning popped up on highway loop.",
-"cause": "Internal fault in the main mechatronic valve body system block.",
-"correction": "Pulled transmission pan down and replaced the mechatronic unit structure completely.",
-"dtc_codes": ["420011"],
-"labor_op_code": "24 00 022",
-"parts_used": [
-{ "part_number": "24348643102", "description": "Mechatronic Unit", "quantity": 1, "oem": true }
-],
-"labor_hours": 4.2,
-"warranty_claim": true,
-"ro_quality": "bad",
-"rejection_reason": "Prior authorization rule violation; failed to attach mandatory TeileClearing pre-approval authentication authorization code for high-cost powertrain assemblies."
-},
-{
-"ro_number": "RO-2026-0016",
-"vin": "WBA71AH04LGG55219",
-"date_opened": "2026-02-12",
-"date_closed": "2026-02-12",
-"technician_id": "TECH-01",
-"technician_name": "John Miller",
-"complaint": "Customer states climate control won't blow cold air.",
-"cause": "A/C condenser leaking down low.",
-"correction": "Put a brand new condenser in the front nose.",
-"dtc_codes": [],
-"labor_op_code": "64 53 010",
-"parts_used": [
-{ "part_number": "64539483321", "description": "Condenser", "quantity": 1, "oem": true }
-],
-"labor_hours": 2.7,
-"warranty_claim": true,
-"ro_quality": "bad",
-"rejection_reason": "Missing mandatory diagnostic pressure evaluation logs, nitrogen confirmation notes, or fluid replenishment specifications detailing quantified R1234yf recovery metrics."
-},
-{
-"ro_number": "RO-2026-0017",
-"vin": "WBA31AW0XGG552104",
-"date_opened": "2026-02-20",
-"date_closed": "2026-02-20",
-"technician_id": "TECH-02",
-"technician_name": "Alex Mercer",
-"complaint": "Thumping noise from under center seat rails.",
-"cause": "Driveshaft flex disc coupling is all split up.",
-"correction": "Swapped out the guibo joint assembly.",
-"dtc_codes": [],
-"labor_op_code": "26 11 005",
-"parts_used": [
-{ "part_number": "26117610015", "description": "Flex Disc Coupling", "quantity": 1, "oem": true }
-],
-"labor_hours": 1.9,
-"warranty_claim": true,
-"ro_quality": "bad",
-"rejection_reason": "Vague documentation language violating technical phrasing regulations; correction statement fails to confirm installation of mandatory single-use self-locking assembly hardware bolts required by TIS safety guidelines."
-},
-{
-"ro_number": "RO-2026-0018",
-"vin": "WBA11AH02MGG11029",
-"date_opened": "2026-02-28",
-"date_closed": "2026-03-01",
-"technician_id": "TECH-03",
-"technician_name": "Michael Chang",
-"complaint": "Steering wheel buttons stop working intermittently.",
-"cause": "SZL ribbon tracking cable broken internally.",
-"correction": "Replaced steering column clockspring cluster block.",
-"dtc_codes": ["CD0104"],
-"labor_op_code": "61 31 333",
-"parts_used": [
-{ "part_number": "61319410295", "description": "SZL Module Switch Cluster", "quantity": 1, "oem": true }
-],
-"labor_hours": 1.9,
-"warranty_claim": true,
-"ro_quality": "bad",
-"rejection_reason": "Correction fails to document mandatory ISTA optical steering angle calibration initialization protocols after replacing safety restraint-linked infrastructure components."
-},
-{
-"ro_number": "RO-2026-0019",
-"vin": "WBACR4C01MGG99210",
-"date_opened": "2026-03-05",
-"date_closed": "2026-03-06",
-"technician_id": "TECH-04",
-"technician_name": "Sarah Connor",
-"complaint": "Vehicle leans left significantly overnight.",
-"cause": "Air spring air bag is deflated and leaking fluid.",
-"correction": "Changed out the rear left suspension bellow spring unit.",
-"dtc_codes": [],
-"labor_op_code": "64 53 010",
-"parts_used": [
-{ "part_number": "37106888102", "description": "Air Spring Pneumatic Bellow", "quantity": 1, "oem": true }
-],
-"labor_hours": 2.5,
-"warranty_claim": true,
-"ro_quality": "bad",
-"rejection_reason": "Incorrect labor operation code applied (billed climate control condenser tracking work code line instead of suspension chassis code grouping)."
-},
-{
-"ro_number": "RO-2026-0020",
-"vin": "WBA21AW0XNGG44310",
-"date_opened": "2026-03-15",
-"date_closed": "2026-03-15",
-"technician_id": "TECH-05",
-"technician_name": "David Kim",
-"complaint": "Tire has a bubble in sidewall.",
-"cause": "Impact damage broke structural ply wires.",
-"correction": "Mounted and balanced a fresh Pirelli tire on front wheel edge.",
-"dtc_codes": [],
-"labor_op_code": "36 12 005",
-"parts_used": [
-{ "part_number": "36120045102", "description": "Pirelli OE Tire", "quantity": 1, "oem": true }
-],
-"labor_hours": 0.7,
-"warranty_claim": true,
-"ro_quality": "bad",
-"rejection_reason": "Ineligible warranty item line entry; tire warranty exclusions mandate claims routing directly through original manufacturer tire processing networks."
-},
-{
-"ro_number": "RO-2026-0021",
-"vin": "WBA71AH08MGG99112",
-"date_opened": "2026-04-01",
-"date_closed": null,
-"technician_id": "TECH-01",
-"technician_name": "John Miller",
-"complaint": "Customer claims front window tracking is erratic and safety reverse auto feature kicks back unexpectedly.",
-"cause": "Isolated tracking friction thresholds inside master driver door run templates; physical window motor binds under extreme friction loads.",
-"correction": "",
-"dtc_codes": [],
-"labor_op_code": null,
-"parts_used": [],
-"labor_hours": 0.0,
-"warranty_claim": false,
-"ro_quality": "partial",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0022",
-"vin": "WBA31AW03PGH00411",
-"date_opened": "2026-04-05",
-"date_closed": null,
-"technician_id": "TECH-02",
-"technician_name": "Alex Mercer",
-"complaint": "Infotainment display goes blank every few miles.",
-"cause": "",
-"correction": "",
-"dtc_codes": [],
-"labor_op_code": null,
-"parts_used": [],
-"labor_hours": 0.0,
-"warranty_claim": false,
-"ro_quality": "partial",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0023",
-"vin": "WBA21AW05RGG54291",
-"date_opened": "2026-04-10",
-"date_closed": null,
-"technician_id": "TECH-03",
-"technician_name": "Michael Chang",
-"complaint": "Red warning light for vehicle restraint network on instrument module display profile.",
-"cause": "Scanned safety data maps via diagnostic interface. Active error trace code 930A1C current for driver seat buckle tensioner circuit impedance bounds.",
-"correction": "",
-"dtc_codes": ["930A1C"],
-"labor_op_code": null,
-"parts_used": [],
-"labor_hours": 0.5,
-"warranty_claim": false,
-"ro_quality": "partial",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0024",
-"vin": "WBA51AW0XNGG32194",
-"date_opened": "2026-04-15",
-"date_closed": null,
-"technician_id": "TECH-04",
-"technician_name": "Sarah Connor",
-"complaint": "Customer smells sweet burning fluid fumes through cabin vents after parking routine.",
-"cause": "Pressure mapped engine loop configuration layout. Discovered cooling fluid micro-leaks originating from a body housing fracture at the integrated engine oil filter assembly block frame.",
-"correction": "Began teardown of engine top end. Removed air induction piping networks, disengaged vacuum routing elements, and unbolted primary manifold runners to reach valley structures.",
-"dtc_codes": [],
-"labor_op_code": "11 14 020",
-"parts_used": [
-{ "part_number": "11428585235", "description": "Oil Filter Housing Assembly", "quantity": 1, "oem": true }
-],
-"labor_hours": 3.5,
-"warranty_claim": false,
-"ro_quality": "partial",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0025",
-"vin": "WBA11AH04KGG11294",
-"date_opened": "2026-04-20",
-"date_closed": null,
-"technician_id": "TECH-05",
-"technician_name": "David Kim",
-"complaint": "High fuel smell near rear driver wheel arch.",
-"cause": "",
-"correction": "",
-"dtc_codes": [],
-"labor_op_code": null,
-"parts_used": [],
-"labor_hours": 0.0,
-"warranty_claim": false,
-"ro_quality": "partial",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0026",
-"vin": "WBA81JU03MGG88123",
-"date_opened": "2026-04-25",
-"date_closed": null,
-"technician_id": "TECH-01",
-"technician_name": "John Miller",
-"complaint": "Clicking sounds when loading suspension on low speed directional maneuvering.",
-"cause": "Inspected front drivetrain axles; identified ruptured rubber CV dust shield on right axle face allowing total grease leakage and grit logging inside CV universal housing tracks.",
-"correction": "",
-"dtc_codes": [],
-"labor_op_code": "31 50 005",
-"parts_used": [],
-"labor_hours": 1.0,
-"warranty_claim": false,
-"ro_quality": "partial",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0027",
-"vin": "WBA31AW02NGH44102",
-"date_opened": "2026-05-01",
-"date_closed": null,
-"technician_id": "TECH-02",
-"technician_name": "Alex Mercer",
-"complaint": "Chirping fan sound from interior dashboard area.",
-"cause": "",
-"correction": "",
-"dtc_codes": [],
-"labor_op_code": null,
-"parts_used": [],
-"labor_hours": 0.0,
-"warranty_claim": false,
-"ro_quality": "partial",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0028",
-"vin": "WBA11AH0XPGH22194",
-"date_opened": "2026-05-05",
-"date_closed": null,
-"technician_id": "TECH-03",
-"technician_name": "Michael Chang",
-"complaint": "Check engine banner active with drive performance reduction message.",
-"cause": "Hooked up diagnostic interface. Extracted engine system trace codes 12011F and 120301 confirming severe induction circuit pressure drops below expected targets.",
-"correction": "Pressure smoke checked intake paths. Located long material tear line tracking along the composite turbo intercooler charge tube line.",
-"dtc_codes": ["12011F", "120301"],
-"labor_op_code": null,
-"parts_used": [],
-"labor_hours": 1.2,
-"warranty_claim": false,
-"ro_quality": "partial",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0029",
-"vin": "WBA81JU0XKGG44210",
-"date_opened": "2026-05-10",
-"date_closed": null,
-"technician_id": "TECH-04",
-"technician_name": "Sarah Connor",
-"complaint": "Water puddling in passenger floor footprint area after storm cycle.",
-"cause": "",
-"correction": "",
-"dtc_codes": [],
-"labor_op_code": null,
-"parts_used": [],
-"labor_hours": 0.0,
-"warranty_claim": false,
-"ro_quality": "partial",
-"rejection_reason": null
-},
-{
-"ro_number": "RO-2026-0030",
-"vin": "WBA71AH00KGG33219",
-"date_opened": "2026-05-15",
-"date_closed": null,
-"technician_id": "TECH-05",
-"technician_name": "David Kim",
-"complaint": "Long starting crank cycle before engine fires over.",
-"cause": "Attached dynamic fuel system logging lines. Verified rail pressures bleed down to zero instantly following engine cutoff. Solenoid bypass seal inside HPFP pump unit collapsed.",
-"correction": "",
-"dtc_codes": ["11A002"],
-"labor_op_code": "13 51 012",
-"parts_used": [
-{ "part_number": "13518604229", "description": "High Pressure Fuel Pump", "quantity": 1, "oem": true }
-],
-"labor_hours": 1.8,
-"warranty_claim": false,
-"ro_quality": "partial",
-"rejection_reason": null
-}
+  {
+    "ro_number": "RO-2025-0001",
+    "vin": "WBA11AB04GA000001",
+    "date_opened": "2025-01-15",
+    "date_closed": "2025-01-16",
+    "technician_id": "TECH-01",
+    "technician_name": "Marcus Vance",
+    "complaint": "CUST STATES ENGINE OIL LEVEL IS LOW AND NOTICED PUDDLING UNDER VEHICLE. CLIENT REPROTS ADDING ONE QUART LAST WEEK.",
+    "cause": "D3. Visual inspection with borescope confirmed oil leaking from degraded cylinder head valve cover gasket.",
+    "correction": "R2 [Valve Cover Gasket]. Labor op [11 12 000]. Removed cylinder head cover and replaced leaking profile gasket, cleaned mating surfaces, and torque-tested assembly.",
+    "dtc_codes": [],
+    "labor_op_code": "11 12 000",
+    "parts_used": [
+      {
+        "part_number": "11-12-8-655-413",
+        "description": "Profile Gasket Set",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 3.8,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0002",
+    "vin": "WBA11AB08HA000002",
+    "date_opened": "2025-01-20",
+    "date_closed": "2025-01-20",
+    "technician_id": "TECH-02",
+    "technician_name": "Sarah Jenkins",
+    "complaint": "CUST STATES OIL IS LEAKING FROM THE FRONT FLUID PAN RADIATOR AREA AFTER THE VEHICLE SIT OVERNIGHT.",
+    "cause": "D3. Visual inspection with vehicle on lift confirmed engine oil spraying from worn front crankshaft radial shaft seal.",
+    "correction": "R3 [Front Crankshaft Seal]. Labor op [11 11 004]. Removed vibration damper and engine belt drive system to extract and renew front crankshaft seal assembly.",
+    "dtc_codes": [],
+    "labor_op_code": "11 11 004",
+    "parts_used": [
+      {
+        "part_number": "11-11-7-584-384",
+        "description": "Shaft Seal",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 2.2,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0003",
+    "vin": "WBA11AB02JA000003",
+    "date_opened": "2025-01-28",
+    "date_closed": "2025-01-29",
+    "technician_id": "TECH-03",
+    "technician_name": "Daniel Kim",
+    "complaint": "CUST STATES THERE IS A STRONG BURNING OIL SMELL COMING INSIDE CABIN WHEN AT STOP LIGHTS.",
+    "cause": "D3. Visual inspection confirmed engine oil weeping from cylinder head cover directly onto hot exhaust manifold shields.",
+    "correction": "R2 [Cylinder Head Cover]. Labor op [11 12 005]. Replaced cylinder head valve cover unit including embedded oil separator seals and reset absolute pressures.",
+    "dtc_codes": [],
+    "labor_op_code": "11 12 005",
+    "parts_used": [
+      {
+        "part_number": "11-12-8-644-319",
+        "description": "Cylinder Head Cover",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 4.1,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0004",
+    "vin": "WBA11AB06KA000004",
+    "date_opened": "2025-02-04",
+    "date_closed": "2025-02-05",
+    "technician_id": "TECH-04",
+    "technician_name": "Alex Mercer",
+    "complaint": "CUST STATES THE DASHBOARD DISPLAYED A CHASSIS COOLING SYSTEM CRITICAL ERROR FLUID WARNING.",
+    "cause": "D3. Visual inspection and cooling pressure test at 1.5 bar isolated leak at turbocharger coolant return line O-rings.",
+    "correction": "R2 [Turbo Coolant Line]. Labor op [11 53 690]. Extracted defective line assembly and installed updated turbocharger coolant return pipe with fresh sealing rings.",
+    "dtc_codes": [],
+    "labor_op_code": "11 53 690",
+    "parts_used": [
+      {
+        "part_number": "11-53-8-484-163",
+        "description": "Coolant Pipe",
+        "quantity": 1,
+        "oem": true
+      },
+      {
+        "part_number": "11-53-7-545-221",
+        "description": "O-Ring",
+        "quantity": 2,
+        "oem": true
+      }
+    ],
+    "labor_hours": 2.4,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0005",
+    "vin": "WBA11AB01LA000005",
+    "date_opened": "2025-02-12",
+    "date_closed": "2025-02-12",
+    "technician_id": "TECH-05",
+    "technician_name": "Elena Rostova",
+    "complaint": "CUST STATES ENGINE IS RUNNING HOT AND VEHICLE FLUID RESIDUE ON DRIVEWAY.",
+    "cause": "D3. Visual check confirmed coolant discharging from weeping mechanical shaft block on primary water pump engine housing.",
+    "correction": "R1 [Mechanical Water Pump]. Labor op [11 51 000]. Removed engine drive belt and accessory brackets to replace leaking mechanical coolant pump.",
+    "dtc_codes": [],
+    "labor_op_code": "11 51 000",
+    "parts_used": [
+      {
+        "part_number": "11-51-8-632-585",
+        "description": "Water Pump",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 3.1,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0006",
+    "vin": "WBA11AB05MA000006",
+    "date_opened": "2025-02-18",
+    "date_closed": "2025-02-20",
+    "technician_id": "TECH-01",
+    "technician_name": "Marcus Vance",
+    "complaint": "CUST STATES THE CHECK ENGINE LIGHT ILLUMINATED AND CAR LOSS ACCELERATION STABILITY AT HIGHER SPEEDS.",
+    "cause": "D1. ISTA diagnostic computer scan identified active DTC 11A002 indicating high-pressure fuel system fuel delivery absolute pressure target deviation.",
+    "correction": "R1 [High Pressure Fuel Pump]. Labor op [13 51 017]. Replaced high pressure fuel pump unit on internal rail engine interface and reset operational values.",
+    "dtc_codes": ["11A002"],
+    "labor_op_code": "13 51 017",
+    "parts_used": [
+      {
+        "part_number": "13-51-8-604-229",
+        "description": "High-Pressure Pump",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 2.6,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0007",
+    "vin": "WBA11AB0XNA000007",
+    "date_opened": "2025-02-25",
+    "date_closed": "2025-02-25",
+    "technician_id": "TECH-02",
+    "technician_name": "Sarah Jenkins",
+    "complaint": "CUST STATES ENGINE MANAGEMENT SYMBOL LIGHT IS BRIGHT YELLOW ON DASHBOARD PANEL AND CAR USES MORE FUEL.",
+    "cause": "D1. ISTA diagnostic software check revealed DTC 12B104 internal resistance heater open-circuit fault across oxygen sensor bank 1 sensor 1.",
+    "correction": "R1 [Oxygen Sensor]. Labor op [11 78 010]. Unplugged wiring loom and replaced pre-catalytic converter engine oxygen monitoring sensor module.",
+    "dtc_codes": ["12B104"],
+    "labor_op_code": "11 78 010",
+    "parts_used": [
+      {
+        "part_number": "11-78-8-644-371",
+        "description": "Oxygen Sensor",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 1.1,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0008",
+    "vin": "WBA11AB03PA000008",
+    "date_opened": "2025-03-03",
+    "date_closed": "2025-03-03",
+    "technician_id": "TECH-03",
+    "technician_name": "Daniel Kim",
+    "complaint": "CUST STATES ENGINE SHAKES BADLY AT RED LIGHT ENGINES AND SEEMS READY TO STALL OVER.",
+    "cause": "D1. Diagnosis with electronic scanner isolated combustion anomalies via fault code 140001 mapping active cylinder misfires on cylinder 3 ignition loop.",
+    "correction": "R1 [Ignition Coil]. Labor op [12 13 511]. Removed top acoustical engine sound covers to replace cylinder 3 ignition coil coilover assembly.",
+    "dtc_codes": ["140001"],
+    "labor_op_code": "12 13 511",
+    "parts_used": [
+      {
+        "part_number": "12-13-8-643-360",
+        "description": "Ignition Coil",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 0.6,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0009",
+    "vin": "WBA11AB07RA000009",
+    "date_opened": "2025-03-11",
+    "date_closed": "2025-03-12",
+    "technician_id": "TECH-04",
+    "technician_name": "Alex Mercer",
+    "complaint": "CUST STATES THE AUTOMOBILE CRANKS LONGER THAN NORMAL BEFORE IT WILL EVENTUALLY FIRE UP.",
+    "cause": "D1. ISTA tracking interface retrieved fault code 11B012 defining high pressure fuel system bleed-down leakage caused by faulty internal solenoid on fuel injector 2.",
+    "correction": "R1 [Fuel Injector]. Labor op [13 53 230]. Removed fuel distributor rail assembly to swap fuel injector cylinder 2 and recorded correction values in DME engine computer.",
+    "dtc_codes": ["11B012"],
+    "labor_op_code": "13 53 230",
+    "parts_used": [
+      {
+        "part_number": "13-53-8-625-396",
+        "description": "Solenoid Injector",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 2.9,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0010",
+    "vin": "WBA11AB01SA000010",
+    "date_opened": "2025-03-18",
+    "date_closed": "2025-03-20",
+    "technician_id": "TECH-05",
+    "technician_name": "Elena Rostova",
+    "complaint": "CUST STATES A LOUD SLAPPING METALLIC CLATTER METALLIC RATTLE SOUND OCCURS FOR FIVE SECONDS WHEN STARTING MOTOR FROM COLD.",
+    "cause": "D3. Internal acoustic inspection with automotive stethoscope traced rattle to structural timing chain slack hitting guide rails from hydraulic tensioner leak-down.",
+    "correction": "R1 [Timing Chain]. Labor op [11 31 030]. Replaced engine timing chain, lower sprocket, master tensioner guide assembly, and upper side slide elements.",
+    "dtc_codes": [],
+    "labor_op_code": "11 31 030",
+    "parts_used": [
+      {
+        "part_number": "11-31-8-618-317",
+        "description": "Timing Chain Kit",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 8.5,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0011",
+    "vin": "WBA11AB05TA000011",
+    "date_opened": "2025-03-25",
+    "date_closed": "2025-03-27",
+    "technician_id": "TECH-01",
+    "technician_name": "Marcus Vance",
+    "complaint": "CUST STATES TRANSMISSION STUTTERS OR LURCHES ERRATICALLY WHEN PASSING SLOW SPEEDS.",
+    "cause": "D1. Diagnostic network evaluation reported code 420011 showing automated pressure regulator output deviation inside mechatronic valve block control interface.",
+    "correction": "R4 [Mechatronic Unit]. Labor op [24 34 020]. Drained gearbox oil pan to unbolt and replace electro-hydraulic transmission mechatronic control module.",
+    "dtc_codes": ["420011"],
+    "labor_op_code": "24 34 020",
+    "parts_used": [
+      {
+        "part_number": "24-34-8-682-114",
+        "description": "Mechatronic Module",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 4.5,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0012",
+    "vin": "WBA11AB09UA000012",
+    "date_opened": "2025-04-01",
+    "date_closed": "2025-04-01",
+    "technician_id": "TECH-02",
+    "technician_name": "Sarah Jenkins",
+    "complaint": "CUST STATES OILY DROPS FLUID MARKS ARE ACCUMULATING ON UNDER-CAR CAR PET LINER CLOSER TO CENTRE TRANSMISSION BODY.",
+    "cause": "D3. Lift inspection confirmed transmission fluid dripping past degraded radial seal lip on transmission main rear output shaft flange.",
+    "correction": "R4 [Output Shaft Seal]. Labor op [24 14 010]. Detached structural transmission support braces and output propeller driveshaft to extract and replace output shaft casing seal ring.",
+    "dtc_codes": [],
+    "labor_op_code": "24 14 010",
+    "parts_used": [
+      {
+        "part_number": "24-14-7-571-213",
+        "description": "Radial Shaft Seal",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 2.8,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0013",
+    "vin": "WBA11AB03VA000013",
+    "date_opened": "2025-04-08",
+    "date_closed": "2025-04-08",
+    "technician_id": "TECH-03",
+    "technician_name": "Daniel Kim",
+    "complaint": "CUST STATES FRONT WHEELS SQUEAL SHARPLY EVERY TIME PRESSURE IS APPLIED TO THE BRAKE PEDAL.",
+    "cause": "D3. Mechanical gauge measurement showed thickness of front brake lining friction material down to 2.0mm, breaching wear threshold limits.",
+    "correction": "R5 [Front Brake Pads]. Labor op [34 11 000]. Removed front tires and calipers to exchange worn out front brake friction pads and electronic wear loop indicators.",
+    "dtc_codes": [],
+    "labor_op_code": "34 11 000",
+    "parts_used": [
+      {
+        "part_number": "34-11-6-889-570",
+        "description": "Repair Kit Brake Pads",
+        "quantity": 1,
+        "oem": true
+      },
+      {
+        "part_number": "34-35-6-870-349",
+        "description": "Brake Wear Sensor",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 1.4,
+    "warranty_claim": false,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0014",
+    "vin": "WBA11AB07WA000014",
+    "date_opened": "2025-04-15",
+    "date_closed": "2025-04-16",
+    "technician_id": "TECH-04",
+    "technician_name": "Alex Mercer",
+    "complaint": "CUST STATES THE STEERING WHEEL AND PEDAL APPARATUS THROB VIOLENTLY WHEN SLOWING CAR FROM AUTOBAHN SPEEDS.",
+    "cause": "D3. Dial indicator tool testing measured front left brake disc lateral thickness variation runout over 0.08mm.",
+    "correction": "R5 [Front Brake Rotors]. Labor op [34 11 220]. Swapped front axle brake disc rotors along with corresponding brake pad assemblies and clean rotor carrier hub flanges.",
+    "dtc_codes": [],
+    "labor_op_code": "34 11 220",
+    "parts_used": [
+      {
+        "part_number": "34-11-6-860-911",
+        "description": "Brake Disc Ventilated",
+        "quantity": 2,
+        "oem": true
+      },
+      {
+        "part_number": "34-11-6-889-570",
+        "description": "Repair Kit Brake Pads",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 2.1,
+    "warranty_claim": false,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0015",
+    "vin": "WBA11AB01XA000015",
+    "date_opened": "2025-04-22",
+    "date_closed": "2025-04-22",
+    "technician_id": "TECH-05",
+    "technician_name": "Elena Rostova",
+    "complaint": "CUST STATES THE FOOT BRAKE PEDAL FEELS SPONGY MUSHY AND VEHICLE REQUIRES MORE DISTANCE TO COMPLETE A FULL STOP.",
+    "cause": "D8. Chemical strip testing of hydraulic fluid system confirmed moisture content exceeds safe limits at 4 percent.",
+    "correction": "R8 [Brake Fluid Service]. Labor op [00 00 610]. Connected automated pressure bleeder system to pass clean BMW DOT 4 fluid into all wheel brake caliper slave pistons.",
+    "dtc_codes": [],
+    "labor_op_code": "00 00 610",
+    "parts_used": [
+      {
+        "part_number": "83-13-2-405-979",
+        "description": "Brake Fluid DOT 4",
+        "quantity": 2,
+        "oem": true
+      }
+    ],
+    "labor_hours": 0.9,
+    "warranty_claim": false,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0016",
+    "vin": "WBA11AB05YA000016",
+    "date_opened": "2025-04-29",
+    "date_closed": "2025-04-29",
+    "technician_id": "TECH-01",
+    "technician_name": "Marcus Vance",
+    "complaint": "CUST STATES THERE IS A NOTICABLE SHAKING VIBRATION IN THE STEERING HANDLES TRAVELING AROUND 110 KM PER HOUR.",
+    "cause": "D3. Dynamic balancing assessment on computer balancer showed front-right tire out of tracking profile by 25 grams.",
+    "correction": "R5 [Wheel Balance]. Labor op [36 10 505]. Placed both front wheel units on dynamic road balancer and repositioned adhesive counterbalance weight masses.",
+    "dtc_codes": [],
+    "labor_op_code": "36 10 505",
+    "parts_used": [
+      {
+        "part_number": "36-13-6-764-222",
+        "description": "Adhesive Counterweight",
+        "quantity": 4,
+        "oem": true
+      }
+    ],
+    "labor_hours": 0.8,
+    "warranty_claim": false,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0017",
+    "vin": "WBA11AB02ZA000017",
+    "date_opened": "2025-05-01",
+    "date_closed": "2025-05-02",
+    "technician_id": "TECH-02",
+    "technician_name": "Sarah Jenkins",
+    "complaint": "CUST STATES A DULL THUMPING CLUNK NOISE IS AUDIBLE UNDER FRONT AXLE DRIVING ACROSS SMALL ROAD BUMPS.",
+    "cause": "D3. Chassis load test confirmed hydro-bushings on lower front control arms are torn open and leaking silicone dampening oil.",
+    "correction": "R5 [Control Arm Bushing]. Labor op [31 12 050]. Removed front lower suspension link arms to press fit fresh inner rubber hydro-mount elastomeric bushings.",
+    "dtc_codes": [],
+    "labor_op_code": "31 12 050",
+    "parts_used": [
+      {
+        "part_number": "31-12-6-851-693",
+        "description": "Hydrobushing Left",
+        "quantity": 1,
+        "oem": true
+      },
+      {
+        "part_number": "31-12-6-851-694",
+        "description": "Hydrobushing Right",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 3.0,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0018",
+    "vin": "WBA11AB06AA000018",
+    "date_opened": "2025-05-08",
+    "date_closed": "2025-05-08",
+    "technician_id": "TECH-03",
+    "technician_name": "Daniel Kim",
+    "complaint": "CUST STATES FRONT BODY WORK CREAKS LIKE AN OLD SHACK WHEN PULLING SLOWLY INTO DRIVEWAY RAMP APRONS.",
+    "cause": "D3. Visual inspection under tension isolated excessive loose clearance and dry grease joints within internal ball sleeves of left front anti-roll sway bar link.",
+    "correction": "R5 [Sway Bar Links]. Labor op [31 35 010]. Detached outer retaining nut collars and installed new left and right front stabilizer link drop rods.",
+    "dtc_codes": [],
+    "labor_op_code": "31 35 010",
+    "parts_used": [
+      {
+        "part_number": "31-35-6-859-651",
+        "description": "Stabilizer Link Left",
+        "quantity": 1,
+        "oem": true
+      },
+      {
+        "part_number": "31-35-6-859-652",
+        "description": "Stabilizer Link Right",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 1.2,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0019",
+    "vin": "WBA11AB00BA000019",
+    "date_opened": "2025-05-15",
+    "date_closed": "2025-05-16",
+    "technician_id": "TECH-04",
+    "technician_name": "Alex Mercer",
+    "complaint": "CUST STATES THE CABIN VENTILATION BLOWS COOL AIR EVEN WHEN THE CLIMATE TEMP IS ROTATED TO HIGH HEAT.",
+    "cause": "D1. ISTA diagnostic software retrieved fault code 1D2401 specifying map-controlled thermostat internal valve mechanical jamming in open layout block.",
+    "correction": "R1 [Engine Thermostat]. Labor op [11 53 000]. Drained cooling fluid loops to swap out integrated structural map-controlled engine coolant thermostat assembly.",
+    "dtc_codes": ["1D2401"],
+    "labor_op_code": "11 53 000",
+    "parts_used": [
+      {
+        "part_number": "11-53-8-644-361",
+        "description": "Map Thermostat Assembly",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 2.5,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0020",
+    "vin": "WBA11AB04CA000020",
+    "date_opened": "2025-05-22",
+    "date_closed": "2025-05-22",
+    "technician_id": "TECH-05",
+    "technician_name": "Elena Rostova",
+    "complaint": "CUST STATES A SOUR FOUL ODOR LIKE OLD GYM TOWELS DISCHARGES IMMEDIATELY WHEN STARTING AC BLOWER SYSTEM.",
+    "cause": "D3. Physical extraction verified microfilter element completely full of biological mold debris and organic moisture coating surface layers.",
+    "correction": "R6 [Cabin Filter Service]. Labor op [64 11 555]. Disconnected lower glove liner block to replace dual cabin microfilter elements and applied disinfection aerosol to evaporator faces.",
+    "dtc_codes": [],
+    "labor_op_code": "64 11 555",
+    "parts_used": [
+      {
+        "part_number": "64-11-9-382-841",
+        "description": "Set Microfilter Carbon",
+        "quantity": 1,
+        "oem": true
+      },
+      {
+        "part_number": "83-19-2-465-741",
+        "description": "Evaporator Cleaner",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 0.8,
+    "warranty_claim": false,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0021",
+    "vin": "WBA11AB08DA000021",
+    "date_opened": "2025-06-05",
+    "date_closed": "2025-06-05",
+    "technician_id": "TECH-01",
+    "technician_name": "Marcus Vance",
+    "complaint": "CUST STATES A LOUD CHIRPING CHATTERING NOISE GROWS STRONGER IN DASHBOARD AS FAN BLOWER MOTOR SPEEDS ARE SPEEDED UP.",
+    "cause": "D3. Acoustic tracing isolated noise to binding mechanical support sleeve bearing on interior passenger ventilation blower cage rotation unit.",
+    "correction": "R6 [Blower Motor]. Labor op [64 11 011]. Unbolted passenger lower side knee protection fascia panel to slide out and replace internal HVAC blower motor fan cage unit.",
+    "dtc_codes": [],
+    "labor_op_code": "64 11 011",
+    "parts_used": [
+      {
+        "part_number": "64-11-9-270-244",
+        "description": "Blower Fan Motor",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 1.7,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0022",
+    "vin": "WBA11AB02EA000022",
+    "date_opened": "2025-06-12",
+    "date_closed": "2025-06-14",
+    "technician_id": "TECH-02",
+    "technician_name": "Sarah Jenkins",
+    "complaint": "CUST STATES VEHICLE WAS DEAD AND NEEDED A JUMP START AFTER RESTING IN PRIVATE GARAGE OVERNIGHT.",
+    "cause": "D1. Ampere logging tool analysis tracked abnormal parasitic closed-circuit drain current flow of 450mA caused by stuck relay logic inside driver door handle comfort access module.",
+    "correction": "R6 [Comfort Access Module]. Labor op [61 00 005]. Installed new comfort access sensor chip inside front driver exterior handle strip to terminate parasitic system current draws.",
+    "dtc_codes": ["8040A1"],
+    "labor_op_code": "61 00 005",
+    "parts_used": [
+      {
+        "part_number": "51-21-7-422-421",
+        "description": "Comfort Door Handle Electronic",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 3.4,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0023",
+    "vin": "WBA11AB06FA000023",
+    "date_opened": "2025-06-19",
+    "date_closed": "2025-06-19",
+    "technician_id": "TECH-03",
+    "technician_name": "Daniel Kim",
+    "complaint": "CUST STATES RED CHARGING MALFUNCTION ILLUMINATED ON THE DIGITAL MAIN DRIVER GAUGE REGION.",
+    "cause": "D1. Voltage multi-meter inspection confirmed generator alternator charging output potential failed to advance above 11.4V while engine was running.",
+    "correction": "R6 [Alternator Assembly]. Labor op [12 31 020]. Discharged battery system loop connections and replaced engine accessory layout belt-driven generator alternator machinery.",
+    "dtc_codes": ["213A01"],
+    "labor_op_code": "12 31 020",
+    "parts_used": [
+      {
+        "part_number": "12-31-8-633-412",
+        "description": "Alternator Generator",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 2.8,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0024",
+    "vin": "WBA11AB00GA000024",
+    "date_opened": "2025-06-26",
+    "date_closed": "2025-06-27",
+    "technician_id": "TECH-04",
+    "technician_name": "Alex Mercer",
+    "complaint": "CUST STATES CHASSIS INSTRUMENT GAUGES GO TOTALLY BLACK RANDOM TIMES WHILE DRIVING HIGHWAY PATHS.",
+    "cause": "D1. CAN-bus signal logging diagnostic localized communication drop faults caused by internal microprocessor soldering fractures in instrument cluster unit.",
+    "correction": "R6 [Instrument Cluster]. Labor op [62 11 010]. Extracted upper trim surround bezel framework to fit a completely new factory digital instrument combo cluster array.",
+    "dtc_codes": ["E114C4"],
+    "labor_op_code": "62 11 010",
+    "parts_used": [
+      {
+        "part_number": "62-11-9-823-451",
+        "description": "Instrument Cluster Assembly",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 1.9,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0025",
+    "vin": "WBA11AB04HA000025",
+    "date_opened": "2025-07-02",
+    "date_closed": "2025-07-03",
+    "technician_id": "TECH-05",
+    "technician_name": "Elena Rostova",
+    "complaint": "CUST STATES VEHICLE DEVELOPS A DRONING FLOOR VIBRATION THAT IS SEVERE UNDER REAR SEATS WHEN VEHICLE REACHES SIXTY KMH.",
+    "cause": "D3. Lift undercar check confirmed structural central vulcanized rubber support surround shell on mid driveshaft bearing is cracked and split loose.",
+    "correction": "R4 [Center Support Bearing]. Labor op [26 11 050]. Lowered mid body exhaust shielding assemblies to service and replace rear line propeller driveshaft center support bearing mount.",
+    "dtc_codes": [],
+    "labor_op_code": "26 11 050",
+    "parts_used": [
+      {
+        "part_number": "26-11-7-546-424",
+        "description": "Center Bearing Mount",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 3.2,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0026",
+    "vin": "WBA11AB08JA000026",
+    "date_opened": "2025-07-09",
+    "date_closed": "2025-07-09",
+    "technician_id": "TECH-01",
+    "technician_name": "Marcus Vance",
+    "complaint": "CUST STATES A SHARP CLICK CLICK CLICK RHYTHMIC KNOCKING SOUND OCCURS AT THE WHEEL WHEELS DURING SHARP PARKING TURNS.",
+    "cause": "D3. Wheel area visual check exposed a split rubber protection sleeve that allowed all protective axle joint grease to spray completely out.",
+    "correction": "R4 [CV Joint Boot Kit]. Labor op [31 60 011]. Unbolted front axle spindle hub line to slide out half-shaft assembly and renew complete outer CV axle joint grease boot kit.",
+    "dtc_codes": [],
+    "labor_op_code": "31 60 011",
+    "parts_used": [
+      {
+        "part_number": "31-60-7-622-431",
+        "description": "Repair Kit Boot Outer",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 2.2,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0027",
+    "vin": "WBA11AB02KA000027",
+    "date_opened": "2025-07-16",
+    "date_closed": "2025-07-17",
+    "technician_id": "TECH-02",
+    "technician_name": "Sarah Jenkins",
+    "complaint": "CUST STATES FOOT CARPET AREA UNDER REAR DRIVER MAT IS SOAKING WET AFTER HEAVY RAINSTORMS.",
+    "cause": "D3. Fluid stream simulator testing revealed water pushing past compressed inner sponge rubber seal line on rear passenger outer door weatherstrip.",
+    "correction": "R7 [Door Weatherstrip Seal]. Labor op [51 72 005]. Peeled off defective body edge trim run to align and press fit a brand new perimeter rear door weatherseal matrix.",
+    "dtc_codes": [],
+    "labor_op_code": "51 72 005",
+    "parts_used": [
+      {
+        "part_number": "51-72-7-243-611",
+        "description": "Door Weatherstrip Seal",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 1.1,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0028",
+    "vin": "WBA11AB06LA000028",
+    "date_opened": "2025-07-23",
+    "date_closed": "2025-07-23",
+    "technician_id": "TECH-03",
+    "technician_name": "Daniel Kim",
+    "complaint": "CUST STATES AN ANNOYING PLASTIC ON PLASTIC BUZZING RATTLE COMES FROM SIDE PASSENGER CONSOLE TRIMS WHEN PASSING OVER BUMPY TILES.",
+    "cause": "D3. Physical test drive localized trim rattle to broken plastic locking retention studs along inner structural wall of dash side decorative element.",
+    "correction": "R7 [Interior Trim Clips]. Labor op [51 45 001]. Popped out side trim fascia piece to clean tracks and install new plastic retention stud pins with added felt buffer strips.",
+    "dtc_codes": [],
+    "labor_op_code": "51 45 001",
+    "parts_used": [
+      {
+        "part_number": "51-45-7-151-322",
+        "description": "Trim Bezel Fixing Clip",
+        "quantity": 5,
+        "oem": true
+      }
+    ],
+    "labor_hours": 0.7,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0029",
+    "vin": "WBA11AB01MA000029",
+    "date_opened": "2025-07-30",
+    "date_closed": "2025-07-30",
+    "technician_id": "TECH-04",
+    "technician_name": "Alex Mercer",
+    "complaint": "CUST STATES SAFETY RECALL NOTIFICATION LETTER RECEIVED REGARDING PASSENGER BACKUP CAMERA SIGNAL FAULTS.",
+    "cause": "D1. Key reader data base query confirmed active open technical campaign STOP240015 for system backup video module update mapping.",
+    "correction": "R6 [Software Update]. Labor op [00 75 531]. Attached battery management charging supply and flashed target update payload to all operational vehicle electronic systems.",
+    "dtc_codes": [],
+    "labor_op_code": "00 75 531",
+    "parts_used": [],
+    "labor_hours": 1.6,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0030",
+    "vin": "WBA11AB05NA000030",
+    "date_opened": "2025-08-05",
+    "date_closed": "2025-08-05",
+    "technician_id": "TECH-05",
+    "technician_name": "Elena Rostova",
+    "complaint": "CUST STATES ENGINE AUTO START STOP MODE HAS COMPLETED CEASED TO FUNCTION AND SYSTEM NOTIFICATION POPS UP.",
+    "cause": "D1. Internal computer logging analyzed diagnostic data showing vehicle power system capacity register records are mismatched following local battery replacement.",
+    "correction": "R6 [Battery Registration]. Labor op [61 20 500]. Conducted full diagnostic software initialization to write battery exchange metrics into DME recording memory database.",
+    "dtc_codes": [],
+    "labor_op_code": "61 20 500",
+    "parts_used": [],
+    "labor_hours": 0.5,
+    "warranty_claim": false,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0031",
+    "vin": "WBA11AB0XPA000031",
+    "date_opened": "2025-08-12",
+    "date_closed": "2025-08-13",
+    "technician_id": "TECH-01",
+    "technician_name": "Marcus Vance",
+    "complaint": "CUST STATES ENGINE SMELLS OF BURNT PETROLEUM SMOKE DRIFTING AND LEAKING MARKS UNDER X5 BODY FRAMEWORK.",
+    "cause": "D3. Visual exploration of upper engine deck on X5 xDrive40i located heavy oil discharge leaking down outer structural perimeter seal of valve cover layout.",
+    "correction": "R2 [Valve Cover Gasket]. Labor op [11 12 000]. Removed valvetronic actuator modules and perimeter shield covers to exchange weeping cylinder valve block gasket profile set.",
+    "dtc_codes": [],
+    "labor_op_code": "11 12 000",
+    "parts_used": [
+      {
+        "part_number": "11-12-8-655-413",
+        "description": "Profile Gasket Set",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 4.2,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0032",
+    "vin": "WBA11AB03RA000032",
+    "date_opened": "2025-08-19",
+    "date_closed": "2025-08-19",
+    "technician_id": "TECH-02",
+    "technician_name": "Sarah Jenkins",
+    "complaint": "CUST STATES ENGINE RADIATOR SYSTEM LIQUID LOW WARNING SIGN REPEATEDLY TURNS ON AND BLUE LEAK SEEN.",
+    "cause": "D3. Pressure testing loop system at 1.5 bar identified structural stress fracture failure along molded fusion seam under recovery expansion bottle tank.",
+    "correction": "R2 [Expansion Tank]. Labor op [17 13 000]. Drained cooling system tank block assembly to detach fluid level gauge sensor and install brand new pressurized expansion reservoir tank.",
+    "dtc_codes": [],
+    "labor_op_code": "17 13 000",
+    "parts_used": [
+      {
+        "part_number": "17-13-8-616-419",
+        "description": "Coolant Expansion Tank",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 1.5,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0033",
+    "vin": "WBA11AB07SA000033",
+    "date_opened": "2025-08-26",
+    "date_closed": "2025-08-26",
+    "technician_id": "TECH-03",
+    "technician_name": "Daniel Kim",
+    "complaint": "CUST STATES CHECK ENGINE LIGHT TRANSFERRED TO MAIN SPEEDO SCREEN AND MOTOR LACKS HIGH RPM ACCELERATION POWER.",
+    "cause": "D1. ISTA electronic control inspection recorded trouble code 130108 registering erratic camshaft adaptation positioning phase shifts due to mechanically sticky VANOS solenoid spool.",
+    "correction": "R1 [VANOS Solenoid]. Labor op [11 36 540]. Unplugged forward system wire connectors to clean ports and replace engine variable valve timing VANOS control valve solenoid module.",
+    "dtc_codes": ["130108"],
+    "labor_op_code": "11 36 540",
+    "parts_used": [
+      {
+        "part_number": "11-36-8-605-123",
+        "description": "VANOS Solenoid Valve",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 1.2,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0034",
+    "vin": "WBA11AB01TA000034",
+    "date_opened": "2025-09-02",
+    "date_closed": "2025-09-02",
+    "technician_id": "TECH-04",
+    "technician_name": "Alex Mercer",
+    "complaint": "CUST STATES CHECK ENGINE SYMBOL POPPED UP ON DASH PANEL BOARD AND MOTOR FUEL MILEAGE DROPPED DRASTICALLY.",
+    "cause": "D1. Diagnostic network evaluation returned code 101001 highlighting internal film mass air flow measurement element out of balance parameters.",
+    "correction": "R1 [Mass Air Flow Sensor]. Labor op [13 62 005]. Loosened primary engine intake air bellows clamps to fit a new inline mass air flow sensor grid element.",
+    "dtc_codes": ["101001"],
+    "labor_op_code": "13 62 005",
+    "parts_used": [
+      {
+        "part_number": "13-62-8-602-038",
+        "description": "Mass Air Flow Sensor",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 0.6,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0035",
+    "vin": "WBA11AB05UA000035",
+    "date_opened": "2025-09-09",
+    "date_closed": "2025-09-09",
+    "technician_id": "TECH-05",
+    "technician_name": "Elena Rostova",
+    "complaint": "CUST STATES ENGINE COLD SHAKE JOLTING OCCURS CONSTANTLY UPON FIRST DEPARTURE IN THE MORNINGS.",
+    "cause": "D1. Operational scan verified active misfire tracking indices via code 140002 indicating electrical arc erosion path across high mileage core electrode inside spark plug 4.",
+    "correction": "R1 [Spark Plug Replacement]. Labor op [12 12 005]. Unscrewed structural coilover assemblies to replace entire engine match set of high-performance platinum core spark plug elements.",
+    "dtc_codes": ["140002"],
+    "labor_op_code": "12 12 005",
+    "parts_used": [
+      {
+        "part_number": "12-12-0-040-551",
+        "description": "High Power Spark Plug",
+        "quantity": 6,
+        "oem": true
+      }
+    ],
+    "labor_hours": 1.5,
+    "warranty_claim": false,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0036",
+    "vin": "WBA11AB09VA000036",
+    "date_opened": "2025-09-16",
+    "date_closed": "2025-09-16",
+    "technician_id": "TECH-01",
+    "technician_name": "Marcus Vance",
+    "complaint": "CUST STATES REQUESTS TRANSMISSION SCHEDULED FLUID RENEWAL MAINTENANCE INTERVAL SERVICE ACCORDING TO TIMELINE GUIDE BOOK.",
+    "cause": "D8. General fluid maintenance requested by vehicle profile history checklist tracking gear wear thresholds.",
+    "correction": "R4 [Transmission Service]. Labor op [00 11 239]. Unbolted automatic integrated sump casing cover to renew synthetic oil matrix along with primary structural filtration pan framework.",
+    "dtc_codes": [],
+    "labor_op_code": "00 11 239",
+    "parts_used": [
+      {
+        "part_number": "24-11-8-612-901",
+        "description": "Transmission Oil Pan Filter Unit",
+        "quantity": 1,
+        "oem": true
+      },
+      {
+        "part_number": "83-22-2-289-720",
+        "description": "ATF Automatic Fluid",
+        "quantity": 7,
+        "oem": true
+      }
+    ],
+    "labor_hours": 2.2,
+    "warranty_claim": false,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0037",
+    "vin": "WBA11AB03WA000037",
+    "date_opened": "2025-09-23",
+    "date_closed": "2025-09-23",
+    "technician_id": "TECH-02",
+    "technician_name": "Sarah Jenkins",
+    "complaint": "CUST STATES REAR BRAKE WARNING LIGHT CAME ON DISPLAY AND REAR WHEELS EMIT A SCRAPING METAL GRIND.",
+    "cause": "D3. Lift wheel off tear-down inspection measured rear brake pads down to steel backing plate metal friction blocks grinding directly onto rear rotor surfaces.",
+    "correction": "R5 [Rear Brakes]. Labor op [34 21 220]. Swapped rear brake ventilated discs, brake pads set, and integrated high temperature circuit wear loop harness sensor.",
+    "dtc_codes": [],
+    "labor_op_code": "34 21 220",
+    "parts_used": [
+      {
+        "part_number": "34-21-6-860-925",
+        "description": "Rear Brake Disc Set",
+        "quantity": 2,
+        "oem": true
+      },
+      {
+        "part_number": "34-21-6-889-580",
+        "description": "Rear Brake Pad Kit",
+        "quantity": 1,
+        "oem": true
+      },
+      {
+        "part_number": "34-35-6-870-350",
+        "description": "Rear Brake Wear Sensor",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 1.9,
+    "warranty_claim": false,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0038",
+    "vin": "WBA11AB07XA000038",
+    "date_opened": "2025-09-30",
+    "date_closed": "2025-10-01",
+    "technician_id": "TECH-03",
+    "technician_name": "Daniel Kim",
+    "complaint": "CUST STATES VEHICLE NOSE BOUNCES STRONGLY AND FLOATS LOOSELY AFTER TRAVELING ACROSS HIGHWAY PAVEMENT JOINT SEAMS.",
+    "cause": "D3. Physical mechanical evaluation found structural hydraulic dampening seals blown out with active fluid streams coating outer front strut gas chambers.",
+    "correction": "R5 [Front Struts]. Labor op [31 31 002]. Compressed coil spring architecture towers to extract and replace both left and right front structural gas damper shock cartridge struts.",
+    "dtc_codes": [],
+    "labor_op_code": "31 31 002",
+    "parts_used": [
+      {
+        "part_number": "31-31-6-889-291",
+        "description": "Front Spring Strut Left",
+        "quantity": 1,
+        "oem": true
+      },
+      {
+        "part_number": "31-31-6-889-292",
+        "description": "Front Spring Strut Right",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 3.6,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0039",
+    "vin": "WBA11AB01YA000039",
+    "date_opened": "2025-10-07",
+    "date_closed": "2025-10-07",
+    "technician_id": "TECH-04",
+    "technician_name": "Alex Mercer",
+    "complaint": "CUST STATES FRONT DRIVER SIDE WINDOW WILL NOT ROLL UP AND MAKES A CRUNCHING SCRAPING NOISE INSIDE DOOR PANEL.",
+    "cause": "D3. Door shell tear down inspection discovered steel drive wire cables inside lifting elevator assembly frayed and jammed tight inside drive pulley gears.",
+    "correction": "R6 [Window Regulator]. Labor op [51 33 000]. Removed interior upholstered door fascia liner panel to replace defective mechanical window lifter gear tracking regular mechanism.",
+    "dtc_codes": [],
+    "labor_op_code": "51 33 000",
+    "parts_used": [
+      {
+        "part_number": "51-33-7-294-139",
+        "description": "Window Regulator Left Front",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 1.6,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0040",
+    "vin": "WBA11AB05ZA000040",
+    "date_opened": "2025-10-14",
+    "date_closed": "2025-10-15",
+    "technician_id": "TECH-05",
+    "technician_name": "Elena Rostova",
+    "complaint": "CUST STATES REAR RIGHT DOOR REMAINS UNLOCKED EVEN WHEN PRESSING THE INTERIOR BUTTON OR THE REMOTE SMART KEY FOB.",
+    "cause": "D1. Electrical loop back tracing mapped broken solenoid command latch lines within core right rear door remote lock command catch gear module.",
+    "correction": "R6 [Door Lock Actuator]. Labor op [51 22 011]. Unbolted inner door protection layer framework to mount an updated electric centralized door lock latch actuator box.",
+    "dtc_codes": ["80413A"],
+    "labor_op_code": "51 22 011",
+    "parts_used": [
+      {
+        "part_number": "51-22-7-202-144",
+        "description": "System Actuator Latch Rear Right",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 1.8,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0041",
+    "vin": "WBA11AB02AA000041",
+    "date_opened": "2025-10-21",
+    "date_closed": "2025-10-23",
+    "technician_id": "TECH-01",
+    "technician_name": "Marcus Vance",
+    "complaint": "CUST STATES VEHICLE VENTILATION BLOWS WARM AIR EVEN WHEN AC MAX SELECTION MODE SETTING SYMBOL DISPLAY CODES CHOSEN.",
+    "cause": "D3. Visual check combined with voltage probe isolated dead electromagnetic clutch winding core circuit failing to actuate internal AC compressor shafts.",
+    "correction": "R6 [AC Compressor]. Labor op [64 52 000]. Evacuated internal chemical refrigerant to unbolt and replace defective heavy duty belt-driven engine compartment climate AC compressor pump.",
+    "dtc_codes": [],
+    "labor_op_code": "64 52 000",
+    "parts_used": [
+      {
+        "part_number": "64-52-9-399-015",
+        "description": "Air Conditioning Compressor Unit",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 3.4,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0042",
+    "vin": "WBA11AB06BA000042",
+    "date_opened": "2025-10-28",
+    "date_closed": "2025-10-28",
+    "technician_id": "TECH-02",
+    "technician_name": "Sarah Jenkins",
+    "complaint": "CUST STATES THE AIR REFRESHER VENT SYSTEM TRIMS ARE BLOWING ONLY LUKEWARM BREEZES DURING NOON SUNSHINE HOURS.",
+    "cause": "D8. Digital manifold gas verification weighed remaining R1234yf baseline storage reserves at only 150 grams out of 550 gram design specs.",
+    "correction": "R6 [AC Evacuation and Recharge]. Labor op [64 50 009]. Vacuum dried complete dual loop line array and metered in exactly 550 grams of factory fresh environment R1234yf climate refrigerant fluid.",
+    "dtc_codes": [],
+    "labor_op_code": "64 50 009",
+    "parts_used": [
+      {
+        "part_number": "83-19-2-414-115",
+        "description": "R1234yf Gas Charge Pack",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 1.2,
+    "warranty_claim": false,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0043",
+    "vin": "WBA11AB00CA000043",
+    "date_opened": "2025-11-04",
+    "date_closed": "2025-11-04",
+    "technician_id": "TECH-03",
+    "technician_name": "Daniel Kim",
+    "complaint": "CUST STATES STEERING WHEEL GROANS SHARPLY AND WHINES LOUDLY WHENEVER MANEUVERING GEAR WHEELS AT DRIVEWAY SPEED PATHS.",
+    "cause": "D3. Under car inspection discovered oil fluid dripping heavily out past blown rack boot cylinder lines on steering servo steering gear casing box.",
+    "correction": "R5 [Power Steering Rack Replacement]. Labor op [32 13 010]. Dropped front engine subframe alignment cradle plates to unbolt and replace absolute power hydraulic steering rack box assembly.",
+    "dtc_codes": [],
+    "labor_op_code": "32 13 010",
+    "parts_used": [
+      {
+        "part_number": "32-13-6-883-214",
+        "description": "Hydraulic Steering Rack Box Assembly",
+        "quantity": 1,
+        "oem": true
+      },
+      {
+        "part_number": "83-29-0-429-576",
+        "description": "CHF 11S Steering Fluid",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 4.5,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0044",
+    "vin": "WBA11AB04DA000044",
+    "date_opened": "2025-11-11",
+    "date_closed": "2025-11-11",
+    "technician_id": "TECH-04",
+    "technician_name": "Alex Mercer",
+    "complaint": "CUST STATES THE CAR FRONT WHEEL SECTIONS FEEL WOBBLY AND VEHICLE WANDERS RANDOM LEFT AND RIGHT ON ROADS.",
+    "cause": "D3. Shaker plate chassis analysis isolated severe mechanical freeplay wobble within inner joint ball of outer steering link tie rod tracking element.",
+    "correction": "R5 [Tie Rod End]. Labor op [32 21 010]. Extracted outer lock sleeves on tie rod assembly tracking bar to replace worn tie rod joint connection heads.",
+    "dtc_codes": [],
+    "labor_op_code": "32 21 010",
+    "parts_used": [
+      {
+        "part_number": "32-21-6-860-221",
+        "description": "Outer Steering Tie Rod End Left",
+        "quantity": 1,
+        "oem": true
+      },
+      {
+        "part_number": "32-21-6-860-222",
+        "description": "Outer Steering Tie Rod End Right",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 1.4,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0045",
+    "vin": "WBA11AB08EA000045",
+    "date_opened": "2025-11-18",
+    "date_closed": "2025-11-18",
+    "technician_id": "TECH-05",
+    "technician_name": "Elena Rostova",
+    "complaint": "CUST STATES REQUESTS MILEAGE FLUID RENEWAL CHANGE TO THE REAR TRAVEL DIFFERENTIAL DRIVE HOUSING FOR SYSTEM UPKEEP.",
+    "cause": "D8. Rear differential unit fluid renewal service scheduled based on vehicle internal mechanical maintenance interval calculation matrices.",
+    "correction": "R4 [Differential Fluid Service]. Labor op [00 11 251]. Extracted internal housing casing structural bottom drain fluid block to refresh core hypoid system gear rear diff lubricants.",
+    "dtc_codes": [],
+    "labor_op_code": "00 11 251",
+    "parts_used": [
+      {
+        "part_number": "83-22-2-413-511",
+        "description": "Hypoid Axle Oil G1",
+        "quantity": 1,
+        "oem": true
+      }
+    ],
+    "labor_hours": 0.8,
+    "warranty_claim": false,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  },
+  {
+    "ro_number": "RO-2025-0046",
+    "vin": "WBA11AB02FA000046",
+    "date_opened": "2025-11-25",
+    "date_closed": "2025-11-26",
+    "technician_id": "TECH-01",
+    "technician_name": "Marcus Vance",
+    "complaint": "CUST STATES WATER INTRUSION WATER LEAK IS DRIPPING DOWN FROM TOP ROOF READING LIGHT OVERHEAD SWITCH HOUSINGS IN RAIN.",
+    "cause": "D3. Direct overhead fluid trace detected blockages filled with mud organic debris inside left forward channel run core of sunroof safety drain tube line.",
+    "correction": "R7 [Sunroof Drain Service]. Labor op [54 13 001]. Fed safety pressure guide cable through structural interior roof pillar exit point paths to clear blockage and verify correct flow clearance.",
+    "dtc_codes": [],
+    "labor_op_code": "54 13 001",
+    "parts_used": [],
+    "labor_hours": 1.5,
+    "warranty_claim": true,
+    "rejection_reason": null,
+    "was_edited": false,
+    "edit_diff": null
+  }
 ]
