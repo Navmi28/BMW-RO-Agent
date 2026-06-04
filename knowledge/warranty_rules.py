@@ -164,14 +164,16 @@ class WarrantyRules:
                         severity="hard",
                     ))
 
-            # WR-013: Fluid documentation — flag if fluid mentioned without a quantity
+            # WR-013: Fluid documentation — flag if fluid was added without a quantity
             wr013 = self.rules_by_id.get("WR-013")
             if wr013:
-                fluid_kw  = ["coolant", "refrigerant", "brake fluid", "transmission fluid", "oil"]
-                has_fluid = any(
-                    re.search(r'\b' + re.escape(kw) + r'\b', text_lower)
-                    for kw in fluid_kw
-                )
+                # Only flag if fluid was actually filled — not merely checked/verified
+                fluid_add_phrases = [
+                    "filled with", "refilled with", "charged with", "topped up",
+                    "added coolant", "added oil", "renewed coolant", "renewed fluid",
+                    "replaced fluid", "drained and filled", "fluid exchange",
+                ]
+                has_fluid = any(phrase in text_lower for phrase in fluid_add_phrases)
                 has_qty   = bool(_QTY_RE.search(field_value or ""))
                 if has_fluid and not has_qty:
                     violations.append(RuleViolation(

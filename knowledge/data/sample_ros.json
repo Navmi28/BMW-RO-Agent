@@ -1,7 +1,7 @@
 [
   {
     "ro_number": "RO-2025-0001",
-    "vin": "WBA11AB04GA000001",
+    "vin": "WBA51AW00MGG24101",
     "date_opened": "2025-01-15",
     "date_closed": "2025-01-16",
     "technician_id": "TECH-01",
@@ -23,11 +23,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "David Vance"
   },
   {
     "ro_number": "RO-2025-0002",
-    "vin": "WBA11AB08HA000002",
+    "vin": "WBA11AH04KGG11294",
     "date_opened": "2025-01-20",
     "date_closed": "2025-01-20",
     "technician_id": "TECH-02",
@@ -49,11 +50,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Chloe Dupont"
   },
   {
     "ro_number": "RO-2025-0003",
-    "vin": "WBA11AB02JA000003",
+    "vin": "WBA81JU0XKGG44210",
     "date_opened": "2025-01-28",
     "date_closed": "2025-01-29",
     "technician_id": "TECH-03",
@@ -75,11 +77,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Patricia Malone"
   },
   {
     "ro_number": "RO-2025-0004",
-    "vin": "WBA11AB06KA000004",
+    "vin": "WBA11AH02NGH55210",
     "date_opened": "2025-02-04",
     "date_closed": "2025-02-05",
     "technician_id": "TECH-04",
@@ -107,11 +110,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Marcus Aurelius"
   },
   {
     "ro_number": "RO-2025-0005",
-    "vin": "WBA11AB01LA000005",
+    "vin": "WBA51AW07LGG22104",
     "date_opened": "2025-02-12",
     "date_closed": "2025-02-12",
     "technician_id": "TECH-05",
@@ -133,11 +137,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Barry Allen"
   },
   {
     "ro_number": "RO-2025-0006",
-    "vin": "WBA11AB05MA000006",
+    "vin": "WBA31AW0XGG552104",
     "date_opened": "2025-02-18",
     "date_closed": "2025-02-20",
     "technician_id": "TECH-01",
@@ -145,7 +150,9 @@
     "complaint": "CUST STATES THE CHECK ENGINE LIGHT ILLUMINATED AND CAR LOSS ACCELERATION STABILITY AT HIGHER SPEEDS.",
     "cause": "D1. ISTA diagnostic computer scan identified active DTC 11A002 indicating high-pressure fuel system fuel delivery absolute pressure target deviation.",
     "correction": "R1 [High Pressure Fuel Pump]. Labor op [13 51 017]. Replaced high pressure fuel pump unit on internal rail engine interface and reset operational values.",
-    "dtc_codes": ["11A002"],
+    "dtc_codes": [
+      "11A002"
+    ],
     "labor_op_code": "13 51 017",
     "parts_used": [
       {
@@ -159,11 +166,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Liam Neeson"
   },
   {
     "ro_number": "RO-2025-0007",
-    "vin": "WBA11AB0XNA000007",
+    "vin": "WBA11AH0XPGH22194",
     "date_opened": "2025-02-25",
     "date_closed": "2025-02-25",
     "technician_id": "TECH-02",
@@ -171,7 +179,9 @@
     "complaint": "CUST STATES ENGINE MANAGEMENT SYMBOL LIGHT IS BRIGHT YELLOW ON DASHBOARD PANEL AND CAR USES MORE FUEL.",
     "cause": "D1. ISTA diagnostic software check revealed DTC 12B104 internal resistance heater open-circuit fault across oxygen sensor bank 1 sensor 1.",
     "correction": "R1 [Oxygen Sensor]. Labor op [11 78 010]. Unplugged wiring loom and replaced pre-catalytic converter engine oxygen monitoring sensor module.",
-    "dtc_codes": ["12B104"],
+    "dtc_codes": [
+      "12B104"
+    ],
     "labor_op_code": "11 78 010",
     "parts_used": [
       {
@@ -185,11 +195,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Jonathan Cross"
   },
   {
     "ro_number": "RO-2025-0008",
-    "vin": "WBA11AB03PA000008",
+    "vin": "WBA31AW02NGH44102",
     "date_opened": "2025-03-03",
     "date_closed": "2025-03-03",
     "technician_id": "TECH-03",
@@ -197,7 +208,9 @@
     "complaint": "CUST STATES ENGINE SHAKES BADLY AT RED LIGHT ENGINES AND SEEMS READY TO STALL OVER.",
     "cause": "D1. Diagnosis with electronic scanner isolated combustion anomalies via fault code 140001 mapping active cylinder misfires on cylinder 3 ignition loop.",
     "correction": "R1 [Ignition Coil]. Labor op [12 13 511]. Removed top acoustical engine sound covers to replace cylinder 3 ignition coil coilover assembly.",
-    "dtc_codes": ["140001"],
+    "dtc_codes": [
+      "140001"
+    ],
     "labor_op_code": "12 13 511",
     "parts_used": [
       {
@@ -211,11 +224,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Yuki Tanaka"
   },
   {
     "ro_number": "RO-2025-0009",
-    "vin": "WBA11AB07RA000009",
+    "vin": "WBA11AH02MGG11029",
     "date_opened": "2025-03-11",
     "date_closed": "2025-03-12",
     "technician_id": "TECH-04",
@@ -223,7 +237,9 @@
     "complaint": "CUST STATES THE AUTOMOBILE CRANKS LONGER THAN NORMAL BEFORE IT WILL EVENTUALLY FIRE UP.",
     "cause": "D1. ISTA tracking interface retrieved fault code 11B012 defining high pressure fuel system bleed-down leakage caused by faulty internal solenoid on fuel injector 2.",
     "correction": "R1 [Fuel Injector]. Labor op [13 53 230]. Removed fuel distributor rail assembly to swap fuel injector cylinder 2 and recorded correction values in DME engine computer.",
-    "dtc_codes": ["11B012"],
+    "dtc_codes": [
+      "11B012"
+    ],
     "labor_op_code": "13 53 230",
     "parts_used": [
       {
@@ -237,11 +253,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Diana Prince"
   },
   {
     "ro_number": "RO-2025-0010",
-    "vin": "WBA11AB01SA000010",
+    "vin": "WBA51AW00MGG24101",
     "date_opened": "2025-03-18",
     "date_closed": "2025-03-20",
     "technician_id": "TECH-05",
@@ -263,11 +280,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "David Vance"
   },
   {
     "ro_number": "RO-2025-0011",
-    "vin": "WBA11AB05TA000011",
+    "vin": "WBA71AH08MGG99112",
     "date_opened": "2025-03-25",
     "date_closed": "2025-03-27",
     "technician_id": "TECH-01",
@@ -275,7 +293,9 @@
     "complaint": "CUST STATES TRANSMISSION STUTTERS OR LURCHES ERRATICALLY WHEN PASSING SLOW SPEEDS.",
     "cause": "D1. Diagnostic network evaluation reported code 420011 showing automated pressure regulator output deviation inside mechatronic valve block control interface.",
     "correction": "R4 [Mechatronic Unit]. Labor op [24 34 020]. Drained gearbox oil pan to unbolt and replace electro-hydraulic transmission mechatronic control module.",
-    "dtc_codes": ["420011"],
+    "dtc_codes": [
+      "420011"
+    ],
     "labor_op_code": "24 34 020",
     "parts_used": [
       {
@@ -289,11 +309,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Elena Rostova"
   },
   {
     "ro_number": "RO-2025-0012",
-    "vin": "WBA11AB09UA000012",
+    "vin": "WBACR4C05KGG88912",
     "date_opened": "2025-04-01",
     "date_closed": "2025-04-01",
     "technician_id": "TECH-02",
@@ -315,11 +336,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Timothy Chang"
   },
   {
     "ro_number": "RO-2025-0013",
-    "vin": "WBA11AB03VA000013",
+    "vin": "WBA81JU01LGG01294",
     "date_opened": "2025-04-08",
     "date_closed": "2025-04-08",
     "technician_id": "TECH-03",
@@ -347,11 +369,12 @@
     "warranty_claim": false,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Sarah Jenkins"
   },
   {
     "ro_number": "RO-2025-0014",
-    "vin": "WBA11AB07WA000014",
+    "vin": "WBA71AH04LGG55219",
     "date_opened": "2025-04-15",
     "date_closed": "2025-04-16",
     "technician_id": "TECH-04",
@@ -379,11 +402,12 @@
     "warranty_claim": false,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Christian Bale"
   },
   {
     "ro_number": "RO-2025-0015",
-    "vin": "WBA11AB01XA000015",
+    "vin": "WBA11AH0XRGG55219",
     "date_opened": "2025-04-22",
     "date_closed": "2025-04-22",
     "technician_id": "TECH-05",
@@ -405,11 +429,12 @@
     "warranty_claim": false,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Arthur Curry"
   },
   {
     "ro_number": "RO-2025-0016",
-    "vin": "WBA11AB05YA000016",
+    "vin": "WBA51AW0XNGG32194",
     "date_opened": "2025-04-29",
     "date_closed": "2025-04-29",
     "technician_id": "TECH-01",
@@ -431,11 +456,12 @@
     "warranty_claim": false,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Robert Delgado"
   },
   {
     "ro_number": "RO-2025-0017",
-    "vin": "WBA11AB02ZA000017",
+    "vin": "WBA81JU03MGG88123",
     "date_opened": "2025-05-01",
     "date_closed": "2025-05-02",
     "technician_id": "TECH-02",
@@ -463,11 +489,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "George Vance"
   },
   {
     "ro_number": "RO-2025-0018",
-    "vin": "WBA11AB06AA000018",
+    "vin": "WBA31AW03PGH00411",
     "date_opened": "2025-05-08",
     "date_closed": "2025-05-08",
     "technician_id": "TECH-03",
@@ -495,11 +522,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Nikhil Sharma"
   },
   {
     "ro_number": "RO-2025-0019",
-    "vin": "WBA11AB00BA000019",
+    "vin": "WBA11AH02MGG11029",
     "date_opened": "2025-05-15",
     "date_closed": "2025-05-16",
     "technician_id": "TECH-04",
@@ -507,7 +535,9 @@
     "complaint": "CUST STATES THE CABIN VENTILATION BLOWS COOL AIR EVEN WHEN THE CLIMATE TEMP IS ROTATED TO HIGH HEAT.",
     "cause": "D1. ISTA diagnostic software retrieved fault code 1D2401 specifying map-controlled thermostat internal valve mechanical jamming in open layout block.",
     "correction": "R1 [Engine Thermostat]. Labor op [11 53 000]. Drained cooling fluid loops to swap out integrated structural map-controlled engine coolant thermostat assembly.",
-    "dtc_codes": ["1D2401"],
+    "dtc_codes": [
+      "1D2401"
+    ],
     "labor_op_code": "11 53 000",
     "parts_used": [
       {
@@ -521,11 +551,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Diana Prince"
   },
   {
     "ro_number": "RO-2025-0020",
-    "vin": "WBA11AB04CA000020",
+    "vin": "WBA21AW05RGG54291",
     "date_opened": "2025-05-22",
     "date_closed": "2025-05-22",
     "technician_id": "TECH-05",
@@ -553,11 +584,12 @@
     "warranty_claim": false,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Amanda Sterling"
   },
   {
     "ro_number": "RO-2025-0021",
-    "vin": "WBA11AB08DA000021",
+    "vin": "WBACR4C0XNGG33104",
     "date_opened": "2025-06-05",
     "date_closed": "2025-06-05",
     "technician_id": "TECH-01",
@@ -579,11 +611,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Siddharth Nair"
   },
   {
     "ro_number": "RO-2025-0022",
-    "vin": "WBA11AB02EA000022",
+    "vin": "WBA71AH00KGG33219",
     "date_opened": "2025-06-12",
     "date_closed": "2025-06-14",
     "technician_id": "TECH-02",
@@ -591,7 +624,9 @@
     "complaint": "CUST STATES VEHICLE WAS DEAD AND NEEDED A JUMP START AFTER RESTING IN PRIVATE GARAGE OVERNIGHT.",
     "cause": "D1. Ampere logging tool analysis tracked abnormal parasitic closed-circuit drain current flow of 450mA caused by stuck relay logic inside driver door handle comfort access module.",
     "correction": "R6 [Comfort Access Module]. Labor op [61 00 005]. Installed new comfort access sensor chip inside front driver exterior handle strip to terminate parasitic system current draws.",
-    "dtc_codes": ["8040A1"],
+    "dtc_codes": [
+      "8040A1"
+    ],
     "labor_op_code": "61 00 005",
     "parts_used": [
       {
@@ -605,11 +640,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Bruce Wayne"
   },
   {
     "ro_number": "RO-2025-0023",
-    "vin": "WBA11AB06FA000023",
+    "vin": "WBA81JU0XKGG44210",
     "date_opened": "2025-06-19",
     "date_closed": "2025-06-19",
     "technician_id": "TECH-03",
@@ -617,7 +653,9 @@
     "complaint": "CUST STATES RED CHARGING MALFUNCTION ILLUMINATED ON THE DIGITAL MAIN DRIVER GAUGE REGION.",
     "cause": "D1. Voltage multi-meter inspection confirmed generator alternator charging output potential failed to advance above 11.4V while engine was running.",
     "correction": "R6 [Alternator Assembly]. Labor op [12 31 020]. Discharged battery system loop connections and replaced engine accessory layout belt-driven generator alternator machinery.",
-    "dtc_codes": ["213A01"],
+    "dtc_codes": [
+      "213A01"
+    ],
     "labor_op_code": "12 31 020",
     "parts_used": [
       {
@@ -631,11 +669,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Patricia Malone"
   },
   {
     "ro_number": "RO-2025-0024",
-    "vin": "WBA11AB00GA000024",
+    "vin": "WBA11AH0XPGH22194",
     "date_opened": "2025-06-26",
     "date_closed": "2025-06-27",
     "technician_id": "TECH-04",
@@ -643,7 +682,9 @@
     "complaint": "CUST STATES CHASSIS INSTRUMENT GAUGES GO TOTALLY BLACK RANDOM TIMES WHILE DRIVING HIGHWAY PATHS.",
     "cause": "D1. CAN-bus signal logging diagnostic localized communication drop faults caused by internal microprocessor soldering fractures in instrument cluster unit.",
     "correction": "R6 [Instrument Cluster]. Labor op [62 11 010]. Extracted upper trim surround bezel framework to fit a completely new factory digital instrument combo cluster array.",
-    "dtc_codes": ["E114C4"],
+    "dtc_codes": [
+      "E114C4"
+    ],
     "labor_op_code": "62 11 010",
     "parts_used": [
       {
@@ -657,11 +698,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Jonathan Cross"
   },
   {
     "ro_number": "RO-2025-0025",
-    "vin": "WBA11AB04HA000025",
+    "vin": "WBA71AH08MGG99112",
     "date_opened": "2025-07-02",
     "date_closed": "2025-07-03",
     "technician_id": "TECH-05",
@@ -683,11 +725,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Elena Rostova"
   },
   {
     "ro_number": "RO-2025-0026",
-    "vin": "WBA11AB08JA000026",
+    "vin": "WBACR4C01MGG99210",
     "date_opened": "2025-07-09",
     "date_closed": "2025-07-09",
     "technician_id": "TECH-01",
@@ -709,11 +752,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Tony Stark"
   },
   {
     "ro_number": "RO-2025-0027",
-    "vin": "WBA11AB02KA000027",
+    "vin": "WBA81JU01LGG01294",
     "date_opened": "2025-07-16",
     "date_closed": "2025-07-17",
     "technician_id": "TECH-02",
@@ -735,11 +779,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Sarah Jenkins"
   },
   {
     "ro_number": "RO-2025-0028",
-    "vin": "WBA11AB06LA000028",
+    "vin": "WBA31AW0XGG552104",
     "date_opened": "2025-07-23",
     "date_closed": "2025-07-23",
     "technician_id": "TECH-03",
@@ -761,11 +806,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Liam Neeson"
   },
   {
     "ro_number": "RO-2025-0029",
-    "vin": "WBA11AB01MA000029",
+    "vin": "WBA31AW0XPGH88219",
     "date_opened": "2025-07-30",
     "date_closed": "2025-07-30",
     "technician_id": "TECH-04",
@@ -780,11 +826,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Selina Kyle"
   },
   {
     "ro_number": "RO-2025-0030",
-    "vin": "WBA11AB05NA000030",
+    "vin": "WBA21AW0XNGG44310",
     "date_opened": "2025-08-05",
     "date_closed": "2025-08-05",
     "technician_id": "TECH-05",
@@ -799,11 +846,12 @@
     "warranty_claim": false,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Clark Kent"
   },
   {
     "ro_number": "RO-2025-0031",
-    "vin": "WBA11AB0XPA000031",
+    "vin": "WBACR4C0XPGH11029",
     "date_opened": "2025-08-12",
     "date_closed": "2025-08-13",
     "technician_id": "TECH-01",
@@ -825,11 +873,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Hal Jordan"
   },
   {
     "ro_number": "RO-2025-0032",
-    "vin": "WBA11AB03RA000032",
+    "vin": "WBA11AH04KGG11294",
     "date_opened": "2025-08-19",
     "date_closed": "2025-08-19",
     "technician_id": "TECH-02",
@@ -851,11 +900,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Chloe Dupont"
   },
   {
     "ro_number": "RO-2025-0033",
-    "vin": "WBA11AB07SA000033",
+    "vin": "WBA51AW07LGG22104",
     "date_opened": "2025-08-26",
     "date_closed": "2025-08-26",
     "technician_id": "TECH-03",
@@ -863,7 +913,9 @@
     "complaint": "CUST STATES CHECK ENGINE LIGHT TRANSFERRED TO MAIN SPEEDO SCREEN AND MOTOR LACKS HIGH RPM ACCELERATION POWER.",
     "cause": "D1. ISTA electronic control inspection recorded trouble code 130108 registering erratic camshaft adaptation positioning phase shifts due to mechanically sticky VANOS solenoid spool.",
     "correction": "R1 [VANOS Solenoid]. Labor op [11 36 540]. Unplugged forward system wire connectors to clean ports and replace engine variable valve timing VANOS control valve solenoid module.",
-    "dtc_codes": ["130108"],
+    "dtc_codes": [
+      "130108"
+    ],
     "labor_op_code": "11 36 540",
     "parts_used": [
       {
@@ -877,11 +929,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Barry Allen"
   },
   {
     "ro_number": "RO-2025-0034",
-    "vin": "WBA11AB01TA000034",
+    "vin": "WBA81JU03MGG88123",
     "date_opened": "2025-09-02",
     "date_closed": "2025-09-02",
     "technician_id": "TECH-04",
@@ -889,7 +942,9 @@
     "complaint": "CUST STATES CHECK ENGINE SYMBOL POPPED UP ON DASH PANEL BOARD AND MOTOR FUEL MILEAGE DROPPED DRASTICALLY.",
     "cause": "D1. Diagnostic network evaluation returned code 101001 highlighting internal film mass air flow measurement element out of balance parameters.",
     "correction": "R1 [Mass Air Flow Sensor]. Labor op [13 62 005]. Loosened primary engine intake air bellows clamps to fit a new inline mass air flow sensor grid element.",
-    "dtc_codes": ["101001"],
+    "dtc_codes": [
+      "101001"
+    ],
     "labor_op_code": "13 62 005",
     "parts_used": [
       {
@@ -903,11 +958,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "George Vance"
   },
   {
     "ro_number": "RO-2025-0035",
-    "vin": "WBA11AB05UA000035",
+    "vin": "WBA31AW02NGH44102",
     "date_opened": "2025-09-09",
     "date_closed": "2025-09-09",
     "technician_id": "TECH-05",
@@ -915,7 +971,9 @@
     "complaint": "CUST STATES ENGINE COLD SHAKE JOLTING OCCURS CONSTANTLY UPON FIRST DEPARTURE IN THE MORNINGS.",
     "cause": "D1. Operational scan verified active misfire tracking indices via code 140002 indicating electrical arc erosion path across high mileage core electrode inside spark plug 4.",
     "correction": "R1 [Spark Plug Replacement]. Labor op [12 12 005]. Unscrewed structural coilover assemblies to replace entire engine match set of high-performance platinum core spark plug elements.",
-    "dtc_codes": ["140002"],
+    "dtc_codes": [
+      "140002"
+    ],
     "labor_op_code": "12 12 005",
     "parts_used": [
       {
@@ -929,11 +987,12 @@
     "warranty_claim": false,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Yuki Tanaka"
   },
   {
     "ro_number": "RO-2025-0036",
-    "vin": "WBA11AB09VA000036",
+    "vin": "WBACR4C05KGG88912",
     "date_opened": "2025-09-16",
     "date_closed": "2025-09-16",
     "technician_id": "TECH-01",
@@ -961,11 +1020,12 @@
     "warranty_claim": false,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Timothy Chang"
   },
   {
     "ro_number": "RO-2025-0037",
-    "vin": "WBA11AB03WA000037",
+    "vin": "WBA71AH04LGG55219",
     "date_opened": "2025-09-23",
     "date_closed": "2025-09-23",
     "technician_id": "TECH-02",
@@ -999,11 +1059,12 @@
     "warranty_claim": false,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Christian Bale"
   },
   {
     "ro_number": "RO-2025-0038",
-    "vin": "WBA11AB07XA000038",
+    "vin": "WBA71AH00KGG33219",
     "date_opened": "2025-09-30",
     "date_closed": "2025-10-01",
     "technician_id": "TECH-03",
@@ -1031,11 +1092,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Bruce Wayne"
   },
   {
     "ro_number": "RO-2025-0039",
-    "vin": "WBA11AB01YA000039",
+    "vin": "WBA11AH0XRGG55219",
     "date_opened": "2025-10-07",
     "date_closed": "2025-10-07",
     "technician_id": "TECH-04",
@@ -1057,11 +1119,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Arthur Curry"
   },
   {
     "ro_number": "RO-2025-0040",
-    "vin": "WBA11AB05ZA000040",
+    "vin": "WBA51AW0XNGG32194",
     "date_opened": "2025-10-14",
     "date_closed": "2025-10-15",
     "technician_id": "TECH-05",
@@ -1069,7 +1132,9 @@
     "complaint": "CUST STATES REAR RIGHT DOOR REMAINS UNLOCKED EVEN WHEN PRESSING THE INTERIOR BUTTON OR THE REMOTE SMART KEY FOB.",
     "cause": "D1. Electrical loop back tracing mapped broken solenoid command latch lines within core right rear door remote lock command catch gear module.",
     "correction": "R6 [Door Lock Actuator]. Labor op [51 22 011]. Unbolted inner door protection layer framework to mount an updated electric centralized door lock latch actuator box.",
-    "dtc_codes": ["80413A"],
+    "dtc_codes": [
+      "80413A"
+    ],
     "labor_op_code": "51 22 011",
     "parts_used": [
       {
@@ -1083,11 +1148,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Robert Delgado"
   },
   {
     "ro_number": "RO-2025-0041",
-    "vin": "WBA11AB02AA000041",
+    "vin": "WBACR4C01MGG99210",
     "date_opened": "2025-10-21",
     "date_closed": "2025-10-23",
     "technician_id": "TECH-01",
@@ -1109,11 +1175,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Tony Stark"
   },
   {
     "ro_number": "RO-2025-0042",
-    "vin": "WBA11AB06BA000042",
+    "vin": "WBA11AH02NGH55210",
     "date_opened": "2025-10-28",
     "date_closed": "2025-10-28",
     "technician_id": "TECH-02",
@@ -1135,11 +1202,12 @@
     "warranty_claim": false,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Marcus Aurelius"
   },
   {
     "ro_number": "RO-2025-0043",
-    "vin": "WBA11AB00CA000043",
+    "vin": "WBA81JU0XRGG44102",
     "date_opened": "2025-11-04",
     "date_closed": "2025-11-04",
     "technician_id": "TECH-03",
@@ -1167,11 +1235,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Ethan Hunt"
   },
   {
     "ro_number": "RO-2025-0044",
-    "vin": "WBA11AB04DA000044",
+    "vin": "WBA51AW00MGG24101",
     "date_opened": "2025-11-11",
     "date_closed": "2025-11-11",
     "technician_id": "TECH-04",
@@ -1199,11 +1268,12 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "David Vance"
   },
   {
     "ro_number": "RO-2025-0045",
-    "vin": "WBA11AB08EA000045",
+    "vin": "WBACR4C0XPGH11029",
     "date_opened": "2025-11-18",
     "date_closed": "2025-11-18",
     "technician_id": "TECH-05",
@@ -1225,11 +1295,12 @@
     "warranty_claim": false,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Hal Jordan"
   },
   {
     "ro_number": "RO-2025-0046",
-    "vin": "WBA11AB02FA000046",
+    "vin": "WBA71AH08MGG99112",
     "date_opened": "2025-11-25",
     "date_closed": "2025-11-26",
     "technician_id": "TECH-01",
@@ -1244,6 +1315,7 @@
     "warranty_claim": true,
     "rejection_reason": null,
     "was_edited": false,
-    "edit_diff": null
+    "edit_diff": null,
+    "customer_name": "Elena Rostova"
   }
 ]

@@ -6,15 +6,15 @@ Runs ComplaintExtractor → CauseAnalyzer → CorrectionWriter in sequence,
 then renders the complete Repair Order to console using the exact BMW RO format.
 
 Usage:
-    python -m agent.ro_agent                    # runs 3 test cases from sample_ros.json
-    python -m agent.ro_agent RO-2026-0001       # runs a specific sample RO by number
+    python -m agent.ro_agent                        # interactive: prompts for complaint, name, VIN
+    python -m agent.ro_agent "complaint" "name" VIN # CLI args
 """
 
 import sys
 import json
 import uuid
 import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
@@ -24,8 +24,6 @@ from dotenv import load_dotenv
 from agent.complaint_extractor import ComplaintExtractor
 from agent.cause_analyzer import CauseAnalyzer
 from agent.correction_writer import CorrectionWriter
-from input.voice_transcriber import VoiceTranscriber
-from input.dtc_parser import DTCParser
 from agent.ro_validator import ROValidator, ValidationReport
 
 load_dotenv()
@@ -37,8 +35,8 @@ logger = logging.getLogger(__name__)
 
 DATA_DIR = Path(__file__).parent.parent / "knowledge" / "data"
 
-_LINE  = "─" * 81
-_DLINE = "═" * 81
+_LINE  = "-" * 81
+_DLINE = "=" * 81
 
 
 # ── Data model ────────────────────────────────────────────────────────────────
@@ -53,6 +51,7 @@ class RODraft:
     vin:                str
     year_model:         str
     technician_id:      str
+    customer_name:      str
     complaint:          str
     cause:              str
     dci_codes_used:     list[str]
@@ -63,7 +62,7 @@ class RODraft:
     labor_hours:        float
     warranty_compliant: bool
     flags:              list[str]
-    confidence_scores:  dict       # {"complaint": float, "cause": float, "correction": float}
+    confidence_scores:  dict
 
 
 # ── Orchestrator ──────────────────────────────────────────────────────────────
@@ -73,18 +72,17 @@ class ROAgent:
     Orchestrates ComplaintExtractor → CauseAnalyzer → CorrectionWriter,
     assembles an RODraft, and renders the full formatted RO to console.
 
-    The pipeline runs sequentially — each agent's output feeds the next:
-        Step 1: ComplaintExtractor  →  complaint_statement
-        Step 2: CauseAnalyzer       →  cause_statement  (receives complaint + DTCs + VIN)
-        Step 3: CorrectionWriter    →  correction_statement (receives cause + DTCs + VIN + notes)
+    Primary entry point: run_from_complaint(complaint_text, customer_name, vin)
+    — finds the 3 most similar existing ROs, generates one complete RO grounded
+    in each, and returns all three for the advisor to choose from.
     """
 
     def __init__(self) -> None:
         self.complaint_extractor = ComplaintExtractor()
         self.cause_analyzer      = CauseAnalyzer()
         self.correction_writer   = CorrectionWriter()
-        self.vin_records:   list[dict] = self._load_json("vin_records.json")
-        self.sample_ros:    list[dict] = self._load_json("sample_ros.json")
+        self.vin_records:  list[dict] = self._load_json("vin_records.json")
+        self.sample_ros:   list[dict] = self._load_json("sample_ros.json")
 
     def _load_json(self, filename: str) -> list:
         path = DATA_DIR / filename
@@ -96,7 +94,7 @@ class ROAgent:
             return []
 
     def _get_vehicle(self, vin: str) -> dict:
-        """Return vehicle record from vin_records.json or a default shell."""
+        """Return vehicle record from vin_records.json or a minimal default."""
         vin_upper = vin.upper().strip()
         for r in self.vin_records:
             if r.get("vin", "").upper() == vin_upper:
@@ -109,35 +107,159 @@ class ROAgent:
             "in_service_date": "N/A",
         }
 
-    # ── Main generate method ───────────────────────────────────────────────
+    # ── Similarity search ─────────────────────────────────────────────────
+
+    def _find_similar_ros(self, complaint_text: str, n: int = 3) -> list[dict]:
+        """
+        Return the n sample ROs whose complaint has the most word overlap with
+        complaint_text. Tokens under 4 characters are ignored (removes stop words).
+        Ties are broken by keeping the earlier RO in the list.
+
+        Args:
+            complaint_text: Raw complaint text entered by the technician.
+            n:              Number of similar ROs to return.
+
+        Returns:
+            List of up to n sample RO dicts, most similar first.
+        """
+        input_words = {w.lower().strip(".,!?") for w in complaint_text.split() if len(w) >= 4}
+
+        scored: list[tuple[int, dict]] = []
+        for ro in self.sample_ros:
+            ro_complaint = ro.get("complaint", "")
+            ro_words = {w.lower().strip(".,!?") for w in ro_complaint.split() if len(w) >= 4}
+            overlap = len(input_words & ro_words)
+            if overlap > 0:
+                scored.append((overlap, ro))
+
+        scored.sort(key=lambda x: x[0], reverse=True)
+
+        # Log top matches for transparency
+        for score, ro in scored[:n]:
+            logger.info(
+                "Similar RO: %s  score=%d  complaint=%.60s",
+                ro.get("ro_number"), score, ro.get("complaint", ""),
+            )
+
+        return [ro for _, ro in scored[:n]]
+
+    # ── Primary entry point ───────────────────────────────────────────────
+
+    def run_from_complaint(
+        self,
+        complaint_text: str,
+        customer_name:  str,
+        vin:            str,
+        advisor_id:     str = "ADV00",
+        technician_id:  str = "TECH00",
+    ) -> list[RODraft]:
+        """
+        Generate 3 complete Repair Orders from a typed technician complaint.
+
+        Finds the 3 most similar sample ROs in sample_ros.json using word-overlap
+        scoring, then runs the full pipeline (ComplaintExtractor → CauseAnalyzer →
+        CorrectionWriter → ROValidator) once per similar RO, using each similar RO's
+        DTC codes and labor op code as grounding. Returns 3 RODraft objects.
+
+        Args:
+            complaint_text: Raw complaint text typed by the technician.
+            customer_name:  Customer's full name for the RO header.
+            vin:            Vehicle Identification Number.
+            advisor_id:     Service advisor ID (optional).
+            technician_id:  Technician ID badge number (optional).
+
+        Returns:
+            List of up to 3 RODraft objects, each validated and rendered to console.
+        """
+        print(f"\n{_DLINE}")
+        print("  BMW RO AGENT  —  GENERATING 3 REPAIR ORDERS")
+        print(_DLINE)
+        print(f"  VIN:       {vin}")
+        print(f"  Customer:  {customer_name or 'Not provided'}")
+        print(f"  Complaint: {complaint_text[:75]}{'...' if len(complaint_text) > 75 else ''}")
+        print(_DLINE)
+
+        similar = self._find_similar_ros(complaint_text, n=3)
+
+        if not similar:
+            print("\n  [WARN] No similar ROs found in sample database.")
+            print("  Generating one RO with no sample grounding.\n")
+            similar = [{"dtc_codes": [], "labor_op_code": None, "labor_hours": 1.0, "ro_number": "N/A"}]
+
+        validator = ROValidator()
+        results: list[RODraft] = []
+
+        for i, sample in enumerate(similar, 1):
+            ref_number = sample.get("ro_number", "N/A")
+            ref_complaint = sample.get("complaint", "")[:70]
+
+            print(f"\n{'*' * 81}")
+            print(f"  OPTION {i} OF {len(similar)}")
+            print(f"  Reference RO : {ref_number}")
+            print(f"  Ref Complaint: {ref_complaint}")
+            print(f"{'*' * 81}")
+
+            dtc_codes = [
+                d for d in sample.get("dtc_codes", [])
+                if d and str(d).upper() not in ("NONE", "")
+            ]
+
+            ro = self.generate(
+                vin=vin,
+                technician_notes=complaint_text,
+                dtc_codes=dtc_codes,
+                customer_name=customer_name,
+                labor_hours=float(sample.get("labor_hours", 1.0)),
+                labor_op_code=sample.get("labor_op_code"),
+                technician_id=technician_id,
+                advisor_id=advisor_id,
+            )
+
+            report = validator.validate(ro)
+            validator.format_report(report)
+            results.append(ro)
+
+        print(f"\n{_DLINE}")
+        print(f"  DONE  —  {len(results)} Repair Order(s) Generated")
+        verdicts = [validator.validate(r).submission_verdict for r in results]
+        for i, v in enumerate(verdicts, 1):
+            print(f"  Option {i}: {v}")
+        print(_DLINE)
+
+        return results
+
+    # ── Core pipeline ─────────────────────────────────────────────────────
 
     def generate(
         self,
-        vin:                 str,
-        technician_notes:    str,
-        dtc_codes:           list[str],
+        vin:                  str,
+        technician_notes:     str,
+        dtc_codes:            list[str],
+        customer_name:        str       = "",
         customer_description: str       = "",
-        labor_hours:         float      = 0.0,
-        technician_id:       str        = "TECH00",
-        advisor_id:          str        = "ADV00",
-        labor_op_code:       str | None = None,
+        labor_hours:          float     = 0.0,
+        technician_id:        str       = "TECH00",
+        advisor_id:           str       = "ADV00",
+        labor_op_code:        str | None = None,
     ) -> RODraft:
         """
         Run the full 3-agent pipeline and return an RODraft.
 
         Args:
             vin:                  Vehicle Identification Number.
-            technician_notes:     Raw tech notes from the initial write-up.
-            dtc_codes:            Fault codes pulled from scan tool.
+            technician_notes:     Raw complaint/notes from the technician.
+            dtc_codes:            Fault codes from scan tool (may be empty).
+            customer_name:        Customer name for the RO header.
             customer_description: Optional verbatim customer statement.
-            labor_hours:          Total labor time (diagnosis + repair) in FRU/hrs.
-            technician_id:        Tech ID badge number for the RO header.
-            advisor_id:           Service advisor ID for the RO header.
+            labor_hours:          Total labor time in FRU/hrs.
+            technician_id:        Tech ID badge number.
+            advisor_id:           Service advisor ID.
+            labor_op_code:        BMW labor op code for direct lookup.
 
         Returns:
-            RODraft dataclass with all 3Cs, codes, parts, flags, and confidence scores.
+            RODraft with all 3Cs, codes, parts, flags, and confidence scores.
         """
-        vehicle = self._get_vehicle(vin)
+        vehicle    = self._get_vehicle(vin)
         year_model = f"{vehicle.get('year', 'N/A')} BMW {vehicle.get('model', 'Vehicle')}"
 
         # ── Step 1: Complaint ──────────────────────────────────────────────
@@ -200,6 +322,7 @@ class ROAgent:
             vin=vin,
             year_model=year_model,
             technician_id=technician_id,
+            customer_name=customer_name,
             complaint=complaint_result["complaint_statement"],
             cause=cause_result["cause_statement"],
             dci_codes_used=cause_result["dci_codes_used"],
@@ -220,21 +343,12 @@ class ROAgent:
         self._render_ro(ro, vehicle, advisor_id)
         return ro
 
-    # ── run_from_sample ────────────────────────────────────────────────────
+    # ── Utility methods ───────────────────────────────────────────────────
 
     def run_from_sample(self, ro_number: str) -> RODraft | None:
         """
-        Load a sample RO from sample_ros.json by ro_number and run the full pipeline.
-
-        The sample's 'complaint' (or 'technician_notes') field is used as raw input.
-        The pipeline generates new 3Cs — this tests whether the AI can reproduce
-        BMW-compliant output given the same raw notes a real technician would write.
-
-        Args:
-            ro_number: The ro_number field from sample_ros.json.
-
-        Returns:
-            RODraft, or None if the ro_number is not found.
+        Load a sample RO by ro_number and run the full pipeline against it.
+        Useful for development and regression testing.
         """
         sample = next(
             (s for s in self.sample_ros if s.get("ro_number") == ro_number), None
@@ -243,131 +357,43 @@ class ROAgent:
             print(f"\n[ERROR] RO number '{ro_number}' not found in sample_ros.json")
             return None
 
-        quality = sample.get("ro_quality", "unknown")
-        print(f"\n{'═' * 60}")
-        print(f"ORIGINAL RO FROM DMS (ro_quality: {quality})")
-        print(f"{'═' * 60}")
-        print(f"COMPLAINT:        {sample.get('complaint', 'N/A')}")
-        print(f"CAUSE:            {sample.get('cause', 'N/A')}")
-        print(f"CORRECTION:       {sample.get('correction', 'N/A')}")
-        print(f"REJECTION REASON: {sample.get('rejection_reason', 'N/A')}")
-        print()
-        print(f"{'═' * 60}")
-        print("AGENT-GENERATED RO")
-        print(f"{'═' * 60}")
-
-        # Build raw input from sample — use existing complaint as customer description
-        technician_notes    = sample.get("technician_notes", sample.get("complaint", ""))
-        customer_description = sample.get("complaint", "")
         dtc_codes = [
             d for d in sample.get("dtc_codes", [])
             if d and str(d).upper() not in ("NONE", "")
         ]
 
-        ro = self.generate(
+        return self.generate(
             vin=sample.get("vin", ""),
-            technician_notes=technician_notes,
+            technician_notes=sample.get("technician_notes", sample.get("complaint", "")),
             dtc_codes=dtc_codes,
-            customer_description=customer_description,
+            customer_name=sample.get("customer_name", ""),
+            customer_description=sample.get("complaint", ""),
             labor_hours=float(sample.get("labor_hours", 0.0)),
-            technician_id=sample.get("technician_id", sample.get("tech_id", "TECH00")),
+            technician_id=sample.get("technician_id", "TECH00"),
             advisor_id=sample.get("advisor_id", "ADV00"),
             labor_op_code=sample.get("labor_op_code"),
         )
 
-        print("FLAGS FIRED:")
-        if ro.flags:
-            for f in ro.flags:
-                print(f"  ⚠ {f}")
-        else:
-            print("  None")
-
-        return ro
-
-    # ── Interactive mode ──────────────────────────────────────────────────
-
-    def run_interactive(self) -> RODraft | None:
-        """
-        Live technician-facing mode.
-
-        Prompts for VIN via keyboard, captures technician notes via live
-        microphone transcription, optionally parses scan tool output, runs
-        the full 3-agent pipeline, and prints the validation report.
-
-        Returns:
-            RODraft, or None if generation failed.
-        """
-        print(f"\n{'═'*46}")
-        print("BMW RO AGENT — INTERACTIVE MODE")
-        print(f"{'═'*46}")
-
-        vin = input("Enter VIN: ").strip()
-
-        transcriber = VoiceTranscriber()
-        technician_notes = transcriber.capture(
-            "Describe the customer complaint and repair performed"
-        )
-
-        raw_scan_output = input(
-            "Paste scan tool output (or press ENTER to skip): "
-        ).strip()
-
-        if raw_scan_output:
-            parser = DTCParser()
-            parse_result = parser.parse(raw_scan_output)
-            parser.format_summary(parse_result)
-            dtc_codes = parse_result.codes_only
-        else:
-            dtc_codes = []
-
-        ro_draft = self.generate(
-            vin=vin,
-            technician_notes=technician_notes,
-            dtc_codes=dtc_codes,
-        )
-
-        validator = ROValidator()
-        validation_report = validator.validate(ro_draft)
-        validator.format_report(validation_report)
-
-        return ro_draft
-
     def run_validate_only(self, ro_draft: RODraft) -> ValidationReport:
-        """
-        Re-validate an existing RODraft without regenerating it.
-
-        Useful for re-checking a manually edited RO. Prints the full
-        validation report and returns the ValidationReport object.
-
-        Args:
-            ro_draft: Any completed RODraft (from generate() or run_from_sample()).
-
-        Returns:
-            ValidationReport with verdict and all flagged issues.
-        """
+        """Re-validate an existing RODraft without re-running the pipeline."""
         validator = ROValidator()
-        validation_report = validator.validate(ro_draft)
-        validator.format_report(validation_report)
-        return validation_report
+        report = validator.validate(ro_draft)
+        validator.format_report(report)
+        return report
 
     # ── RO renderer ───────────────────────────────────────────────────────
 
     def _render_ro(self, ro: RODraft, vehicle: dict, advisor_id: str) -> None:
-        """
-        Print the complete formatted Repair Order to console.
-        Follows the exact BMW RO format standard (Parkview BMW style):
-            Header Block → LINE A (Complaint / Cause / Correction / Labor / Parts)
-            → Cost Summary Block → Footer → Flags → Confidence Scores
-        """
-        today      = date.today().strftime("%Y-%m-%d")
-        owner      = vehicle.get("last_known_owner", "N/A")
-        phone      = vehicle.get("customer_phone",   "N/A")
-        email      = vehicle.get("customer_email",   "N/A")
-        odometer   = vehicle.get("mileage_at_decode", 0)
-        prod_date  = vehicle.get("in_service_date",  "N/A")
-        warranty   = vehicle.get("warranty_status",  "unknown").upper().replace("_", " ")
+        """Print the complete formatted BMW Repair Order to console."""
+        today     = date.today().strftime("%Y-%m-%d")
+        owner     = ro.customer_name or vehicle.get("last_known_owner", "N/A")
+        phone     = vehicle.get("customer_phone",   "N/A")
+        email     = vehicle.get("customer_email",   "N/A")
+        odometer  = vehicle.get("mileage_at_decode", 0)
+        prod_date = vehicle.get("in_service_date",  "N/A")
+        warranty  = vehicle.get("warranty_status",  "unknown").upper().replace("_", " ")
 
-        # ── HEADER BLOCK ───────────────────────────────────────────────────
+        # ── HEADER ────────────────────────────────────────────────────────
         print(f"\n{_DLINE}")
         print("                        BMW REPAIR ORDER")
         print(_DLINE)
@@ -382,11 +408,9 @@ class ROAgent:
         print(f"  {'':38}  ODOMETER OUT: {odometer:,} km")
         print(_LINE)
 
-        # ── LINE A ─────────────────────────────────────────────────────────
-        print("\n  LINE A: WARRANTY REPAIR")
-        print()
+        # ── LINE A ────────────────────────────────────────────────────────
+        print("\n  LINE A: WARRANTY REPAIR\n")
         print("  COMPLAINT:")
-        # Word-wrap long complaint at 72 chars
         for part in _wrap(ro.complaint, 72):
             print(f"    {part}")
         print()
@@ -399,9 +423,9 @@ class ROAgent:
             print(f"    {part}")
         print()
 
-        # ── LABOR TABLE ────────────────────────────────────────────────────
-        labor_rate  = 125.00          # $/hr (illustrative dealership rate)
-        labor_amt   = round(ro.labor_hours * labor_rate, 2)
+        # ── LABOR TABLE ───────────────────────────────────────────────────
+        labor_rate = 125.00
+        labor_amt  = round(ro.labor_hours * labor_rate, 2)
         print(f"  {'LABOR CODE':<14}  {'DESCRIPTION':<38}  {'FRU/HRS':>7}    AMOUNT")
         print(f"  {'-'*14}  {'-'*38}  {'-'*7}    {'-'*9}")
         print(
@@ -410,7 +434,7 @@ class ROAgent:
         )
         print()
 
-        # ── PARTS TABLE ────────────────────────────────────────────────────
+        # ── PARTS TABLE ───────────────────────────────────────────────────
         parts_total = 0.0
         if ro.parts:
             print(f"  {'QTY':<5}  {'PART NUMBER':<16}  {'DESCRIPTION':<28}  {'UNIT PRICE':>10}    TOTAL")
@@ -427,7 +451,7 @@ class ROAgent:
                 )
             print()
 
-        # ── COST SUMMARY ───────────────────────────────────────────────────
+        # ── COST SUMMARY ──────────────────────────────────────────────────
         shop_fees = 0.00
         subtotal  = round(labor_amt + parts_total + shop_fees, 2)
         hst       = round(subtotal * 0.13, 2)
@@ -442,24 +466,24 @@ class ROAgent:
         print(f"  {'TOTAL AMOUNT DUE:':<64} ${total_due:>9.2f}")
         print(_LINE)
 
-        # ── FOOTER ─────────────────────────────────────────────────────────
+        # ── FOOTER ────────────────────────────────────────────────────────
         print()
         print("  DISCLAIMER: All parts installed are Genuine BMW Parts carrying a 2-Year/")
         print("  Unlimited Mileage Warranty.")
         print(f"  CUSTOMER SIGNATURE: X___________________________  DATE: {today}")
         print()
 
-        # ── FLAGS ──────────────────────────────────────────────────────────
+        # ── FLAGS ─────────────────────────────────────────────────────────
         if ro.flags:
-            print(f"  {'─'*40}")
-            print("  ⚠  FLAGS — ADVISOR REVIEW REQUIRED BEFORE SUBMISSION:")
+            print(f"  {'-'*40}")
+            print("  [!] FLAGS — ADVISOR REVIEW REQUIRED BEFORE SUBMISSION:")
             for f in ro.flags:
                 print(f"     •  {f}")
-            print(f"  {'─'*40}")
+            print(f"  {'-'*40}")
         else:
-            print("  ✓  No flags detected — RO is ready for submission.")
+            print("  [OK] No flags detected — RO is ready for submission.")
 
-        # ── CONFIDENCE ─────────────────────────────────────────────────────
+        # ── CONFIDENCE ────────────────────────────────────────────────────
         c = ro.confidence_scores
         print()
         print(
@@ -478,10 +502,8 @@ class ROAgent:
 # ── Utility ───────────────────────────────────────────────────────────────────
 
 def _wrap(text: str, width: int) -> list[str]:
-    """Simple word-wrap that breaks on spaces at width."""
-    words  = text.split()
-    lines  = []
-    current = ""
+    """Word-wrap text at width characters, breaking on spaces."""
+    words, lines, current = text.split(), [], ""
     for word in words:
         if current and len(current) + 1 + len(word) > width:
             lines.append(current)
@@ -498,58 +520,22 @@ def _wrap(text: str, width: int) -> list[str]:
 if __name__ == "__main__":
     agent = ROAgent()
 
-    # If a specific RO number is passed as CLI arg, run just that one
-    if len(sys.argv) > 1:
-        ro_number = sys.argv[1]
-        result = agent.run_from_sample(ro_number)
-        sys.exit(0 if result else 1)
-
-    # Default: run one good, one bad, one partial test case
-    def _pick_sample(quality: str) -> dict | None:
-        return next(
-            (s for s in agent.sample_ros if s.get("ro_quality") == quality), None
-        )
-
-    test_cases = [
-        ("GOOD",    _pick_sample("good")),
-        ("BAD",     _pick_sample("bad")),
-        ("PARTIAL", _pick_sample("partial")),
-    ]
-
-    good_ro: RODraft | None = None
-
-    for label, sample in test_cases:
-        if not sample:
-            print(f"\n[WARN] No '{label.lower()}' quality sample found in sample_ros.json")
-            continue
-
-        print(f"\n{'*' * 81}")
-        print(f"  TEST CASE: {label} RO  —  {sample['ro_number']}")
-        print(f"{'*' * 81}")
-
-        ro = agent.run_from_sample(sample["ro_number"])
-
-        if ro is None:
-            continue
-
-        if label == "GOOD":
-            good_ro = ro
-
-        # Summarise flags for this test case
-        print(f"\n  TEST RESULT SUMMARY — {label} RO ({sample['ro_number']}):")
-        if ro.flags:
-            print(f"  {len(ro.flags)} flag(s) fired:")
-            for f in ro.flags:
-                print(f"    ✗ {f}")
-        else:
-            print("  ✓ Clean — no flags.")
-        print(f"  Warranty compliant: {'YES' if ro.warranty_compliant else 'NO'}")
-
-    print("\n" + "═" * 80)
-    print("PHASE 3 — VALIDATOR STANDALONE TEST")
-    print("═" * 80)
-    print("Running ROValidator against the good sample RO output...")
-    if good_ro:
-        agent.run_validate_only(good_ro)
+    # Accept args from CLI or prompt interactively
+    if len(sys.argv) == 4:
+        complaint_text = sys.argv[1]
+        customer_name  = sys.argv[2]
+        vin            = sys.argv[3]
     else:
-        print("[WARN] No good RO was generated — skipping validator test.")
+        print(f"\n{_DLINE}")
+        print("  BMW RO AGENT")
+        print(_DLINE)
+        complaint_text = input("  Customer Complaint : ").strip()
+        customer_name  = input("  Customer Name      : ").strip()
+        vin            = input("  VIN                : ").strip()
+
+    if not complaint_text or not vin:
+        print("\n[ERROR] Complaint and VIN are required.")
+        sys.exit(1)
+
+    ros = agent.run_from_complaint(complaint_text, customer_name, vin)
+    sys.exit(0 if ros else 1)

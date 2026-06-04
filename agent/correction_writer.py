@@ -186,19 +186,74 @@ class CorrectionWriter:
             logger.error("Groq API error in CorrectionWriter: %s", exc)
             flags.append(f"API_ERROR: {exc}")
 
-        # ── Extract RCI codes from response ───────────────────────────────────
+        # ── Parse PART 1 (correction text) and PART 2 (flagged rules) ───────────
+        correction_text, part2_rule_ids = self._parse_correction_parts(response_text)
+
+        # ── Extract RCI codes from correction text ────────────────────────────
         rci_codes_used = sorted(
             code for code in VALID_RCI
-            if (code + ".") in response_text or (code + " ") in response_text
+            if (code + ".") in correction_text or (code + " ") in correction_text
         )
+
+        # Add PART 2 rule violations to flags
+        for rule_id in part2_rule_ids:
+            flags.append(f"Warranty rule flagged by LLM: {rule_id}")
 
         warranty_compliant = len(flags) == 0
 
         return {
-            "correction_statement": response_text,
+            "correction_statement": correction_text,
             "rci_codes_used":       rci_codes_used,
             "labor_op_code":        resolved_op_code,
             "parts_referenced":     [],
             "warranty_compliant":   warranty_compliant,
             "flags":                flags,
         }
+
+    def _parse_correction_parts(self, response_text: str) -> tuple[str, list[str]]:
+        """
+        Split LLM correction response into correction text (PART 1) and
+        flagged rule IDs (PART 2).
+
+        Returns:
+            (correction_text, flagged_rule_ids)
+        """
+        if not response_text or response_text == "API_ERROR":
+            return response_text, []
+
+        # Find where PART 2 starts — handle em-dash, regular dash, or colon variants
+        part2_start = -1
+        for marker in ["PART 2", "Part 2", "FLAGGED RULES"]:
+            idx = response_text.find(marker)
+            if idx != -1:
+                if part2_start == -1 or idx < part2_start:
+                    part2_start = idx
+
+        if part2_start == -1:
+            # No PART 2 found — return full response as correction
+            return response_text.strip(), []
+
+        part1_raw = response_text[:part2_start].strip()
+        part2_raw = response_text[part2_start:].strip()
+
+        # Clean PART 1: remove the "PART 1 — CORRECTION:" header line if present
+        lines = part1_raw.splitlines()
+        correction_lines = []
+        for line in lines:
+            stripped = line.strip()
+            if not stripped:
+                continue
+            upper = stripped.upper()
+            if upper.startswith("PART 1") or upper.startswith("PART1"):
+                continue  # skip header line
+            correction_lines.append(stripped)
+
+        correction_text = "\n".join(correction_lines).strip()
+
+        # Extract WR-xxx rule IDs from PART 2
+        rule_ids = re.findall(r'WR-\d{3}', part2_raw)
+        # Exclude if PART 2 says "None"
+        if "none" in part2_raw.lower() and not rule_ids:
+            rule_ids = []
+
+        return correction_text, rule_ids

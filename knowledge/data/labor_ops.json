@@ -1,4 +1,3 @@
-
 [
 {
 "op_code": "11 12 000",
@@ -359,5 +358,356 @@
 "warranty_eligible": true,
 "requires_pre_approval": false,
 "notes": "Requires absolute removal or dropping of front subframe carrier member; alignment check mandatory post-op."
+},
+{
+"op_code": "11 53 690",
+"system": "engine",
+"description": "Replacing turbocharger coolant return pipe and O-ring seals",
+"flat_rate_hours": 2.4,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0004"
+},
+{
+"op_code": "51 72 005",
+"system": "body",
+"description": "Replacing rear door perimeter weatherstrip seal",
+"flat_rate_hours": 1.1,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0027"
+},
+{
+"op_code": "11 12 005",
+"system": "engine",
+"description": "Replacing cylinder head cover assembly including integrated oil separator seals",
+"flat_rate_hours": 4.1,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0003"
+},
+{
+"op_code": "11 11 004",
+"system": "engine",
+"description": "Replacing front crankshaft radial shaft seal (vibration damper removed)",
+"flat_rate_hours": 2.2,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0002"
+},
+{
+"op_code": "00 75 531",
+"system": "software",
+"description": "Programming/coding vehicle systems for open technical campaign (SIB or recall update)",
+"flat_rate_hours": 1.6,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0029"
+},
+{
+"op_code": "32 21 010",
+"system": "suspension",
+"description": "Replacing outer steering tie rod end joints (left and right)",
+"flat_rate_hours": 1.4,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0044"
+},
+{
+"op_code": "13 51 017",
+"system": "engine",
+"description": "Replacing high pressure fuel pump (HPFP) on engine rail interface",
+"flat_rate_hours": 2.6,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0006"
+},
+{
+"op_code": "32 13 010",
+"system": "suspension",
+"description": "Replacing hydraulic power steering rack and pinion assembly (subframe drop required)",
+"flat_rate_hours": 4.5,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0043"
+},
+{
+"op_code": "00 00 610",
+"system": "brakes",
+"description": "Pressure bleeding brake hydraulic system and renewing BMW DOT 4 fluid at all calipers",
+"flat_rate_hours": 0.9,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0015"
+},
+{
+"op_code": "13 62 005",
+"system": "engine",
+"description": "Replacing inline mass air flow (MAF) sensor element",
+"flat_rate_hours": 0.6,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0034"
+},
+{
+"op_code": "12 12 005",
+"system": "engine",
+"description": "Replacing full engine set of spark plugs",
+"flat_rate_hours": 1.5,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0035"
+},
+{
+"op_code": "26 11 050",
+"system": "drivetrain",
+"description": "Replacing propeller shaft center support bearing mount assembly",
+"flat_rate_hours": 3.2,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0025"
+},
+{
+"op_code": "61 00 005",
+"system": "electrical",
+"description": "Replacing driver door comfort access handle sensor module",
+"flat_rate_hours": 3.4,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0022"
+},
+{
+"op_code": "31 31 002",
+"system": "suspension",
+"description": "Replacing front spring strut shock absorber cartridges (left and right)",
+"flat_rate_hours": 3.6,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0038"
+},
+{
+"op_code": "00 11 251",
+"system": "drivetrain",
+"description": "Renewing rear differential hypoid gear oil",
+"flat_rate_hours": 0.8,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0045"
+},
+{
+"op_code": "64 11 555",
+"system": "hvac",
+"description": "Replacing cabin microfilter elements and applying evaporator disinfection treatment",
+"flat_rate_hours": 0.8,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0020"
+},
+{
+"op_code": "00 11 239",
+"system": "transmission",
+"description": "Renewing automatic transmission fluid and replacing sump filter pan assembly",
+"flat_rate_hours": 2.2,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0036"
+},
+{
+"op_code": "31 35 010",
+"system": "suspension",
+"description": "Replacing front anti-roll bar stabilizer link assemblies (left and right)",
+"flat_rate_hours": 1.2,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0018"
+},
+{
+"op_code": "13 53 230",
+"system": "engine",
+"description": "Replacing individual fuel injector and recording DME adaptation correction values",
+"flat_rate_hours": 2.9,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0009"
+},
+{
+"op_code": "11 31 030",
+"system": "engine",
+"description": "Replacing engine timing chain, sprockets, hydraulic tensioner, and guide rails",
+"flat_rate_hours": 8.5,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0010"
+},
+{
+"op_code": "12 31 020",
+"system": "electrical",
+"description": "Replacing engine alternator generator assembly",
+"flat_rate_hours": 2.8,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0023"
+},
+{
+"op_code": "62 11 010",
+"system": "electrical",
+"description": "Replacing digital instrument cluster combination display array",
+"flat_rate_hours": 1.9,
+"warranty_eligible": true,
+"requires_pre_approval": true,
+"notes": "Derived from sample RO RO-2025-0024"
+},
+{
+"op_code": "11 36 540",
+"system": "engine",
+"description": "Replacing VANOS variable valve timing solenoid control valve",
+"flat_rate_hours": 1.2,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0033"
+},
+{
+"op_code": "36 10 505",
+"system": "suspension",
+"description": "Dynamic wheel balancing and adhesive counterweight repositioning (front axle)",
+"flat_rate_hours": 0.8,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0016"
+},
+{
+"op_code": "34 21 220",
+"system": "brakes",
+"description": "Replacing rear brake discs, brake pads, and wear sensor harness",
+"flat_rate_hours": 1.9,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0037"
+},
+{
+"op_code": "51 22 011",
+"system": "body",
+"description": "Replacing electric door lock latch actuator assembly",
+"flat_rate_hours": 1.8,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0040"
+},
+{
+"op_code": "61 20 500",
+"system": "electrical",
+"description": "Battery registration and DME power management system initialization",
+"flat_rate_hours": 0.5,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0030"
+},
+{
+"op_code": "24 34 020",
+"system": "transmission",
+"description": "Replacing automatic transmission electro-hydraulic mechatronic control module",
+"flat_rate_hours": 4.5,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0011"
+},
+{
+"op_code": "31 12 050",
+"system": "suspension",
+"description": "Replacing front lower control arm hydraulic rubber bushings",
+"flat_rate_hours": 3.0,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0017"
+},
+{
+"op_code": "11 78 010",
+"system": "engine",
+"description": "Replacing pre-catalytic converter upstream oxygen (lambda) sensor",
+"flat_rate_hours": 1.1,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0007"
+},
+{
+"op_code": "51 45 001",
+"system": "body",
+"description": "Replacing interior trim panel retention clip studs and anti-rattle buffer strips",
+"flat_rate_hours": 0.7,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0028"
+},
+{
+"op_code": "64 11 011",
+"system": "hvac",
+"description": "Replacing interior HVAC cabin blower motor fan cage assembly",
+"flat_rate_hours": 1.7,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0021"
+},
+{
+"op_code": "54 13 001",
+"system": "body",
+"description": "Clearing sunroof drainage channel blockage via roof pillar drain lines",
+"flat_rate_hours": 1.5,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0046"
+},
+{
+"op_code": "17 13 000",
+"system": "engine",
+"description": "Replacing coolant expansion reservoir tank assembly",
+"flat_rate_hours": 1.5,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0032"
+},
+{
+"op_code": "24 14 010",
+"system": "transmission",
+"description": "Replacing transmission rear output shaft radial seal",
+"flat_rate_hours": 2.8,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0012"
+},
+{
+"op_code": "11 53 000",
+"system": "engine",
+"description": "Replacing map-controlled engine coolant thermostat assembly",
+"flat_rate_hours": 2.5,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0019"
+},
+{
+"op_code": "64 50 009",
+"system": "hvac",
+"description": "A/C system evacuation and R1234yf refrigerant recharge",
+"flat_rate_hours": 1.2,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0042"
+},
+{
+"op_code": "31 60 011",
+"system": "drivetrain",
+"description": "Replacing outer CV axle joint grease boot kit",
+"flat_rate_hours": 2.2,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0026"
+},
+{
+"op_code": "12 13 511",
+"system": "engine",
+"description": "Replacing individual cylinder ignition coil assembly",
+"flat_rate_hours": 0.6,
+"warranty_eligible": true,
+"requires_pre_approval": false,
+"notes": "Derived from sample RO RO-2025-0008"
 }
 ]
