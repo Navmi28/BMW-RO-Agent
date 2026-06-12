@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BMW Repair Order Agent</title>
+<style>
+  :root {
+    --bmw-blue: #0066b1;
+    --bmw-blue-dark: #004f8a;
+    --bmw-blue-light: #e8f2fa;
+    --ink: #1c2b36;
+    --ink-soft: #5b6770;
+    --line: #e4e9ee;
+    --bg: #f4f6f8;
+    --card: #ffffff;
+    --green: #1f9d55;
+    --green-bg: #e7f6ee;
+    --amber: #c77700;
+    --amber-bg: #fcf2e2;
+    --red: #d23b3b;
+    --red-bg: #fbeaea;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(28,43,54,.08), 0 8px 24px rgba(28,43,54,.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Top bar ─────────────────────────────────────────── */
+  header.topbar {
+    background: var(--card);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .roundel {
+    width: 38px; height: 38px; border-radius: 50%;
+    background:
+      conic-gradient(#fff 0 90deg, var(--bmw-blue) 90deg 180deg, #fff 180deg 270deg, var(--bmw-blue) 270deg);
+    border: 4px solid var(--ink);
+    flex-shrink: 0;
+  }
+  .topbar h1 { font-size: 18px; margin: 0; font-weight: 700; letter-spacing: .2px; }
+  .topbar p  { font-size: 12.5px; margin: 0; color: var(--ink-soft); }
+
+  /* ── Layout ──────────────────────────────────────────── */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  /* ── Card ────────────────────────────────────────────── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  .form-card { padding: 26px; }
+  .form-card h2 { font-size: 15px; margin: 0 0 4px; }
+  .form-card .sub { font-size: 12.5px; color: var(--ink-soft); margin: 0 0 22px; }
+
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 600; margin-bottom: 7px;
+  }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--bmw-blue); color: #fff;
+    font-size: 11.5px; font-weight: 700; flex-shrink: 0;
+  }
+  .field input, .field textarea {
+    width: 100%; padding: 11px 13px;
+    border: 1px solid var(--line); border-radius: 9px;
+    font-size: 14px; font-family: inherit; color: var(--ink);
+    background: #fbfcfd; transition: border-color .15s, box-shadow .15s;
+  }
+  .field input:focus, .field textarea:focus {
+    outline: none; border-color: var(--bmw-blue);
+    box-shadow: 0 0 0 3px var(--bmw-blue-light); background: #fff;
+  }
+  .field textarea { resize: vertical; min-height: 96px; }
+  .field .hint { font-size: 11.5px; color: var(--ink-soft); margin-top: 6px; }
+
+  .btn {
+    width: 100%; padding: 13px; border: none; border-radius: 9px;
+    background: var(--bmw-blue); color: #fff;
+    font-size: 14.5px; font-weight: 600; cursor: pointer;
+    transition: background .15s, transform .05s;
+  }
+  .btn:hover:not(:disabled) { background: var(--bmw-blue-dark); }
+  .btn:active:not(:disabled) { transform: translateY(1px); }
+  .btn:disabled { background: #9db4c4; cursor: not-allowed; }
+
+  .err {
+    margin-top: 14px; padding: 11px 13px; border-radius: 9px;
+    background: var(--red-bg); color: var(--red);
+    font-size: 13px; border: 1px solid #f3cccc;
+  }
+
+  /* ── Results pane ────────────────────────────────────── */
+  .results-pane { min-height: 400px; }
+
+  .placeholder, .loading {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 80px 28px; color: var(--ink-soft);
+  }
+  .placeholder .big-roundel {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: conic-gradient(#eef3f7 0 90deg, #cfe0ee 90deg 180deg, #eef3f7 180deg 270deg, #cfe0ee 270deg);
+    border: 5px solid #d4dde4; margin-bottom: 18px;
+  }
+  .placeholder h3 { color: var(--ink); margin: 0 0 6px; font-size: 16px; }
+  .placeholder p { margin: 0; font-size: 13.5px; max-width: 360px; }
+
+  .spinner {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 4px solid var(--line); border-top-color: var(--bmw-blue);
+    animation: spin 0.8s linear infinite; margin-bottom: 18px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading p { font-size: 13.5px; }
+  .loading .small { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+
+  /* ── Vehicle banner ──────────────────────────────────── */
+  .veh-banner {
+    padding: 18px 22px; margin-bottom: 22px;
+    display: flex; flex-wrap: wrap; gap: 22px 36px; align-items: center;
+    border-left: 4px solid var(--bmw-blue);
+  }
+  .veh-banner .vb-item .k { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--ink-soft); }
+  .veh-banner .vb-item .v { font-size: 14.5px; font-weight: 600; }
+
+  /* ── Option heading ──────────────────────────────────── */
+  .opt-wrap { margin-bottom: 26px; }
+  .opt-wrap:last-child { margin-bottom: 0; }
+  .opt-heading {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 700; margin: 0 2px 10px;
+  }
+  .opt-heading .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 24px; height: 24px; padding: 0 7px; border-radius: 7px;
+    background: var(--bmw-blue); color: #fff; font-size: 12.5px; font-weight: 700;
+  }
+  .opt-heading .opt-ref { font-weight: 500; font-size: 12px; color: var(--ink-soft); }
+
+  /* ── Verdict badge ───────────────────────────────────── */
+  .badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 5px 12px; border-radius: 100px; font-size: 12.5px; font-weight: 700;
+  }
+  .badge.green { background: var(--green-bg); color: var(--green); }
+  .badge.amber { background: var(--amber-bg); color: var(--amber); }
+  .badge.red   { background: var(--red-bg);   color: var(--red); }
+  .badge .dot  { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+
+  /* ── RO body ─────────────────────────────────────────── */
+  .ro { padding: 26px 28px; }
+  .ro-head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 16px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 1px solid var(--line);
+  }
+  .ro-head .ro-no { font-size: 13px; color: var(--ink-soft); }
+  .ro-head .ro-no strong { color: var(--ink); font-size: 15px; }
+  .ro-head .ref { font-size: 11.5px; color: var(--ink-soft); margin-top: 3px; }
+
+  .threeC { margin-top: 4px; }
+  .c-block { padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .c-block:last-child { border-bottom: none; }
+  .c-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--bmw-blue); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;
+  }
+  .c-text { font-size: 14px; white-space: pre-wrap; }
+  .c-text.editable {
+    cursor: text; border-radius: 7px; padding: 6px 10px; margin: 0 -10px;
+    border: 1px solid transparent; transition: background .12s, border-color .12s, box-shadow .12s;
+  }
+  .c-text.editable:hover { background: #f6f9fc; border-color: var(--line); }
+  .c-text.editable:focus {
+    outline: none; background: #fff; border-color: var(--bmw-blue);
+    box-shadow: 0 0 0 3px var(--bmw-blue-light);
+  }
+  .edit-hint {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12.5px; color: var(--ink-soft);
+    background: var(--bmw-blue-light); border: 1px solid #d3e6f5;
+    padding: 9px 14px; border-radius: 9px; margin-bottom: 22px;
+  }
+  .chips { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip {
+    font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: 6px;
+    background: var(--bmw-blue-light); color: var(--bmw-blue-dark);
+  }
+  .chip.gray { background: #eef1f4; color: var(--ink-soft); }
+
+  /* ── Meta grid ───────────────────────────────────────── */
+  .meta-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+    border-radius: 10px; overflow: hidden; margin-top: 22px;
+  }
+  .meta-grid .cell { background: var(--card); padding: 13px 15px; }
+  .meta-grid .k { font-size: 11px; text-transform: uppercase; letter-spacing: .4px; color: var(--ink-soft); }
+  .meta-grid .v { font-size: 14.5px; font-weight: 600; margin-top: 2px; }
+
+  /* ── Cost summary ────────────────────────────────────── */
+  .cost { margin-top: 22px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .cost .row {
+    display: flex; justify-content: space-between; padding: 9px 16px; font-size: 13.5px;
+    border-bottom: 1px solid var(--line);
+  }
+  .cost .row span:first-child { color: var(--ink-soft); }
+  .cost .row.total {
+    background: var(--ink); color: #fff; font-weight: 700; font-size: 15px; border-bottom: none;
+  }
+  .cost .row.total span:first-child { color: #c4d2dd; }
+
+  /* ── Validation / flags ──────────────────────────────── */
+  .section-title { font-size: 13px; font-weight: 700; margin: 24px 0 10px; }
+  .flag-list { display: flex; flex-direction: column; gap: 8px; }
+  .flag {
+    display: flex; gap: 10px; padding: 11px 13px; border-radius: 9px; font-size: 13px;
+    align-items: flex-start;
+  }
+  .flag.hard { background: var(--red-bg); }
+  .flag.soft { background: var(--amber-bg); }
+  .flag .ic { font-weight: 700; flex-shrink: 0; }
+  .flag.hard .ic { color: var(--red); }
+  .flag.soft .ic { color: var(--amber); }
+  .flag .reason { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+  .ok-banner {
+    display: flex; align-items: center; gap: 10px; padding: 13px 16px;
+    background: var(--green-bg); color: var(--green); border-radius: 9px;
+    font-size: 13.5px; font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="roundel"></div>
+    <div>
+      <h1>BMW Repair Order Agent</h1>
+      <p>AI-assisted 3C drafting &amp; warranty validation</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- ── Input form ───────────────────────────────────── -->
+    <section class="card form-card">
+      <h2>New Repair Order</h2>
+      <p class="sub">Enter the details below — the agent drafts three warranty-ready options.</p>
+
+      <form id="ro-form" autocomplete="off">
+        <div class="field">
+          <label for="name"><span class="step-num">1</span> Customer Name</label>
+          <input id="name" name="name" type="text" placeholder="e.g. David Vance" required />
+        </div>
+
+        <div class="field">
+          <label for="vin"><span class="step-num">2</span> VIN</label>
+          <input id="vin" name="vin" type="text" list="vin-list" placeholder="17-character VIN" required />
+          <datalist id="vin-list"></datalist>
+          <div class="hint" id="vin-hint">Tip: pick a known VIN to auto-fill the customer name.</div>
+        </div>
+
+        <div class="field">
+          <label for="complaint"><span class="step-num">3</span> Complaint</label>
+          <textarea id="complaint" name="complaint" placeholder="Describe what the customer is experiencing…" required></textarea>
+        </div>
+
+        <button class="btn" id="submit-btn" type="submit">Generate Repair Orders</button>
+        <div id="form-error"></div>
+      </form>
+    </section>
+
+    <!-- ── Results ──────────────────────────────────────── -->
+    <section class="results-pane" id="results">
+      <div class="card placeholder">
+        <div class="big-roundel"></div>
+        <h3>No repair order yet</h3>
+        <p>Fill in the customer name, VIN, and complaint, then generate to see three validated draft options.</p>
+      </div>
+    </section>
+  </main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const results = $("results");
+let lastData = null;
+
+// ── Load known vehicles into the datalist ──────────────────
+async function loadVehicles() {
+  try {
+    const res = await fetch("/api/vehicles");
+    const { vehicles } = await res.json();
+    const dl = $("vin-list");
+    window._vehMap = {};
+    vehicles.forEach(v => {
+      window._vehMap[v.vin] = v;
+      const opt = document.createElement("option");
+      opt.value = v.vin;
+      opt.label = `${v.year} ${v.model} — ${v.owner}`;
+      dl.appendChild(opt);
+    });
+  } catch (e) { /* datalist is a convenience only */ }
+}
+loadVehicles();
+
+// Auto-fill customer name when a known VIN is chosen
+$("vin").addEventListener("change", () => {
+  const v = (window._vehMap || {})[$("vin").value.trim().toUpperCase()];
+  if (v && !$("name").value.trim()) $("name").value = v.owner || "";
+});
+
+// ── Submit ─────────────────────────────────────────────────
+$("ro-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  $("form-error").innerHTML = "";
+  const payload = {
+    customer_name: $("name").value.trim(),
+    vin: $("vin").value.trim(),
+    complaint: $("complaint").value.trim(),
+  };
+  if (!payload.customer_name || !payload.vin || !payload.complaint) return;
+
+  $("submit-btn").disabled = true;
+  $("submit-btn").textContent = "Generating…";
+  showLoading();
+
+  try {
+    const res = await fetch("/api/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.detail || `Server error (${res.status})`);
+    }
+    lastData = await res.json();
+    render();
+  } catch (err) {
+    results.innerHTML = "";
+    $("form-error").innerHTML = `<div class="err">⚠ ${escapeHtml(err.message)}</div>`;
+    showPlaceholder();
+  } finally {
+    $("submit-btn").disabled = false;
+    $("submit-btn").textContent = "Generate Repair Orders";
+  }
+});
+
+// ── Render states ──────────────────────────────────────────
+function showPlaceholder() {
+  results.innerHTML = `
+    <div class="card placeholder">
+      <div class="big-roundel"></div>
+      <h3>No repair order yet</h3>
+      <p>Fill in the customer name, VIN, and complaint, then generate to see three validated draft options.</p>
+    </div>`;
+}
+function showLoading() {
+  results.innerHTML = `
+    <div class="card loading">
+      <div class="spinner"></div>
+      <p>Drafting repair orders…</p>
+      <p class="small">Running Complaint → Cause → Correction → Validation across 3 options.</p>
+    </div>`;
+}
+
+function verdictClass(v) {
+  if (v.includes("READY")) return "green";
+  if (v.includes("DO NOT")) return "red";
+  return "amber";
+}
+
+function render() {
+  if (!lastData) return;
+  const d = lastData;
+  const veh = d.vehicle;
+
+  const banner = `
+    <div class="card veh-banner">
+      <div class="vb-item"><div class="k">Customer</div><div class="v">${escapeHtml(d.customer_name)}</div></div>
+      <div class="vb-item"><div class="k">VIN</div><div class="v">${escapeHtml(d.vin)}</div></div>
+      <div class="vb-item"><div class="k">Vehicle</div><div class="v">${escapeHtml(veh.year_model)}</div></div>
+      <div class="vb-item"><div class="k">Engine</div><div class="v">${escapeHtml(veh.engine)}</div></div>
+      <div class="vb-item"><div class="k">Warranty</div><div class="v">${escapeHtml((veh.warranty_status||"").replace(/_/g," "))}</div></div>
+      ${veh.found ? "" : `<div class="vb-item"><div class="k">Note</div><div class="v" style="color:var(--amber)">VIN not in records</div></div>`}
+    </div>`;
+
+  const optionsHtml = d.options.map(o => `
+    <div class="opt-wrap">
+      <div class="opt-heading">
+        <span class="num">${o.option}</span>
+        Option ${o.option} of ${d.options.length}
+        <span class="opt-ref">· grounded on ${escapeHtml(o.reference_ro)}</span>
+      </div>
+      ${renderOption(o)}
+    </div>`).join("");
+
+  const hint = `<div class="edit-hint">✎ The Complaint, Cause, and Correction text is editable — click any of it to change the wording.</div>`;
+
+  results.innerHTML = banner + hint + optionsHtml;
+}
+
+// Keep inline edits saved in memory so they survive any future re-render / export.
+results.addEventListener("input", (e) => {
+  const el = e.target;
+  if (!el.dataset || !el.dataset.field) return;
+  const idx = Number(el.dataset.opt) - 1;
+  if (lastData && lastData.options[idx]) {
+    lastData.options[idx][el.dataset.field] = el.innerText;
+  }
+});
+
+function renderOption(o) {
+  const vc = verdictClass(o.validation.verdict);
+  const f = o.financials;
+  const c = o.confidence;
+
+  const dci = (o.dci_codes||[]).map(x=>`<span class="chip">${escapeHtml(x)}</span>`).join("") || `<span class="chip gray">none</span>`;
+  const rci = (o.rci_codes||[]).map(x=>`<span class="chip">${escapeHtml(x)}</span>`).join("") || `<span class="chip gray">none</span>`;
+
+  // Validation block
+  let validationHtml = "";
+  const fflags = o.validation.field_flags || [];
+  const rviol  = o.validation.rule_violations || [];
+  if (fflags.length === 0 && rviol.length === 0) {
+    validationHtml = `<div class="ok-banner">✓ Passed all structural &amp; warranty checks — ready for submission.</div>`;
+  } else {
+    const items = [
+      ...fflags.map(fl => `
+        <div class="flag ${fl.severity}">
+          <span class="ic">${fl.severity==='hard'?'✕':'!'}</span>
+          <div><div><strong>${escapeHtml(cap(fl.field))}:</strong> ${escapeHtml(fl.description)}</div>
+          <div class="reason">${escapeHtml(fl.reason)}</div></div>
+        </div>`),
+      ...rviol.map(v => `
+        <div class="flag ${v.severity}">
+          <span class="ic">${v.severity==='hard'?'✕':'!'}</span>
+          <div><div><strong>${escapeHtml(v.rule_id)} ${escapeHtml(v.title)}</strong></div>
+          <div class="reason">${escapeHtml(v.consequence)}</div></div>
+        </div>`),
+    ].join("");
+    validationHtml = `<div class="flag-list">${items}</div>`;
+  }
+
+  return `
+  <div class="card ro">
+    <div class="ro-head">
+      <div class="ro-no">
+        Repair Order&nbsp; <strong>${escapeHtml(o.ro_number)}</strong>
+      </div>
+      <div class="badge ${vc}"><span class="dot"></span>${escapeHtml(o.validation.verdict)}</div>
+    </div>
+
+    <div class="threeC">
+      <div class="c-block">
+        <div class="c-label">Complaint</div>
+        <div class="c-text editable" contenteditable="true" spellcheck="true"
+             data-opt="${o.option}" data-field="complaint">${escapeHtml(o.complaint)}</div>
+      </div>
+      <div class="c-block">
+        <div class="c-label">Cause</div>
+        <div class="c-text editable" contenteditable="true" spellcheck="true"
+             data-opt="${o.option}" data-field="cause">${escapeHtml(o.cause)}</div>
+        <div class="chips">${dci}</div>
+      </div>
+      <div class="c-block">
+        <div class="c-label">Correction</div>
+        <div class="c-text editable" contenteditable="true" spellcheck="true"
+             data-opt="${o.option}" data-field="correction">${escapeHtml(o.correction)}</div>
+        <div class="chips">${rci}</div>
+      </div>
+    </div>
+
+    <div class="meta-grid">
+      <div class="cell"><div class="k">Labor Op</div><div class="v">${escapeHtml(o.labor_op_code)}</div></div>
+      <div class="cell"><div class="k">Labor Hours</div><div class="v">${o.labor_hours.toFixed(1)} FRU</div></div>
+      <div class="cell"><div class="k">Warranty</div><div class="v" style="color:${o.warranty_compliant?'var(--green)':'var(--red)'}">${o.warranty_compliant?'Compliant':'Review'}</div></div>
+      <div class="cell"><div class="k">Confidence</div><div class="v">${Math.round(((c.complaint+c.cause+c.correction)/3)*100)}%</div></div>
+    </div>
+
+    <div class="cost">
+      <div class="row"><span>Total Labor</span><span>$${f.labor_amount.toFixed(2)}</span></div>
+      <div class="row"><span>Total Parts</span><span>$${f.parts_total.toFixed(2)}</span></div>
+      <div class="row"><span>Subtotal</span><span>$${f.subtotal.toFixed(2)}</span></div>
+      <div class="row"><span>HST (13%)</span><span>$${f.hst.toFixed(2)}</span></div>
+      <div class="row total"><span>Total Amount Due</span><span>$${f.total_due.toFixed(2)}</span></div>
+    </div>
+
+    <div class="section-title">Validation</div>
+    ${validationHtml}
+  </div>`;
+}
+
+// ── Helpers ────────────────────────────────────────────────
+function escapeHtml(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c =>
+    ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+}
+function cap(s){ return s ? s.charAt(0).toUpperCase()+s.slice(1) : s; }
+</script>
+</body>
+</html>

@@ -3,3 +3,5 @@ python-dotenv
 elevenlabs
 sounddevice
 numpy
+fastapi
+uvicorn[standard]
